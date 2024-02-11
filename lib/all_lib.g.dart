@@ -19,4 +19,5 @@ export 'src/utils/model.dart';
 export 'src/utils/prep_value.dart';
 export 'src/utils/string_case_type.dart';
 export 'src/utils/this_model.dart';
+export 'src/utils/types.dart';
 export 'xyz_gen_annotations.dart';
