@@ -291,10 +291,13 @@ class ModelUser extends _ModelUser {
     if (other is ModelUser) {
       this.args = other.args ?? this.args;
       this.connectionUids = other.connectionUids ?? this.connectionUids;
-      this.didSendWelcomeEmail = other.didSendWelcomeEmail ?? this.didSendWelcomeEmail;
-      this.emailSubscriptions = other.emailSubscriptions ?? this.emailSubscriptions;
+      this.didSendWelcomeEmail =
+          other.didSendWelcomeEmail ?? this.didSendWelcomeEmail;
+      this.emailSubscriptions =
+          other.emailSubscriptions ?? this.emailSubscriptions;
       this.id = other.id ?? this.id;
-      this.pushSubscriptions = other.pushSubscriptions ?? this.pushSubscriptions;
+      this.pushSubscriptions =
+          other.pushSubscriptions ?? this.pushSubscriptions;
       this.relationshipIds = other.relationshipIds ?? this.relationshipIds;
       this.smsSubscriptions = other.smsSubscriptions ?? this.smsSubscriptions;
       this.userPubId = other.userPubId ?? this.userPubId;
