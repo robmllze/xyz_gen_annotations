@@ -8,6 +8,7 @@
 //.title~
 
 export 'src/all_src.g.dart';
+export 'src/annotations/field.dart';
 export 'src/annotations/generate_makeups.dart';
 export 'src/annotations/generate_model.dart';
 export 'src/annotations/generate_screen_configuration.dart';
