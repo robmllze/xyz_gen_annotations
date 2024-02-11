@@ -19,21 +19,39 @@ class GenerateModel {
   final Map<String, dynamic>? fields;
 
   /// Indicates if the generated class should inherit from the annotated class.
+  ///
+  /// Note: The template you use must support this option, such as the
+  /// `default_model_template` template.
   final bool shouldInherit;
 
-  // Specifies the named constructor of the annotated class to be used in the
-  // generated class, e.g. `""`, `"_internal"`, etc.
+  /// Specifies the named constructor of the annotated class to be used in the
+  /// generated class, e.g. `""`, `"_internal"`, etc.
+  ///
+  /// Note: The template you use must support this option, such as the
+  /// `default_model_template` template.
   final String? inheritanceConstructor;
 
   /// The case to use for the key strings in the generated class. The options are:
   ///
-  /// - `"LOWER_SNAKE_CASE"`
+  /// - `"lower_snake_case"`
   /// - `"UPPER_SNAKE_CASE"`
-  /// - `"KEBAB_CASE"`
-  /// - `"UPPER_KEBAB_CASE"`
-  /// - `"CAMEL_CASE"`
-  /// - `"PASCAL_CASE"`
+  /// - `"lower-kebab-case"`
+  /// - `"UPPER-KEBAB-CASE"`
+  /// - `"camelCase"`
+  /// - `"PascalCase"`
   final String keyStringCase;
+
+  /// Whether or not to include the default `id` field in the generated class.
+  ///
+  /// Note: The template you use must support this option, such as the
+  /// `default_model_template` template.
+  final bool includeId;
+
+  /// Whether or not to include the default `args` field in the generated class.
+  ///
+  /// Note: The template you use must support this option, such as the
+  /// `default_model_template` template.
+  final bool includeArgs;
 
   //
   //
@@ -44,6 +62,8 @@ class GenerateModel {
     this.fields,
     this.shouldInherit = false,
     this.inheritanceConstructor,
-    this.keyStringCase = "LOWER_SNAKE_CASE",
+    this.keyStringCase = "lower_snake_case",
+    this.includeId = true,
+    this.includeArgs = false,
   });
 }

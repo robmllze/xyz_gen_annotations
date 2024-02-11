@@ -26,9 +26,9 @@ StringCaseType? nameToStringCaseType(String? name) {
   return null;
 }
 
-const LOWER_SNAKE_CASE = "LOWER_SNAKE_CASE";
+const LOWER_SNAKE_CASE = "lower_snake_case";
 const UPPER_SNAKE_CASE = "UPPER_SNAKE_CASE";
-const KEBAB_CASE = "KEBAB_CASE";
-const UPPER_KEBAB_CASE = "UPPER_KEBAB_CASE";
-const CAMEL_CASE = "CAMEL_CASE";
-const PASCAL_CASE = "PASCAL_CASE";
+const LOWER_KEBAB_CASE = "kebab-case";
+const UPPER_KEBAB_CASE = "UPPER-KEBAB-CASE";
+const CAMEL_CASE = "camelCase";
+const PASCAL_CASE = "PascalCase";

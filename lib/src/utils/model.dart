@@ -42,7 +42,9 @@ abstract class Model {
   Map<String, dynamic> toJson({
     dynamic defaultValue,
     bool includeNulls = false,
-  });
+  }) {
+    throw UnimplementedError();
+  }
 
   //
   //
@@ -66,21 +68,27 @@ abstract class Model {
   //
 
   /// Returns a new instance of the Model with all fields set to `null`.
-  T empty<T extends Model>();
+  T empty<T extends Model>() {
+    throw UnimplementedError();
+  }
 
   //
   //
   //
 
   /// Returns a new copy of the Model with the exact same fields.
-  T copy<T extends Model>();
+  T copy<T extends Model>() {
+    throw UnimplementedError();
+  }
 
   //
   //
   //
 
   /// Returns a new copy of the Model with the fields updated from the other Model.
-  T copyWith<T extends Model>(T other);
+  T copyWith<T extends Model>(T other) {
+    throw UnimplementedError();
+  }
 
   //
   //
@@ -88,21 +96,27 @@ abstract class Model {
 
   /// Returns a new copy of the Model with the fields updated from the [other]
   /// Json.
-  T copyWithJson<T extends Model>(Map<String, dynamic> other);
+  T copyWithJson<T extends Model>(Map<String, dynamic> other) {
+    throw UnimplementedError();
+  }
 
   //
   //
   //
 
   /// Updates the fields of the Model with the fields from the [other] Model.
-  void updateWith<T extends Model>(T other);
+  void updateWith<T extends Model>(T other) {
+    throw UnimplementedError();
+  }
 
   //
   //
   //
 
   /// Updates the fields of the Model with the fields from the [other] Json.
-  void updateWithJson<T extends Model>(Map<String, dynamic> other);
+  void updateWithJson<T extends Model>(Map<String, dynamic> other) {
+    throw UnimplementedError();
+  }
 
   //
   //
