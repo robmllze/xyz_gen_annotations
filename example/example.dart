@@ -17,7 +17,7 @@ part '_model_user.g.dart';
 
 @GenerateModel(
   className: "ModelUser",
-  parameters: {
+  fields: {
     "whenLastLoggedIn": "DateTime?",
     "userPubId": "String?",
     "connectionUids": "Set<String>?",
