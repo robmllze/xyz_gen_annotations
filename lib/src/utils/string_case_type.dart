@@ -15,6 +15,7 @@ enum StringCaseType {
   PASCAL_CASE,
   LOWER_DOT_CASE,
   UPPER_DOT_CASE,
+  URI_PATH_CASE,
 }
 
 StringCaseType? nameToStringCaseType(String? name) {
@@ -36,3 +37,4 @@ const CAMEL_CASE = "camelCase";
 const PASCAL_CASE = "PascalCase";
 const LOWER_DOT_CASE = "lower.dot.case";
 const UPPER_DOT_CASE = "UPPER.DOT.CASE";
+const URI_PATH_CASE = "uri/path/case";
