@@ -9,10 +9,12 @@
 enum StringCaseType {
   LOWER_SNAKE_CASE,
   UPPER_SNAKE_CASE,
-  KEBAB_CASE,
+  LOWER_KEBAB_CASE,
   UPPER_KEBAB_CASE,
   CAMEL_CASE,
   PASCAL_CASE,
+  LOWER_DOT_CASE,
+  UPPER_DOT_CASE,
 }
 
 StringCaseType? nameToStringCaseType(String? name) {
@@ -28,7 +30,9 @@ StringCaseType? nameToStringCaseType(String? name) {
 
 const LOWER_SNAKE_CASE = "lower_snake_case";
 const UPPER_SNAKE_CASE = "UPPER_SNAKE_CASE";
-const LOWER_KEBAB_CASE = "kebab-case";
+const LOWER_KEBAB_CASE = "lower-kebab-case";
 const UPPER_KEBAB_CASE = "UPPER-KEBAB-CASE";
 const CAMEL_CASE = "camelCase";
 const PASCAL_CASE = "PascalCase";
+const LOWER_DOT_CASE = "lower.dot.case";
+const UPPER_DOT_CASE = "UPPER.DOT.CASE";
