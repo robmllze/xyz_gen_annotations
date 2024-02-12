@@ -38,7 +38,7 @@ class GenerateScreenConfiguration {
   /// Specify a set of query parameters that the screen can accept, e.g. `{"userId", "orderId"}`.
   final Set<String> queryParameters;
 
-  @deprecated
+  @Deprecated("pathSegments is not fully supported at this time")
   final List<String> pathSegments;
 
   /// Specify a valid navigation control widget for the screen, e.g. `"BottomNavigationBar()"`.
@@ -69,8 +69,7 @@ class GenerateScreenConfiguration {
           "Cannot set both `isAccessibleOnlyIfLoggedInAndVerified` and `isAccessibleOnlyIfLoggedIn` to `true`.",
         ),
         assert(
-          !isAccessibleOnlyIfLoggedInAndVerified ||
-              !isAccessibleOnlyIfLoggedOut,
+          !isAccessibleOnlyIfLoggedInAndVerified || !isAccessibleOnlyIfLoggedOut,
           "Cannot set both `isAccessibleOnlyIfLoggedInAndVerified` and `isAccessibleOnlyIfLoggedOut` to `true`.",
         ),
         assert(
