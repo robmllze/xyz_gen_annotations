@@ -16,6 +16,5 @@ export 'annotations/test_annotation.dart';
 export 'utils/generic_model.dart';
 export 'utils/model.dart';
 export 'utils/prep_value.dart';
-export 'utils/string_case_type.dart';
 export 'utils/this_model.dart';
 export 'utils/types.dart';
