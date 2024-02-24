@@ -14,7 +14,7 @@ This package includes the annotations for the xyz_gen package. See https://pub.d
 
 ```yaml
 dependencies:
-  xyz_gen: any # or the latest version
+  xyz_gen_annotations: any # or the latest version
 ```
 ## Contributing
 
