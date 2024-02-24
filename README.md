@@ -8,7 +8,7 @@ This package includes the annotations for the xyz_gen package. See https://pub.d
 
 🔜 Documentation and video tutorials are coming soon. Feel free to contact me for more information.
 
-### Installation
+## Installation
 
 #### Add this to your `pubspec.yaml` file:
 
