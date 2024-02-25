@@ -6,7 +6,7 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-class GenerateScreenConfiguration {
+class GenerateScreenBindings {
   /// Set to `true` to ensure the screen can only be accessed if the current
   /// user is logged in and verified.
   final bool isAccessibleOnlyIfLoggedInAndVerified;
@@ -50,9 +50,15 @@ class GenerateScreenConfiguration {
   /// Specify a valid makeup class for the screen, e.g. `"DefaultScreenMakeup()"`.
   final String makeup;
 
+  /// The name of the class to generate.
+  final String? className;
+
+  /// The key of the screen, e.g. "delete_account".
+  final String? screenKey;
+
   /// Generates boiler-plate code for the annotated screen class to make it
   /// accessible.
-  const GenerateScreenConfiguration({
+  const GenerateScreenBindings({
     this.path = "",
     this.isAccessibleOnlyIfLoggedInAndVerified = false,
     this.isAccessibleOnlyIfLoggedIn = false,
@@ -64,13 +70,14 @@ class GenerateScreenConfiguration {
     this.navigationControlWidget = "null",
     this.defaultTitle = "...",
     this.makeup = "null",
+    this.className,
+    this.screenKey,
   })  : assert(
           !isAccessibleOnlyIfLoggedInAndVerified || !isAccessibleOnlyIfLoggedIn,
           "Cannot set both `isAccessibleOnlyIfLoggedInAndVerified` and `isAccessibleOnlyIfLoggedIn` to `true`.",
         ),
         assert(
-          !isAccessibleOnlyIfLoggedInAndVerified ||
-              !isAccessibleOnlyIfLoggedOut,
+          !isAccessibleOnlyIfLoggedInAndVerified || !isAccessibleOnlyIfLoggedOut,
           "Cannot set both `isAccessibleOnlyIfLoggedInAndVerified` and `isAccessibleOnlyIfLoggedOut` to `true`.",
         ),
         assert(
