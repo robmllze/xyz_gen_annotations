@@ -13,7 +13,6 @@ export 'src/annotations/generate_makeups.dart';
 export 'src/annotations/generate_model.dart';
 export 'src/annotations/generate_screen_bindings.dart';
 export 'src/annotations/generate_type_utils.dart';
-export 'src/annotations/parameter.dart';
 export 'src/annotations/test_annotation.dart';
 export 'src/utils/generic_model.dart';
 export 'src/utils/model.dart';

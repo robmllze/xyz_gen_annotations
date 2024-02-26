@@ -12,7 +12,6 @@ export 'annotations/generate_makeups.dart';
 export 'annotations/generate_model.dart';
 export 'annotations/generate_screen_bindings.dart';
 export 'annotations/generate_type_utils.dart';
-export 'annotations/parameter.dart';
 export 'annotations/test_annotation.dart';
 export 'utils/generic_model.dart';
 export 'utils/model.dart';

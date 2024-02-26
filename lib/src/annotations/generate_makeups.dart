@@ -12,7 +12,7 @@ class GenerateMakeups {
   //
 
   final Set<String> variants;
-  final Map<String, String> parameters;
+  final Map<String, String> fields;
 
   //
   //
@@ -20,6 +20,6 @@ class GenerateMakeups {
 
   const GenerateMakeups({
     this.variants = const {},
-    this.parameters = const {},
+    this.fields = const {},
   });
 }
