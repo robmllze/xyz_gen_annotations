@@ -6,6 +6,8 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
+import 'package:xyz_utils/xyz_utils.dart';
+
 import 'model.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -17,13 +19,13 @@ class GenericModel extends Model {
   //
   //
 
-  final Map<String, dynamic> data;
+  final Map<String, dynamic>? data;
 
   //
   //
   //
 
-  GenericModel(this.data);
+  GenericModel([this.data]);
 
   //
   //
@@ -34,10 +36,8 @@ class GenericModel extends Model {
     dynamic defaultValue,
     bool includeNulls = false,
   }) {
-    return includeNulls
-        ? Map.fromEntries(data.entries.where((e) => e.value != null))
-            .map((k, v) => MapEntry(k, v!))
-        : data.map((k, v) => MapEntry(k, v ?? defaultValue));
+    final temp = {...?this.data}..mapWithDefault(defaultValue);
+    return includeNulls ? temp : temp.nonNulls;
   }
 
   //
@@ -59,20 +59,24 @@ class GenericModel extends Model {
   //
 
   @override
-  T copyWith<T extends Model>(T a) => this.copyWithJson(a.toJson());
+  T copyWith<T extends Model>(T? a) => this.copyWithJson(a?.toJson());
 
   //
   //
   //
 
   @override
-  T copyWithJson<T extends Model>(Map<String, dynamic> a) =>
-      GenericModel({...this.data, ...a}) as T;
+  T copyWithJson<T extends Model>(Map<String, dynamic>? a) =>
+      GenericModel({...?this.data, ...?a}) as T;
 
   //
   //
   //
 
   @override
-  void updateWithJson(Map<String, dynamic> a) => this.data.addAll(a);
+  void updateWithJson(Map<String, dynamic>? a) {
+    if (a != null) {
+      this.data?.addAll(a);
+    }
+  }
 }

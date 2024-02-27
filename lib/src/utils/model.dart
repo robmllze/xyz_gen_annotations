@@ -7,7 +7,6 @@
 //.title~
 
 import 'dart:convert';
-export 'dart:convert';
 
 import 'package:collection/collection.dart' show DeepCollectionEquality;
 
@@ -57,8 +56,7 @@ abstract class Model {
     bool includeNulls = false,
   }) {
     final a = toJson(defaultValue: defaultValue, includeNulls: includeNulls);
-    final b = a.keys.toList(growable: false)
-      ..sort((k1, k2) => k1.compareTo(k2));
+    final b = a.keys.toList(growable: false)..sort((k1, k2) => k1.compareTo(k2));
     final c = {for (var k in b) k: a[k] as dynamic};
     return c;
   }
@@ -87,7 +85,7 @@ abstract class Model {
 
   /// Returns a new copy of the Model with the fields updated from the other Model.
   T copyWith<T extends Model>(
-    T other,
+    T? other,
   ) {
     return this.copy<T>()..updateWith(other);
   }
@@ -99,9 +97,9 @@ abstract class Model {
   /// Returns a new copy of the Model with the fields updated from the [other]
   /// Json.
   T copyWithJson<T extends Model>(
-    Map<String, dynamic> other,
+    Map<String, dynamic>? other,
   ) {
-    if (other.isNotEmpty) {
+    if (other != null && other.isNotEmpty) {
       return this.copy<T>()..updateWithJson(other);
     }
     return this.copy<T>();
@@ -112,14 +110,14 @@ abstract class Model {
   //
 
   /// Updates the fields of the Model with the fields from the [other] Model.
-  void updateWith(Model other) => this.updateWithJson(other.toJson());
+  void updateWith(Model? other) => this.updateWithJson(other?.toJson());
 
   //
   //
   //
 
   /// Updates the fields of the Model with the fields from the [data] Json.
-  void updateWithJson(Map<String, dynamic> data) {
+  void updateWithJson(Map<String, dynamic>? data) {
     throw UnimplementedError();
   }
 
@@ -136,8 +134,8 @@ abstract class Model {
 
   /// Compares the Model with another Model using the `DeepCollectionEquality`
   /// and returns `true` if they are equal.
-  bool equals<T extends Model>(T other) {
-    return const DeepCollectionEquality().equals(toJson(), other.toJson());
+  bool equals<T extends Model>(T? other) {
+    return const DeepCollectionEquality().equals(other?.toJson(), toJson());
   }
 
   //
@@ -145,7 +143,7 @@ abstract class Model {
   //
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(Object? other) {
     if (other is! Model) {
       return false;
     }
