@@ -84,9 +84,10 @@ abstract class Model {
   //
   //
 
-  /// Returns a new copy of the Model with the fields updated from the other Model.
+  /// Returns a new copy of the Model with the fields updated from the [other]
+  /// Model.
   T copyWith<T extends Model>(
-    T? other,
+    Model? other,
   ) {
     return this.copy<T>()..updateWith(other);
   }
@@ -95,13 +96,12 @@ abstract class Model {
   //
   //
 
-  /// Returns a new copy of the Model with the fields updated from the [other]
-  /// Json.
+  /// Returns a new copy of the Model with the fields updated from [otherData].
   T copyWithJson<T extends Model>(
-    Map<String, dynamic>? other,
+    Map<String, dynamic>? otherData,
   ) {
-    if (other != null && other.isNotEmpty) {
-      return this.copy<T>()..updateWithJson(other);
+    if (otherData != null && otherData.isNotEmpty) {
+      return this.copy<T>()..updateWithJson(otherData);
     }
     return this.copy<T>();
   }
@@ -117,8 +117,8 @@ abstract class Model {
   //
   //
 
-  /// Updates the fields of the Model with the fields from the [data] Json.
-  void updateWithJson(Map<String, dynamic>? data) {
+  /// Updates the fields of the Model with the fields from [otherData].
+  void updateWithJson(Map<String, dynamic>? otherData) {
     throw UnimplementedError();
   }
 
@@ -135,7 +135,7 @@ abstract class Model {
 
   /// Compares the Model with another Model using the `DeepCollectionEquality`
   /// and returns `true` if they are equal.
-  bool equals<T extends Model>(T? other) {
+  bool equals(Model? other) {
     return const DeepCollectionEquality().equals(other?.toJson(), toJson());
   }
 
