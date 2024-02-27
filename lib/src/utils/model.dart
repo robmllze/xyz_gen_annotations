@@ -86,8 +86,10 @@ abstract class Model {
   //
 
   /// Returns a new copy of the Model with the fields updated from the other Model.
-  T copyWith<T extends Model>(T other) {
-    throw UnimplementedError();
+  T copyWith<T extends Model>(
+    T other,
+  ) {
+    return this.copy<T>()..updateWith(other);
   }
 
   //
@@ -96,8 +98,13 @@ abstract class Model {
 
   /// Returns a new copy of the Model with the fields updated from the [other]
   /// Json.
-  T copyWithJson<T extends Model>(Map<String, dynamic> other) {
-    throw UnimplementedError();
+  T copyWithJson<T extends Model>(
+    Map<String, dynamic> other,
+  ) {
+    if (other.isNotEmpty) {
+      return this.copy<T>()..updateWithJson(other);
+    }
+    return this.copy<T>();
   }
 
   //
@@ -105,16 +112,14 @@ abstract class Model {
   //
 
   /// Updates the fields of the Model with the fields from the [other] Model.
-  void updateWith<T extends Model>(T other) {
-    throw UnimplementedError();
-  }
+  void updateWith(Model other) => this.updateWithJson(other.toJson());
 
   //
   //
   //
 
-  /// Updates the fields of the Model with the fields from the [other] Json.
-  void updateWithJson<T extends Model>(Map<String, dynamic> other) {
+  /// Updates the fields of the Model with the fields from the [data] Json.
+  void updateWithJson(Map<String, dynamic> data) {
     throw UnimplementedError();
   }
 

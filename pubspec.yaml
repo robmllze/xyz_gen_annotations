@@ -9,7 +9,7 @@
 name: xyz_gen_annotations
 description: This package includes the annotations for the xyz_gen package. See https://pub.dev/packages/xyz_gen for more information.
 repository: https://github.com/robmllze/xyz_gen_annotations
-version: 0.5.0
+version: 0.6.0
 
 ## -----------------------------------------------------------------------------
 
@@ -21,7 +21,7 @@ environment:
 
 dependencies:
 
-  xyz_utils: ^0.35.0
+  xyz_utils: ^0.36.0
 
   collection: ^1.18.0
 

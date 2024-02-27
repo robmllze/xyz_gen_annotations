@@ -59,29 +59,20 @@ class GenericModel extends Model {
   //
 
   @override
-  T copyWith<T extends Model>(T other) => this.copyWithJson(other.toJson());
+  T copyWith<T extends Model>(T a) => this.copyWithJson(a.toJson());
 
   //
   //
   //
 
   @override
-  T copyWithJson<T extends Model>(Map<String, dynamic> other) =>
-      GenericModel({...this.data, ...other}) as T;
+  T copyWithJson<T extends Model>(Map<String, dynamic> a) =>
+      GenericModel({...this.data, ...a}) as T;
 
   //
   //
   //
 
   @override
-  void updateWith<T extends Model>(T other) =>
-      this.updateWithJson(other.toJson());
-
-  //
-  //
-  //
-
-  @override
-  void updateWithJson<T extends Model>(Map<String, dynamic> other) =>
-      this.data.addAll(other);
+  void updateWithJson(Map<String, dynamic> a) => this.data.addAll(a);
 }
