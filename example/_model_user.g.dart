@@ -187,13 +187,13 @@ class ModelUser extends Model {
   ) {
     if (data != null && data.isNotEmpty) {
       this.displayName =
-          letAs<String?>(data[K_DISPLAY_NAME]) ?? this.displayName;
-      this.email = letAs<String?>(data[K_EMAIL]) ?? this.email;
-      this.firstName = letAs<String?>(data[K_FIRST_NAME]) ?? this.firstName;
-      this.lastName = letAs<String?>(data[K_LAST_NAME]) ?? this.lastName;
+          letAs<String?>(data?[K_DISPLAY_NAME]) ?? this.displayName;
+      this.email = letAs<String?>(data?[K_EMAIL]) ?? this.email;
+      this.firstName = letAs<String?>(data?[K_FIRST_NAME]) ?? this.firstName;
+      this.lastName = letAs<String?>(data?[K_LAST_NAME]) ?? this.lastName;
       this.searchableName =
-          letAs<String?>(data[K_SEARCHABLE_NAME]) ?? this.searchableName;
-      this.type = letAs<String?>(data[K_TYPE]) ?? this.type;
+          letAs<String?>(data?[K_SEARCHABLE_NAME]) ?? this.searchableName;
+      this.type = letAs<String?>(data?[K_TYPE]) ?? this.type;
     }
   }
 }
