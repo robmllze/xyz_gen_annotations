@@ -144,7 +144,7 @@ abstract class Model {
   //
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     if (other is! Model) {
       return false;
     }
