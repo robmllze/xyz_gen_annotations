@@ -1,12 +1,15 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// XYZ Gen Annotations
+// X|Y|Z & Dev
+//
+// Copyright Ⓒ Robert Mollentze, xyzand.dev
+//
+// Licensing details can be found in the LICENSE file in the root directory.
 //
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-/// An annotation used to generate a model.
 class GenerateModel {
   //
   //
@@ -31,14 +34,19 @@ class GenerateModel {
   /// `default_model_template` template.
   final String? inheritanceConstructor;
 
-  /// The case to use for the key strings in the generated class. The options are:
+  /// The case to use for the key strings in the generated class.
   ///
-  /// - `"lower_snake_case"`
-  /// - `"UPPER_SNAKE_CASE"`
-  /// - `"lower-kebab-case"`
-  /// - `"UPPER-KEBAB-CASE"`
-  /// - `"camelCase"`
-  /// - `"PascalCase"`
+  /// The possible values are:
+  ///
+  /// - `CAMEL_CASE`
+  /// - `PASCAL_CASE`
+  /// - `LOWER_SNAKE_CASE`
+  /// - `UPPER_SNAKE_CASE`
+  /// - `LOWER_KEBAB_CASE`
+  /// - `UPPER_KEBAB_CASE`
+  /// - `LOWER_DOT_CASE`
+  /// - `UPPER_DOT_CASE`
+  /// - `PATH_CASE`
   final String keyStringCase;
 
   /// Whether or not to include the default `id` field in the generated class.
@@ -62,8 +70,32 @@ class GenerateModel {
     this.fields,
     this.shouldInherit = false,
     this.inheritanceConstructor,
-    this.keyStringCase = "lower_snake_case",
+    this.keyStringCase = "LOWER_SNAKE_CASE",
     this.includeId = true,
     this.includeArgs = false,
   });
+
+  //
+  //
+  //
+
+  GenerateModel copyWith({
+    String? className,
+    Map<String, dynamic>? fields,
+    bool? shouldInherit,
+    String? inheritanceConstructor,
+    String? keyStringCase,
+    bool? includeId,
+    bool? includeArgs,
+  }) {
+    return GenerateModel(
+      className: className ?? this.className,
+      fields: fields ?? this.fields,
+      shouldInherit: shouldInherit ?? this.shouldInherit,
+      inheritanceConstructor: inheritanceConstructor ?? this.inheritanceConstructor,
+      keyStringCase: keyStringCase ?? this.keyStringCase,
+      includeId: includeId ?? this.includeId,
+      includeArgs: includeArgs ?? this.includeArgs,
+    );
+  }
 }
