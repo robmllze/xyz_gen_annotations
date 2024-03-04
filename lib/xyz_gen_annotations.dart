@@ -12,4 +12,6 @@
 
 library;
 
-export 'lib.dart';
+export 'package:xyz_utils/src/shared/web_friendly/_all_web_friendly.g.dart';
+
+export 'src/_all_src.g.dart';
