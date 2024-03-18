@@ -11,9 +11,5 @@
 //.title~
 
 class Field {
-  //
-  //
-  //
-
   const Field();
 }
