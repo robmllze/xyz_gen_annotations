@@ -15,12 +15,19 @@
 
 ### Fetching Generators
 ```bash
-rm -rf ___generators/ && git clone https://github.com/robmllze/___generators.git && dart pub get && rm -rf ___generators/.git/
+rm -rf ___generators/
+git clone https://github.com/robmllze/___generators.git
+dart pub get -C ___generators
+rm -rf ___generators/.git
 ```
+
 ### Adding the Workflow
 ```bash
-rm -rf .github/ && git clone https://github.com/robmllze/pub.dev_package_workflow.git .github && rm -rf .github/.git/
+rm -rf .github/
+git clone https://github.com/robmllze/pub.dev_package_workflow.git .github
+rm -rf .github/.git
 ```
+
 ### Deleting .DS_Store files
 ```bash
 cd your/project/path
@@ -31,9 +38,15 @@ find . -name '.DS_Store' -type f -delete
 
 ### Fetching Generators
 ```bash
-rmdir /s /q ___generators/ && git clone https://github.com/robmllze/___generators.git && dart pub get && rmdir /s /q ___generators/
+rmdir /s /q ___generators/
+git clone https://github.com/robmllze/___generators.git
+dart pub get -C ___generators
+rmdir /s /q ___generators/.git
 ```
+
 ### Adding the Workflow
 ```bash
-rmdir /s /q .github/ && git clone https://github.com/robmllze/pub.dev_package_workflow.git .github && rmdir /s /q .github/.git/
+rmdir /s /q .github/
+git clone https://github.com/robmllze/pub.dev_package_workflow.git .github
+rmdir /s /q .github/.git
 ```
