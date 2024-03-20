@@ -27,7 +27,7 @@ Contributions are welcome. Here are a few ways you can help:
 
 ## License
 
-This package is released under the MIT License.
+This project is released under the MIT License. See [LICENSE](https://raw.githubusercontent.com/robmllze/xyz_gen_annotations/main/LICENSE) for more information.
 
 ## Contact
 
