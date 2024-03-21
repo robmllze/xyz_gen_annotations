@@ -10,7 +10,7 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-final prepValueRegex = RegExp(r"<<<((.+)\|\|)? *([\w-&]+)>>>");
+final prepValueRegex = RegExp(r'<<<((.+)\|\|)? *([\w-&]+)>>>');
 
 extension PrepOnStringExtension on String {
   /// Extracts the prep value.
@@ -19,6 +19,6 @@ extension PrepOnStringExtension on String {
     if (match != null) {
       return match;
     }
-    return "";
+    return '';
   }
 }

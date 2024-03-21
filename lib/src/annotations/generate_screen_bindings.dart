@@ -42,7 +42,7 @@ class GenerateScreenBindings {
   /// Specify a set of query parameters that the screen can accept, e.g. `{"userId", "orderId"}`.
   final Set<String> queryParameters;
 
-  @Deprecated("pathSegments is not fully supported at this time")
+  @Deprecated('pathSegments is not fully supported at this time')
   final List<String> pathSegments;
 
   /// Specify a valid navigation control widget for the screen, e.g. `"BottomNavigationBar()"`.
@@ -63,7 +63,7 @@ class GenerateScreenBindings {
   /// Generates boiler-plate code for the annotated screen class to make it
   /// accessible.
   const GenerateScreenBindings({
-    this.path = "",
+    this.path = '',
     this.isAccessibleOnlyIfLoggedInAndVerified = false,
     this.isAccessibleOnlyIfLoggedIn = false,
     this.isAccessibleOnlyIfLoggedOut = false,
@@ -71,22 +71,22 @@ class GenerateScreenBindings {
     this.internalParameters = const {},
     this.queryParameters = const {},
     this.pathSegments = const [],
-    this.navigationControlWidget = "null",
-    this.defaultTitle = "...",
-    this.makeup = "null",
+    this.navigationControlWidget = 'null',
+    this.defaultTitle = '...',
+    this.makeup = 'null',
     this.className,
     this.screenKey,
   })  : assert(
           !isAccessibleOnlyIfLoggedInAndVerified || !isAccessibleOnlyIfLoggedIn,
-          "Cannot set both `isAccessibleOnlyIfLoggedInAndVerified` and `isAccessibleOnlyIfLoggedIn` to `true`.",
+          'Cannot set both `isAccessibleOnlyIfLoggedInAndVerified` and `isAccessibleOnlyIfLoggedIn` to `true`.',
         ),
         assert(
           !isAccessibleOnlyIfLoggedInAndVerified ||
               !isAccessibleOnlyIfLoggedOut,
-          "Cannot set both `isAccessibleOnlyIfLoggedInAndVerified` and `isAccessibleOnlyIfLoggedOut` to `true`.",
+          'Cannot set both `isAccessibleOnlyIfLoggedInAndVerified` and `isAccessibleOnlyIfLoggedOut` to `true`.',
         ),
         assert(
           !isAccessibleOnlyIfLoggedIn || !isAccessibleOnlyIfLoggedOut,
-          "Cannot set both `isAccessibleOnlyIfLoggedIn` and `isAccessibleOnlyIfLoggedOut` to `true`.",
+          'Cannot set both `isAccessibleOnlyIfLoggedIn` and `isAccessibleOnlyIfLoggedOut` to `true`.',
         );
 }

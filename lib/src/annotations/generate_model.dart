@@ -70,7 +70,7 @@ class GenerateModel {
     this.fields,
     this.shouldInherit = false,
     this.inheritanceConstructor,
-    this.keyStringCase = "LOWER_SNAKE_CASE",
+    this.keyStringCase = 'LOWER_SNAKE_CASE',
     this.includeId = true,
     this.includeArgs = false,
   });
