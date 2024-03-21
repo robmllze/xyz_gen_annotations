@@ -1,7 +1,7 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// X|Y|Z & Dev
+// 🇽🇾🇿 & Dev
 //
 // Copyright Ⓒ Robert Mollentze, xyzand.dev
 //
@@ -28,7 +28,7 @@ class GenerateModel {
   final bool shouldInherit;
 
   /// Specifies the named constructor of the annotated class to be used in the
-  /// generated class, e.g. `""`, `"_internal"`, etc.
+  /// generated class, e.g. `''`, `'_internal'`, etc.
   ///
   /// Note: The template you use must support this option, such as the
   /// `default_model_template` template.

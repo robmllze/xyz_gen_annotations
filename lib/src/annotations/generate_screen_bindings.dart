@@ -1,7 +1,7 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// X|Y|Z & Dev
+// 🇽🇾🇿 & Dev
 //
 // Copyright Ⓒ Robert Mollentze, xyzand.dev
 //
@@ -29,35 +29,35 @@ class GenerateScreenBindings {
   ///
   /// If your screen's route is `/delete_account`, normally you can access it
   /// by typing https://your.app/delete_account in the browser. This will
-  /// start the app and redirect to "/delete_account". This can be disabled
+  /// start the app and redirect to '/delete_account'. This can be disabled
   /// by setting [isRedirectable] to `false`.
   final bool isRedirectable;
 
-  /// The path to the screen, e.g. "/delete_account".
+  /// The path to the screen, e.g. '/delete_account'.
   final String path;
 
-  /// Specify a set of internal parameters that the Screen's configuration class can accept, e.g. `{"userId": "String?"}`.
+  /// Specify a set of internal parameters that the Screen's configuration class can accept, e.g. `{'userId': 'String?'}`.
   final Map<String, String> internalParameters;
 
-  /// Specify a set of query parameters that the screen can accept, e.g. `{"userId", "orderId"}`.
+  /// Specify a set of query parameters that the screen can accept, e.g. `{'userId', 'orderId'}`.
   final Set<String> queryParameters;
 
   @Deprecated('pathSegments is not fully supported at this time')
   final List<String> pathSegments;
 
-  /// Specify a valid navigation control widget for the screen, e.g. `"BottomNavigationBar()"`.
+  /// Specify a valid navigation control widget for the screen, e.g. `'BottomNavigationBar()'`.
   final String navigationControlWidget;
 
-  /// Set the title of the screen, e.g. "Delete Account".
+  /// Set the title of the screen, e.g. 'Delete Account'.
   final String defaultTitle;
 
-  /// Specify a valid makeup class for the screen, e.g. `"DefaultScreenMakeup()"`.
+  /// Specify a valid makeup class for the screen, e.g. `'DefaultScreenMakeup()'`.
   final String makeup;
 
   /// The name of the class to generate.
   final String? className;
 
-  /// The key of the screen, e.g. "delete_account".
+  /// The key of the screen, e.g. 'delete_account'.
   final String? screenKey;
 
   /// Generates boiler-plate code for the annotated screen class to make it
