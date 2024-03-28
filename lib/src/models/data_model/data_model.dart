@@ -14,9 +14,23 @@ part '_data_model.g.dart';
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 @GenerateModel(
+  includeId: false,
   fields: {
     'data': 'Map<String, dynamic>?',
   },
 )
-// ignore: unused_element
-abstract class _DataModel {}
+abstract class _DataModel extends ThisModel<DataModel> {
+  //
+  //
+  //
+
+  @override
+  String? get id => letAs<String>(this.model.data?['id']);
+
+  //
+  //
+  //
+
+  @override
+  dynamic get args => this.model.data?['args'];
+}

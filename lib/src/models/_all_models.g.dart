@@ -8,3 +8,5 @@
 //.title~
 
 export 'data_model/data_model.dart';
+export 'generic_model.dart';
+export 'model.dart';

@@ -3,9 +3,7 @@
 //
 // 🇽🇾🇿 & Dev
 //
-// Copyright Ⓒ Robert Mollentze, xyzand.dev
-//
-// Licensing details can be found in the LICENSE file in the root directory.
+// Licencing details are in the LICENSE file in the root directory.
 //
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
@@ -92,8 +90,7 @@ class GenerateModel {
       className: className ?? this.className,
       fields: fields ?? this.fields,
       shouldInherit: shouldInherit ?? this.shouldInherit,
-      inheritanceConstructor:
-          inheritanceConstructor ?? this.inheritanceConstructor,
+      inheritanceConstructor: inheritanceConstructor ?? this.inheritanceConstructor,
       keyStringCase: keyStringCase ?? this.keyStringCase,
       includeId: includeId ?? this.includeId,
       includeArgs: includeArgs ?? this.includeArgs,
