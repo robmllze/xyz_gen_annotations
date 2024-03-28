@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.16.0]
+
+- Released @ 2024-03-28 02:24:02.257117Z
+- Improved GenericModel
+
 ## [0.15.2]
 
 - Released @ 2024-03-22 06:26:43.154966Z
