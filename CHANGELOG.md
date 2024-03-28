@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.17.0]
+
+- Released @ 2024-03-28 02:42:07.415136Z
+- Changed GenericModel to DataModel
+
 ## [0.16.0]
 
 - Released @ 2024-03-28 02:24:02.257117Z
