@@ -4,27 +4,25 @@
 ## 🇽🇾🇿 & Dev
 ##
 ## Copyright Ⓒ Robert Mollentze, xyzand.dev
-## 
+##
 ## Licensing details can be found in the LICENSE file in the root directory.
-## 
+##
 ## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 ##.title~
 
 name: xyz_gen_annotations
 description: This package includes the annotations for the xyz_gen package. See https://pub.dev/packages/xyz_gen for more information.
 repository: https://github.com/robmllze/xyz_gen_annotations
-version: 0.15.2
+version: 0.16.0
 
 ## -----------------------------------------------------------------------------
 
 environment:
-
-  sdk: '>= 3.3.1 < 4.0.0'
+  sdk: ">= 3.3.1 < 4.0.0"
 
 ## -----------------------------------------------------------------------------
 
 dependencies:
-
   xyz_utils: ^0.52.0
 
   collection: ^1.18.0
@@ -32,6 +30,4 @@ dependencies:
 ## -----------------------------------------------------------------------------
 
 dev_dependencies:
-
   lints: ^3.0.0
-
