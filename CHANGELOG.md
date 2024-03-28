@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.18.0]
+
+- Released @ 2024-03-28 03:00:25.631926Z
+- Update DataModel
+
 ## [0.17.0]
 
 - Released @ 2024-03-28 02:42:07.415136Z
