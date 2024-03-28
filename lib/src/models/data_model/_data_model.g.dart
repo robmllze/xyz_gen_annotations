@@ -61,7 +61,11 @@ class DataModel extends Model {
   factory DataModel.from(
     Model? other,
   ) {
-    return DataModel.unsafe()..updateWith(other);
+    if (other is DataModel) {
+      return DataModel.fromDataModel(other);
+    } else {
+      return DataModel.unsafe()..updateWith(other);
+    }
   }
 
   //
@@ -119,6 +123,16 @@ class DataModel extends Model {
       assert(false, e);
       rethrow;
     }
+  }
+
+  //
+  //
+  //
+
+  factory DataModel.fromDataModel(
+    DataModel? other,
+  ) {
+    return DataModel.fromJson(other?.data ?? {});
   }
 
   //
