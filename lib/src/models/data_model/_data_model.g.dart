@@ -15,17 +15,17 @@
 // ignore_for_file: unnecessary_null_comparison
 // ignore_for_file: unnecessary_this
 
-part of 'generic_model.dart';
+part of 'data_model.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class GenericModel extends Model {
+class DataModel extends Model {
   //
   //
   //
 
-  static const CLASS = 'GenericModel';
-  static const MODEL_ID = 'generic_model';
+  static const CLASS = 'DataModel';
+  static const MODEL_ID = 'data_model';
 
   static const K_DATA = 'data';
   static const K_ID = 'id';
@@ -36,7 +36,7 @@ class GenericModel extends Model {
   //
   //
 
-  GenericModel({
+  DataModel({
     String? id,
     this.data,
   }) {
@@ -47,7 +47,7 @@ class GenericModel extends Model {
   //
   //
 
-  GenericModel.unsafe({
+  DataModel.unsafe({
     String? id,
     this.data,
   }) {
@@ -58,35 +58,35 @@ class GenericModel extends Model {
   //
   //
 
-  factory GenericModel.from(
+  factory DataModel.from(
     Model? other,
   ) {
-    return GenericModel.unsafe()..updateWith(other);
+    return DataModel.unsafe()..updateWith(other);
   }
 
   //
   //
   //
 
-  factory GenericModel.of(
-    GenericModel? other,
+  factory DataModel.of(
+    DataModel? other,
   ) {
-    return GenericModel.unsafe()..updateWith(other);
+    return DataModel.unsafe()..updateWith(other);
   }
 
   //
   //
   //
 
-  factory GenericModel.fromJsonString(
+  factory DataModel.fromJsonString(
     String? source,
   ) {
     try {
       if (source != null && source.isNotEmpty) {
         final decoded = jsonDecode(source);
-        return GenericModel.fromJson(decoded);
+        return DataModel.fromJson(decoded);
       } else {
-        return GenericModel.unsafe();
+        return DataModel.unsafe();
       }
     } catch (e) {
       assert(false, e);
@@ -98,11 +98,11 @@ class GenericModel extends Model {
   //
   //
 
-  factory GenericModel.fromJson(
+  factory DataModel.fromJson(
     Map<String, dynamic>? otherData,
   ) {
     try {
-      return GenericModel.unsafe(
+      return DataModel.unsafe(
         data: letMap(otherData?[K_DATA])
             ?.map(
               (final p0, final p1) => MapEntry(
@@ -156,7 +156,7 @@ class GenericModel extends Model {
 
   @override
   T empty<T extends Model>() {
-    return GenericModel.unsafe() as T;
+    return DataModel.unsafe() as T;
   }
 
   //
@@ -165,7 +165,7 @@ class GenericModel extends Model {
 
   @override
   T copy<T extends Model>() {
-    return (GenericModel.unsafe()..updateWith(this)) as T;
+    return (DataModel.unsafe()..updateWith(this)) as T;
   }
 
   //
@@ -177,7 +177,7 @@ class GenericModel extends Model {
     Map<String, dynamic>? otherData,
   ) {
     if (otherData != null && otherData.isNotEmpty) {
-      final other = GenericModel.fromJson(otherData);
+      final other = DataModel.fromJson(otherData);
       other.data != null ? this.data = other.data : null;
       other.id != null ? this.id = other.id : null;
     }

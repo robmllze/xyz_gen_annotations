@@ -9,7 +9,7 @@
 
 import '/_common.dart';
 
-part '_generic_model.g.dart';
+part '_data_model.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -19,4 +19,4 @@ part '_generic_model.g.dart';
   },
 )
 // ignore: unused_element
-abstract class _GenericModel {}
+abstract class _DataModel {}
