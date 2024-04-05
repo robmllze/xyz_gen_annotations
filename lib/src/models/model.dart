@@ -74,8 +74,7 @@ abstract class Model {
     bool includeNulls = false,
   }) {
     final a = toJson(defaultValue: defaultValue, includeNulls: includeNulls);
-    final b = a.keys.toList(growable: false)
-      ..sort((k1, k2) => k1.compareTo(k2));
+    final b = a.keys.toList(growable: false)..sort((k1, k2) => k1.compareTo(k2));
     final c = {for (var k in b) k: a[k] as dynamic};
     return c;
   }
@@ -138,6 +137,27 @@ abstract class Model {
   /// Updates the fields of the Model with the fields from [otherData].
   void updateWithJson(Map<String, dynamic>? otherData) {
     throw UnimplementedError();
+  }
+
+  //
+  //
+  //
+
+  /// The generated identifier for the Model.
+  String get modelId;
+
+  //
+  //
+  //
+
+  /// Converts the current [Model] to a [Uri] that can be used as a distinct
+  /// identifier. The model must not be too large to avoid exceeding the
+  /// maximum length of a URL.
+  Uri toUrl() {
+    return Uri(
+      path: this.modelId,
+      queryParameters: this.toJson().mapValues((v) => v.toString()),
+    );
   }
 
   //

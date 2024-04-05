@@ -19,6 +19,7 @@ part '_data_model.g.dart';
     'data': 'Map<String, dynamic>?',
   },
 )
+// ignore: unused_element
 abstract class _DataModel extends ThisModel<DataModel> {
   //
   //

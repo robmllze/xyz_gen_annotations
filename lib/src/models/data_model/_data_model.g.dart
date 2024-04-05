@@ -19,7 +19,7 @@ part of 'data_model.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class DataModel extends _DataModel {
+class DataModel extends Model {
   //
   //
   //
@@ -54,11 +54,9 @@ class DataModel extends _DataModel {
   factory DataModel.from(
     Model? other,
   ) {
-    if (other is DataModel) {
-      return DataModel.fromDataModel(other);
-    } else {
-      return DataModel.unsafe()..updateWith(other);
-    }
+    return DataModel.fromJson(
+      other is GenericModel ? other.data : other?.toJson(),
+    );
   }
 
   //
@@ -68,7 +66,7 @@ class DataModel extends _DataModel {
   factory DataModel.of(
     DataModel? other,
   ) {
-    return DataModel.unsafe()..updateWith(other);
+    return DataModel.fromJson(other?.toJson());
   }
 
   //
@@ -121,10 +119,19 @@ class DataModel extends _DataModel {
   //
   //
 
-  factory DataModel.fromDataModel(
-    DataModel? other,
+  factory DataModel.fromUri(
+    Uri? uri,
   ) {
-    return DataModel.fromJson(other?.data ?? {});
+    try {
+      if (uri != null && uri.path == MODEL_ID) {
+        return DataModel.fromJson(uri.queryParameters);
+      } else {
+        return DataModel.unsafe();
+      }
+    } catch (e) {
+      assert(false, e);
+      rethrow;
+    }
   }
 
   //
@@ -186,4 +193,10 @@ class DataModel extends _DataModel {
       other.data != null ? this.data = other.data : null;
     }
   }
+
+  //
+  //
+  //
+
+  String get modelId => MODEL_ID;
 }
