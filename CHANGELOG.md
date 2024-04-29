@@ -2,7 +2,7 @@
 
 ## [0.22.0]
 
-- Released @ 2024-04-29 07:09:15.014506Z
+- Released @ 2024-04-29 07:12:07.574810Z
 - Add removeDuplicateProperties and removeDuplicateIds to Model class
 
 ## [0.21.0]
