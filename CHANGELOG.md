@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.22.0]
+
+- Released @ 2024-04-29 07:09:15.014506Z
+- Add removeDuplicateProperties and removeDuplicateIds to Model class
+
 ## [0.21.0]
 
 - Released @ 2024-04-05 02:40:18.977774Z
