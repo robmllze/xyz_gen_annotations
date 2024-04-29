@@ -30,7 +30,7 @@ abstract class Model {
   //
 
   /// Returns a new list with duplicate IDs removed from [source].
-  static List<Model> removeDuplicateIds(Iterable<Model> source) {
+  static List<T> removeDuplicateIds<T extends Model>(Iterable<T> source) {
     return removeDuplicateProperties(source, K_ID);
   }
 
@@ -40,8 +40,8 @@ abstract class Model {
 
   /// Returns a new list from [source] by removing duplicate properties with
   /// keys equal to [k].
-  static List<Model> removeDuplicateProperties(
-    Iterable<Model> source,
+  static List<T> removeDuplicateProperties<T extends Model>(
+    Iterable<T> source,
     String k,
   ) {
     final temp = List.of(source);
