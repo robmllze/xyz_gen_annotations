@@ -29,6 +29,38 @@ abstract class Model {
   //
   //
 
+  /// Returns a new list with duplicate IDs removed from [source].
+  static List<Model> removeDuplicateIds(Iterable<Model> source) {
+    return removeDuplicateProperties(source, K_ID);
+  }
+
+  //
+  //
+  //
+
+  /// Returns a new list with duplicate properties removed from [source].
+  static List<Model> removeDuplicateProperties(
+    Iterable<Model> source,
+    String propertyK,
+  ) {
+    final temp = List.of(source);
+    final properties = <dynamic>{null};
+    temp.removeWhere((m) {
+      final json = m.toJson();
+      final property = json[propertyK];
+      if (properties.contains(property)) {
+        return true;
+      }
+      properties.add(property);
+      return false;
+    });
+    return temp;
+  }
+
+  //
+  //
+  //
+
   /// An optional unique identifier for the Model.
   String? id;
 
@@ -74,8 +106,7 @@ abstract class Model {
     bool includeNulls = false,
   }) {
     final a = toJson(defaultValue: defaultValue, includeNulls: includeNulls);
-    final b = a.keys.toList(growable: false)
-      ..sort((k1, k2) => k1.compareTo(k2));
+    final b = a.keys.toList(growable: false)..sort((k1, k2) => k1.compareTo(k2));
     final c = {for (var k in b) k: a[k] as dynamic};
     return c;
   }
