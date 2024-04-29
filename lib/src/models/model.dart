@@ -38,16 +38,17 @@ abstract class Model {
   //
   //
 
-  /// Returns a new list with duplicate properties removed from [source].
+  /// Returns a new list from [source] by removing duplicate properties with
+  /// keys equal to [k].
   static List<Model> removeDuplicateProperties(
     Iterable<Model> source,
-    String propertyK,
+    String k,
   ) {
     final temp = List.of(source);
     final properties = <dynamic>{null};
     temp.removeWhere((m) {
       final json = m.toJson();
-      final property = json[propertyK];
+      final property = json[k];
       if (properties.contains(property)) {
         return true;
       }
@@ -106,8 +107,7 @@ abstract class Model {
     bool includeNulls = false,
   }) {
     final a = toJson(defaultValue: defaultValue, includeNulls: includeNulls);
-    final b = a.keys.toList(growable: false)
-      ..sort((k1, k2) => k1.compareTo(k2));
+    final b = a.keys.toList(growable: false)..sort((k1, k2) => k1.compareTo(k2));
     final c = {for (var k in b) k: a[k] as dynamic};
     return c;
   }
