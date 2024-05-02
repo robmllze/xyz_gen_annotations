@@ -15,6 +15,7 @@ export 'annotations/generate_type_utils.dart';
 export 'annotations/property.dart';
 export 'annotations/test_annotation.dart';
 export 'models/data_model/data_model.dart';
+export 'models/data_ref.dart';
 export 'models/generic_model.dart';
 export 'models/model.dart';
 export 'utils/prep_value.dart';
