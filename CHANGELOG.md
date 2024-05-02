@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.24.0]
+
+- Released @ 2024-05-02 04:28:09.167218Z
+- Added DataRef class
+
 ## [0.23.0]
 
 - Released @ 2024-04-29 07:20:04.951747Z
