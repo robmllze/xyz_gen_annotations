@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.24.1]
+
+- Released @ 2024-05-02 12:10:44.507971Z
+- Update dependencies
+
 ## [0.24.0]
 
 - Released @ 2024-05-02 04:28:09.167218Z
