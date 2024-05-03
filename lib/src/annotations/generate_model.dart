@@ -16,8 +16,8 @@ class GenerateModel {
   /// The name of the class to generate.
   final String? className;
 
-  /// The parameters to use when generating the class, e.g. `{'name': 'String?'}`.
-  final Map<String, dynamic>? fields;
+  /// The parameters to use when generating the class, e.g. `(name: 'name', type: 'String?')`.
+  final Set<F>? fields;
 
   /// Indicates if the generated class should inherit from the annotated class.
   ///
@@ -47,18 +47,6 @@ class GenerateModel {
   /// - `PATH_CASE`
   final String keyStringCase;
 
-  /// Whether or not to include the default `id` field in the generated class.
-  ///
-  /// Note: The template you use must support this option, such as the
-  /// `default_model_template` template.
-  final bool includeId;
-
-  /// Whether or not to include the default `args` field in the generated class.
-  ///
-  /// Note: The template you use must support this option, such as the
-  /// `default_model_template` template.
-  final bool includeArgs;
-
   //
   //
   //
@@ -69,8 +57,6 @@ class GenerateModel {
     this.shouldInherit = false,
     this.inheritanceConstructor,
     this.keyStringCase = 'LOWER_SNAKE_CASE',
-    this.includeId = true,
-    this.includeArgs = false,
   });
 
   //
@@ -79,22 +65,39 @@ class GenerateModel {
 
   GenerateModel copyWith({
     String? className,
-    Map<String, dynamic>? fields,
+    Set<F>? fields,
     bool? shouldInherit,
     String? inheritanceConstructor,
     String? keyStringCase,
-    bool? includeId,
-    bool? includeArgs,
   }) {
     return GenerateModel(
       className: className ?? this.className,
       fields: fields ?? this.fields,
       shouldInherit: shouldInherit ?? this.shouldInherit,
-      inheritanceConstructor:
-          inheritanceConstructor ?? this.inheritanceConstructor,
+      inheritanceConstructor: inheritanceConstructor ?? this.inheritanceConstructor,
       keyStringCase: keyStringCase ?? this.keyStringCase,
-      includeId: includeId ?? this.includeId,
-      includeArgs: includeArgs ?? this.includeArgs,
     );
   }
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+class F {
+  //
+  //
+  //
+
+  final String fieldName;
+  final dynamic fieldType;
+  final bool? nullable;
+
+  //
+  //
+  //
+
+  const F(
+    this.fieldName,
+    this.fieldType, {
+    this.nullable,
+  });
 }

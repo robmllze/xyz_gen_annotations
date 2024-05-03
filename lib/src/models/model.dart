@@ -22,22 +22,6 @@ abstract class Model {
   //
   //
 
-  static const K_ID = 'id';
-  static const K_ARGS = 'args';
-
-  //
-  //
-  //
-
-  /// Returns a new list with duplicate IDs removed from [source].
-  static List<T> removeDuplicateIds<T extends Model>(Iterable<T> source) {
-    return removeDuplicateProperties(source, K_ID);
-  }
-
-  //
-  //
-  //
-
   /// Returns a new list from [source] by removing duplicate properties with
   /// keys equal to [k].
   static List<T> removeDuplicateProperties<T extends Model>(
@@ -62,11 +46,11 @@ abstract class Model {
   //
   //
 
-  /// An optional unique identifier for the Model.
-  String? id;
+  /// The class name of the model as a string.
+  String get $class;
 
-  /// A flexible field for additional arguments or data.
-  dynamic args;
+  /// The model's unique identifier.
+  String? id;
 
   //
   //
@@ -107,8 +91,7 @@ abstract class Model {
     bool includeNulls = false,
   }) {
     final a = toJson(defaultValue: defaultValue, includeNulls: includeNulls);
-    final b = a.keys.toList(growable: false)
-      ..sort((k1, k2) => k1.compareTo(k2));
+    final b = a.keys.toList(growable: false)..sort((k1, k2) => k1.compareTo(k2));
     final c = {for (var k in b) k: a[k] as dynamic};
     return c;
   }
@@ -177,19 +160,12 @@ abstract class Model {
   //
   //
 
-  /// The generated identifier for the Model.
-  String get modelId;
-
-  //
-  //
-  //
-
   /// Converts the current [Model] to a [Uri] that can be used as a distinct
   /// identifier. The model must not be too large to avoid exceeding the
   /// maximum length of a URL.
   Uri toUrl() {
     return Uri(
-      path: this.modelId,
+      path: this.$class,
       queryParameters: this.toJson().mapValues((v) => v.toString()),
     );
   }

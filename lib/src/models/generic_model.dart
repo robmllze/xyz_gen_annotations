@@ -18,19 +18,8 @@ class GenericModel extends Model {
   //
 
   static const CLASS = 'GenericModel';
-  static const MODEL_ID = 'generic_model';
 
   Map<String, dynamic>? data;
-
-  //
-  //
-  //
-
-  @override
-  String? get id => letAs<String>(this.data?[Model.K_ID]);
-
-  @override
-  dynamic get args => this.data?[Model.K_ARGS];
 
   //
   //
@@ -124,7 +113,7 @@ class GenericModel extends Model {
     Uri? uri,
   ) {
     try {
-      if (uri != null && uri.path == MODEL_ID) {
+      if (uri != null && uri.path == CLASS) {
         return GenericModel.fromJson(uri.queryParameters);
       } else {
         return GenericModel.unsafe();
@@ -200,5 +189,5 @@ class GenericModel extends Model {
   //
 
   @override
-  String get modelId => MODEL_ID;
+  String get $class => CLASS;
 }

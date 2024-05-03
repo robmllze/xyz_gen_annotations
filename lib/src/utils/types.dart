@@ -16,6 +16,7 @@ const $LowerKebabCaseString = 'LowerKebabCase-String?';
 const $UpperKebabCaseString = 'UpperKebabCase-String?';
 const $CamelCaseString = 'CamelCase-String?';
 const $PascalCaseString = 'PascalCase-String?';
+const $SearchableString = 'Searchable-String?';
 
 const $bool = 'bool?';
 const $DateTime = 'DateTime?';
