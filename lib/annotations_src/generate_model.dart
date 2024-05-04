@@ -16,7 +16,7 @@ class GenerateModel {
   /// The name of the class to generate.
   final String? className;
 
-  /// The parameters to use when generating the class, e.g. `(name: 'name', type: 'String?')`.
+  /// The parameters to use when generating the class, e.g. `('id', 'String?')`.
   final Set<Record>? fields;
 
   /// Indicates if the generated class should inherit from the annotated class.
@@ -53,7 +53,7 @@ class GenerateModel {
 
   const GenerateModel({
     this.className,
-    this.fields,
+    this.fields = const {('id', 'String?')},
     this.shouldInherit = false,
     this.inheritanceConstructor,
     this.keyStringCase = 'LOWER_SNAKE_CASE',
