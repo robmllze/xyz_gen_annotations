@@ -55,7 +55,7 @@ class ModelUser extends _ModelUser {
     ModelUser? child,
     String? email,
     String? firstName,
-    String? id,
+    required String id,
     String? lastName,
   }) {
     return ModelUser.b(
@@ -285,7 +285,7 @@ class ModelUser extends _ModelUser {
   set $firstName(v) => this._firstName = v?.toString().trim().nullIfEmpty;
 
   // id.
-  String? get id => this._id;
+  String get id => this._id!;
   set id(String? v) => this._id = v;
   dynamic get $id => this._id?.toString().trim().nullIfEmpty;
   set $id(v) => this._id = v?.toString().trim().nullIfEmpty;
