@@ -19,8 +19,6 @@ class GenerateModel {
   /// Fields to use when generating the class, e.g. `('first_name', 'String?')`.
   final Set<Record> fields;
 
-  final Set<Record> defaultFields;
-
   /// Indicates if the generated class should inherit from the annotated class.
   ///
   /// Note: The template you use must support this option, such as the
@@ -55,18 +53,11 @@ class GenerateModel {
 
   const GenerateModel({
     this.className,
-    this.fields = const {},
-    this.defaultFields = const {('id', 'String?')},
+    this.fields = const {('id', 'String?')},
     this.shouldInherit = false,
     this.inheritanceConstructor,
     this.keyStringCase = 'LOWER_SNAKE_CASE',
   });
-
-  //
-  //
-  //
-
-  Set<Record> get allFields => {...this.defaultFields, ...this.fields};
 
   //
   //
@@ -83,7 +74,6 @@ class GenerateModel {
     return GenerateModel(
       className: className ?? this.className,
       fields: fields ?? this.fields,
-      defaultFields: defaultFields ?? this.defaultFields,
       shouldInherit: shouldInherit ?? this.shouldInherit,
       inheritanceConstructor:
           inheritanceConstructor ?? this.inheritanceConstructor,
