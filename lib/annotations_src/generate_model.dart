@@ -16,8 +16,10 @@ class GenerateModel {
   /// The name of the class to generate.
   final String? className;
 
-  /// The parameters to use when generating the class, e.g. `('id', 'String?')`.
-  final Set<Record>? fields;
+  /// Fields to use when generating the class, e.g. `('first_name', 'String?')`.
+  final Set<Record> fields;
+
+  final Set<Record> defaultFields;
 
   /// Indicates if the generated class should inherit from the annotated class.
   ///
@@ -53,7 +55,8 @@ class GenerateModel {
 
   const GenerateModel({
     this.className,
-    this.fields = const {('id', 'String?')},
+    this.fields = const {},
+    this.defaultFields = const {('id', 'String?')},
     this.shouldInherit = false,
     this.inheritanceConstructor,
     this.keyStringCase = 'LOWER_SNAKE_CASE',
@@ -63,9 +66,16 @@ class GenerateModel {
   //
   //
 
+  Set<Record> get allFields => {...this.defaultFields, ...this.fields};
+
+  //
+  //
+  //
+
   GenerateModel copyWith({
     String? className,
     Set<Record>? fields,
+    Set<Record>? defaultFields,
     bool? shouldInherit,
     String? inheritanceConstructor,
     String? keyStringCase,
@@ -73,6 +83,7 @@ class GenerateModel {
     return GenerateModel(
       className: className ?? this.className,
       fields: fields ?? this.fields,
+      defaultFields: defaultFields ?? this.defaultFields,
       shouldInherit: shouldInherit ?? this.shouldInherit,
       inheritanceConstructor: inheritanceConstructor ?? this.inheritanceConstructor,
       keyStringCase: keyStringCase ?? this.keyStringCase,
