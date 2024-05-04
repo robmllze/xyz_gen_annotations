@@ -52,9 +52,6 @@ abstract class Model {
   /// The class name of the model as a string.
   String $class = '';
 
-  /// The model's unique identifier.
-  String id = '';
-
   //
   //
   //
