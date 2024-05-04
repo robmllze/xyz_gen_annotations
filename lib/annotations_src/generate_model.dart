@@ -8,10 +8,6 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'f.dart';
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
 class GenerateModel {
   //
   //
@@ -21,7 +17,7 @@ class GenerateModel {
   final String? className;
 
   /// The parameters to use when generating the class, e.g. `(name: 'name', type: 'String?')`.
-  final Set<F>? fields;
+  final Set<Record>? fields;
 
   /// Indicates if the generated class should inherit from the annotated class.
   ///
@@ -69,7 +65,7 @@ class GenerateModel {
 
   GenerateModel copyWith({
     String? className,
-    Set<F>? fields,
+    Set<Record>? fields,
     bool? shouldInherit,
     String? inheritanceConstructor,
     String? keyStringCase,
