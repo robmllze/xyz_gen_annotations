@@ -50,10 +50,10 @@ abstract class Model {
   //
 
   /// The class name of the model as a string.
-  late String $class;
+  String $class = '';
 
   /// The model's unique identifier.
-  late String id;
+  String id = '';
 
   //
   //
@@ -94,8 +94,7 @@ abstract class Model {
     bool includeNulls = false,
   }) {
     final a = toJson(defaultValue: defaultValue, includeNulls: includeNulls);
-    final b = a.keys.toList(growable: false)
-      ..sort((k1, k2) => k1.compareTo(k2));
+    final b = a.keys.toList(growable: false)..sort((k1, k2) => k1.compareTo(k2));
     final c = {for (var k in b) k: a[k] as dynamic};
     return c;
   }
