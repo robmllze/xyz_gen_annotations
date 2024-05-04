@@ -8,6 +8,10 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
+import 'f.dart';
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
 class GenerateModel {
   //
   //
@@ -78,26 +82,4 @@ class GenerateModel {
       keyStringCase: keyStringCase ?? this.keyStringCase,
     );
   }
-}
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-class F {
-  //
-  //
-  //
-
-  final String fieldName;
-  final dynamic fieldType;
-  final bool? nullable;
-
-  //
-  //
-  //
-
-  const F(
-    this.fieldName,
-    this.fieldType, {
-    this.nullable,
-  });
 }

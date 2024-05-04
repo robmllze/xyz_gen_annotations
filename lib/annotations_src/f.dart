@@ -8,6 +8,22 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-class Field {
-  const Field();
+class F {
+  //
+  //
+  //
+
+  final String fieldName;
+  final dynamic fieldType;
+  final bool? nullable;
+
+  //
+  //
+  //
+
+  const F(
+    this.fieldName,
+    this.fieldType, {
+    this.nullable,
+  });
 }

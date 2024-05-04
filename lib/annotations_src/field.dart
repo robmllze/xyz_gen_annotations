@@ -8,9 +8,16 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-library;
+class Field {
+  //
+  //
+  //
 
-export 'package:xyz_utils/shared_src/web_friendly/_all_web_friendly.g.dart';
+  final dynamic options;
 
-export 'annotations_src/_all_annotations_src.g.dart';
-export 'utils_src/_all_utils_src.g.dart';
+  //
+  //
+  //
+
+  const Field([this.options]);
+}

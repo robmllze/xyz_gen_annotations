@@ -10,6 +10,8 @@
 
 import '/_common.dart';
 
+import 'model.dart';
+
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 class GenericModel extends Model {
@@ -18,6 +20,10 @@ class GenericModel extends Model {
   //
 
   static const CLASS = 'GenericModel';
+
+  //
+  //
+  //
 
   Map<String, dynamic>? data;
 

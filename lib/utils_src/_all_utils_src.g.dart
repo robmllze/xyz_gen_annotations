@@ -7,17 +7,10 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-export 'annotations/field.dart';
-export 'annotations/generate_makeups.dart';
-export 'annotations/generate_model.dart';
-export 'annotations/generate_screen_bindings.dart';
-export 'annotations/generate_type_utils.dart';
-export 'annotations/property.dart';
-export 'annotations/test_annotation.dart';
-export 'models/data_model/data_model.dart';
-export 'models/data_ref.dart';
-export 'models/generic_model.dart';
-export 'models/model.dart';
-export 'utils/prep_value.dart';
-export 'utils/this_model.dart';
-export 'utils/types.dart';
+export 'generate_models/data_model/data_model.dart';
+export 'generate_models/data_ref.dart';
+export 'generate_models/generic_model.dart';
+export 'generate_models/model.dart';
+export 'generate_models/prep_value_on_string_extension.dart';
+export 'generate_models/this_model.dart';
+export 'generate_models/types.dart';

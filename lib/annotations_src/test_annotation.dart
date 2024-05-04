@@ -8,10 +8,18 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-class Property {
+class TestAnnotation {
   //
   //
   //
 
-  const Property();
+  final dynamic options;
+
+  //
+  //
+  //
+
+  const TestAnnotation(
+    this.options,
+  );
 }

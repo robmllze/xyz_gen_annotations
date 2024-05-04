@@ -8,6 +8,8 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-export 'package:xyz_utils/xyz_utils.dart';
+export 'package:equatable/equatable.dart';
 
-export 'src/_all_src.g.dart';
+export 'dart:convert' show jsonEncode, jsonDecode;
+
+export 'package:xyz_utils/shared_src/web_friendly/_all_web_friendly.g.dart';

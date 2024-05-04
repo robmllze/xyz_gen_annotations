@@ -8,15 +8,16 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-final prepValueRegex = RegExp(r'<<<((.+)\|\|)? *([\w-&]+)>>>');
+class Property {
+  //
+  //
+  //
 
-extension PrepOnStringExtension on String {
-  /// Extracts the prep value.
-  String get prepValue {
-    final match = prepValueRegex.firstMatch(this)?[3];
-    if (match != null) {
-      return match;
-    }
-    return '';
-  }
+  final dynamic options;
+
+  //
+  //
+  //
+
+  const Property([this.options]);
 }
