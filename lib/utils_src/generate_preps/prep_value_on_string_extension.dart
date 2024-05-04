@@ -8,10 +8,12 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
+final prepRegExp = RegExp(r'<<<((.+)\|\|)? *([\w-&]+)>>>');
+
 extension PrepOnStringExtension on String {
   /// Extracts the prep value.
   String get prepValue {
-    final match = RegExp(r'<<<((.+)\|\|)? *([\w-&]+)>>>').firstMatch(this)?[3];
+    final match = prepRegExp.firstMatch(this)?[3];
     if (match != null) {
       return match;
     }

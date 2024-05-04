@@ -11,6 +11,6 @@ export 'generate_models/data_model/data_model.dart';
 export 'generate_models/data_ref.dart';
 export 'generate_models/generic_model.dart';
 export 'generate_models/model.dart';
-export 'generate_models/prep_value_on_string_extension.dart';
 export 'generate_models/this_model.dart';
 export 'generate_models/types.dart';
+export 'generate_preps/prep_value_on_string_extension.dart';
