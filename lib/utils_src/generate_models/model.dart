@@ -25,6 +25,28 @@ abstract class Model {
   //
   //
 
+  /// The key for the unique identifier of the model.
+  static const K_ID = 'id';
+
+  /// The unique identifier of the model.
+  String? id;
+
+  //
+  //
+  //
+
+  /// Returns a new list from [source] by removing duplicate keys equal to
+  /// [K_ID].
+  static List<T> removeDuplicateIds<T extends Model>(
+    Iterable<T> source,
+  ) {
+    return removeDuplicateProperties(source, K_ID);
+  }
+
+  //
+  //
+  //
+
   /// Returns a new list from [source] by removing duplicate properties with
   /// keys equal to [k].
   static List<T> removeDuplicateProperties<T extends Model>(
@@ -91,8 +113,7 @@ abstract class Model {
     bool includeNulls = false,
   }) {
     final a = toJson(defaultValue: defaultValue, includeNulls: includeNulls);
-    final b = a.keys.toList(growable: false)
-      ..sort((k1, k2) => k1.compareTo(k2));
+    final b = a.keys.toList(growable: false)..sort((k1, k2) => k1.compareTo(k2));
     final c = {for (var k in b) k: a[k] as dynamic};
     return c;
   }

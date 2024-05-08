@@ -8,7 +8,9 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-final prepRegExp = RegExp(r'<<<((.+)\|\|)? *([\w-&]+)>>>');
+import '/xyz_gen_annotations.dart';
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 extension PrepOnStringExtension on String {
   /// Extracts the prep value.
@@ -20,3 +22,6 @@ extension PrepOnStringExtension on String {
     return '';
   }
 }
+
+@internal
+final prepRegExp = RegExp(r'<<<((.+)\|\|)? *([\w-&]+)>>>');
