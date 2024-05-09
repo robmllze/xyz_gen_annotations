@@ -25,7 +25,7 @@ class DataRef extends Equatable {
   final String? tableName;
 
   /// The collection path of the model for databases like Firestore.
-  final String? collectionPath;
+  final List<String>? collection;
 
   //
   //
@@ -34,22 +34,32 @@ class DataRef extends Equatable {
   const DataRef({
     this.id,
     this.tableName,
-    this.collectionPath,
+    this.collection,
   });
 
   //
   //
   //
 
+  /// The collection path of the model for databases like Firestore.
+  String? get collectionPath => this.collection?.join('/');
+
+  //
+  //
+  //
+
   /// The document path of the model for databases like Firestore.
-  String get docPath => [this.collectionPath, this.id].nonNulls.join('/');
+  String get docPath => this.doc.join('/');
+
+  /// The document path of the model for databases like Firestore.
+  List<String> get doc => [...?this.collection, this.id].nonNulls.toList();
 
   //
   //
   //
 
   // The key of the model for databases like DynamoDB.
-  String get key => '${this.tableName}/${this.id}';
+  String get key => [this.tableName, this.id].nonNulls.join('/');
 
   //
   //
@@ -58,12 +68,24 @@ class DataRef extends Equatable {
   DataRef copyWith({
     String? id,
     String? tableName,
-    String? collectionPath,
+    List<String>? collection,
   }) {
     return DataRef(
       id: id ?? this.id,
       tableName: tableName ?? this.tableName,
-      collectionPath: collectionPath ?? this.collectionPath,
+      collection: collection ?? this.collection,
+    );
+  }
+
+  //
+  //
+  //
+
+  DataRef combineWith(DataRef other) {
+    return DataRef(
+      id: this.id,
+      tableName: [...?other.collection, this.tableName].nonNulls.join('-'),
+      collection: other.doc,
     );
   }
 
@@ -73,9 +95,9 @@ class DataRef extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        tableName,
-        collectionPath,
+        this.id,
+        this.tableName,
+        ...?this.collection,
       ];
 
   //
@@ -83,5 +105,5 @@ class DataRef extends Equatable {
   //
 
   @override
-  String toString() => [collectionPath, tableName, id].nonNulls.join('/');
+  String toString() => this.props.nonNulls.join('/');
 }
