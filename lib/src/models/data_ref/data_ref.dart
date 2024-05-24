@@ -8,45 +8,27 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import '/_common.dart';
+import '/xyz_gen_annotations.dart';
+
+part '_data_ref.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-/// A database agnostic reference to a model, table or collection.
-class DataRef extends Equatable {
-  //
-  //
-  //
+@GenerateModel(
+  shouldInherit: true,
+  fields: {
+    ('id?', String),
+    ('table_name?', String),
+    ('collection?', List<String>),
+  },
+)
+abstract class _DataRef extends Model {}
 
-  /// The id/primary key of the model.
-  final String? id;
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-  /// The table name of the model for databases like DynamoDB.
-  final String? tableName;
-
-  /// The collection path of the model for databases like Firestore.
-  final List<String>? collection;
-
-  //
-  //
-  //
-
-  const DataRef({
-    this.id,
-    this.tableName,
-    this.collection,
-  });
-
-  //
-  //
-  //
-
+extension DataRefExtension on DataRef {
   /// The collection path of the model for databases like Firestore.
   String? get collectionPath => this.collection?.join('/');
-
-  //
-  //
-  //
 
   /// The document path of the model for databases like Firestore.
   String get docPath => this.doc.join('/');
@@ -54,32 +36,8 @@ class DataRef extends Equatable {
   /// The document path of the model for databases like Firestore.
   List<String> get doc => [...?this.collection, this.id].nonNulls.toList();
 
-  //
-  //
-  //
-
   // The key of the model for databases like DynamoDB.
   String get key => [this.tableName, this.id].nonNulls.join('/');
-
-  //
-  //
-  //
-
-  DataRef copyWith({
-    String? id,
-    String? tableName,
-    List<String>? collection,
-  }) {
-    return DataRef(
-      id: id ?? this.id,
-      tableName: tableName ?? this.tableName,
-      collection: collection ?? this.collection,
-    );
-  }
-
-  //
-  //
-  //
 
   DataRef combineWith(DataRef other) {
     return DataRef(
@@ -88,22 +46,4 @@ class DataRef extends Equatable {
       collection: other.doc,
     );
   }
-
-  //
-  //
-  //
-
-  @override
-  List<Object?> get props => [
-        this.id,
-        this.tableName,
-        ...?this.collection,
-      ];
-
-  //
-  //
-  //
-
-  @override
-  String toString() => this.props.nonNulls.join('/');
 }
