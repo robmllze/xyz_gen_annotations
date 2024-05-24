@@ -10,7 +10,7 @@
 
 import '/xyz_gen_annotations.dart';
 
-part '_data_ref.g.dart';
+part '_data_ref_model.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -22,11 +22,11 @@ part '_data_ref.g.dart';
     ('collection?', List<String>),
   },
 )
-abstract class _DataRef extends Model {}
+abstract class _DataRefModel extends Model {}
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-extension DataRefExtension on DataRef {
+extension DataRefModelExtension on DataRefModel {
   /// The collection path of the model for databases like Firestore.
   String? get collectionPath => this.collection?.join('/');
 
@@ -39,11 +39,15 @@ extension DataRefExtension on DataRef {
   // The key of the model for databases like DynamoDB.
   String get key => [this.tableName, this.id].nonNulls.join('/');
 
-  DataRef combineWith(DataRef other) {
-    return DataRef(
+  DataRefModel combineWith(DataRefModel other) {
+    return DataRefModel(
       id: this.id,
       tableName: [...?other.collection, this.tableName].nonNulls.join('-'),
       collection: other.doc,
     );
   }
 }
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+typedef DataRef = DataRefModel;

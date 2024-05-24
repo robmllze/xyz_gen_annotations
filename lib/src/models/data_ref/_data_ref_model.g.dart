@@ -15,11 +15,11 @@
 // ignore_for_file: unnecessary_null_comparison
 // ignore_for_file: unnecessary_this
 
-part of 'data_ref.dart';
+part of 'data_ref_model.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class DataRef extends _DataRef {
+class DataRefModel extends _DataRefModel {
   //
   //
   //
@@ -28,7 +28,7 @@ class DataRef extends _DataRef {
   static const K_ID = 'id';
   static const K_TABLE_NAME = 'table_name';
 
-  static const CLASS = 'DataRef';
+  static const CLASS = 'DataRefModel';
 
   @override
   String get $class => CLASS;
@@ -41,18 +41,18 @@ class DataRef extends _DataRef {
   //
   //
 
-  DataRef.empty();
+  DataRefModel.empty();
 
   //
   //
   //
 
-  factory DataRef({
+  factory DataRefModel({
     List<String>? collection,
     String? id,
     String? tableName,
   }) {
-    return DataRef.b(
+    return DataRefModel.b(
       collection: collection,
       id: id,
       tableName: tableName,
@@ -63,7 +63,7 @@ class DataRef extends _DataRef {
   //
   //
 
-  DataRef.b({
+  DataRefModel.b({
     this.collection,
     this.id,
     this.tableName,
@@ -73,7 +73,7 @@ class DataRef extends _DataRef {
   //
   //
 
-  factory DataRef.from(
+  factory DataRefModel.from(
     Model? other,
   ) {
     try {
@@ -84,7 +84,7 @@ class DataRef extends _DataRef {
     }
   }
 
-  static DataRef? fromOrNull(
+  static DataRefModel? fromOrNull(
     Model? other,
   ) {
     return fromJsonOrNull(
@@ -96,8 +96,8 @@ class DataRef extends _DataRef {
   //
   //
 
-  factory DataRef.of(
-    DataRef other,
+  factory DataRefModel.of(
+    DataRefModel other,
   ) {
     try {
       return ofOrNull(other)!;
@@ -107,8 +107,8 @@ class DataRef extends _DataRef {
     }
   }
 
-  static DataRef? ofOrNull(
-    DataRef? other,
+  static DataRefModel? ofOrNull(
+    DataRefModel? other,
   ) {
     return fromJsonOrNull(other?.toJson());
   }
@@ -117,7 +117,7 @@ class DataRef extends _DataRef {
   //
   //
 
-  factory DataRef.fromJsonString(
+  factory DataRefModel.fromJsonString(
     String source,
   ) {
     try {
@@ -128,15 +128,15 @@ class DataRef extends _DataRef {
     }
   }
 
-  static DataRef? fromJsonStringOrNull(
+  static DataRefModel? fromJsonStringOrNull(
     String? source,
   ) {
     try {
       if (source!.isNotEmpty) {
         final decoded = jsonDecode(source);
-        return DataRef.fromJson(decoded);
+        return DataRefModel.fromJson(decoded);
       } else {
-        return DataRef.empty();
+        return DataRefModel.empty();
       }
     } catch (_) {
       return null;
@@ -147,7 +147,7 @@ class DataRef extends _DataRef {
   //
   //
 
-  factory DataRef.fromJson(
+  factory DataRefModel.fromJson(
     Map<String, dynamic>? otherData,
   ) {
     try {
@@ -158,11 +158,11 @@ class DataRef extends _DataRef {
     }
   }
 
-  static DataRef? fromJsonOrNull(
+  static DataRefModel? fromJsonOrNull(
     Map<String, dynamic>? otherData,
   ) {
     try {
-      return DataRef.empty()
+      return DataRefModel.empty()
         ..$collection = otherData?[K_COLLECTION]
         ..$id = otherData?[K_ID]
         ..$tableName = otherData?[K_TABLE_NAME];
@@ -175,7 +175,7 @@ class DataRef extends _DataRef {
   //
   //
 
-  factory DataRef.fromUri(
+  factory DataRefModel.fromUri(
     Uri? uri,
   ) {
     try {
@@ -186,14 +186,14 @@ class DataRef extends _DataRef {
     }
   }
 
-  static DataRef? fromUriOrNull(
+  static DataRefModel? fromUriOrNull(
     Uri? uri,
   ) {
     try {
       if (uri != null && uri.path == CLASS) {
-        return DataRef.fromJson(uri.queryParameters);
+        return DataRefModel.fromJson(uri.queryParameters);
       } else {
-        return DataRef.b();
+        return DataRefModel.b();
       }
     } catch (_) {
       return null;
@@ -228,7 +228,7 @@ class DataRef extends _DataRef {
 
   @override
   T empty<T extends Model>() {
-    return DataRef.b() as T;
+    return DataRefModel.b() as T;
   }
 
   //
@@ -237,7 +237,7 @@ class DataRef extends _DataRef {
 
   @override
   T copy<T extends Model>() {
-    return (DataRef.b()..updateWith(this)) as T;
+    return (DataRefModel.b()..updateWith(this)) as T;
   }
 
   //
@@ -249,7 +249,7 @@ class DataRef extends _DataRef {
     Map<String, dynamic>? otherData,
   ) {
     if (otherData != null && otherData.isNotEmpty) {
-      final other = DataRef.fromJson(otherData);
+      final other = DataRefModel.fromJson(otherData);
       if (other.collection != null) {
         this.collection = other.collection!;
       }
