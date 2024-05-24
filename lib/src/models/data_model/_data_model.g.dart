@@ -198,7 +198,7 @@ class DataModel extends _DataModel {
   }) {
     try {
       final withNulls = <String, dynamic>{
-        K_DATA: this.$data,
+        ...this.$data,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
