@@ -24,7 +24,4 @@ abstract class _DataModel extends Model {}
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-extension DataModelExtension on DataModel {
- 
-}
-
+extension DataModelExtension on DataModel {}

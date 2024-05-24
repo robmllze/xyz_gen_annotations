@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.39.0]
+
+- Released @ 2024-05-24 06:01:00.784086Z
+- Deprecated GenericModel
+
 ## [0.38.0]
 
 - Released @ 2024-05-24 03:54:33.780590Z
