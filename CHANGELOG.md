@@ -1,10 +1,5 @@
 # Changelog
 
-## [0.37.0]
-
-- Released @ 2024-05-24 02:57:13.983606Z
-- Add ref property to model.
-
 ## [0.36.0]
 
 - Released @ 2024-05-24 02:46:42.080579Z
