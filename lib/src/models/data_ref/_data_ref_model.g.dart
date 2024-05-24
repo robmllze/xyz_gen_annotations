@@ -26,7 +26,6 @@ class DataRefModel extends _DataRefModel {
 
   static const K_COLLECTION = 'collection';
   static const K_ID = 'id';
-  static const K_TABLE_NAME = 'table_name';
 
   static const CLASS = 'DataRefModel';
 
@@ -35,7 +34,6 @@ class DataRefModel extends _DataRefModel {
 
   List<String>? collection;
   String? id;
-  String? tableName;
 
   //
   //
@@ -50,12 +48,10 @@ class DataRefModel extends _DataRefModel {
   factory DataRefModel({
     List<String>? collection,
     String? id,
-    String? tableName,
   }) {
     return DataRefModel.b(
       collection: collection,
       id: id,
-      tableName: tableName,
     );
   }
 
@@ -66,7 +62,6 @@ class DataRefModel extends _DataRefModel {
   DataRefModel.b({
     this.collection,
     this.id,
-    this.tableName,
   }) {}
 
   //
@@ -164,8 +159,7 @@ class DataRefModel extends _DataRefModel {
     try {
       return DataRefModel.empty()
         ..$collection = otherData?[K_COLLECTION]
-        ..$id = otherData?[K_ID]
-        ..$tableName = otherData?[K_TABLE_NAME];
+        ..$id = otherData?[K_ID];
     } catch (e) {
       return null;
     }
@@ -213,7 +207,6 @@ class DataRefModel extends _DataRefModel {
       final withNulls = <String, dynamic>{
         K_COLLECTION: this.$collection,
         K_ID: this.$id,
-        K_TABLE_NAME: this.$tableName,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
@@ -256,9 +249,6 @@ class DataRefModel extends _DataRefModel {
       if (other.id != null) {
         this.id = other.id!;
       }
-      if (other.tableName != null) {
-        this.tableName = other.tableName!;
-      }
     }
   }
 
@@ -295,12 +285,4 @@ class DataRefModel extends _DataRefModel {
   dynamic get $id => this.id?.toString().trim().nullIfEmpty;
   @protected
   set $id(v) => this.id = v?.toString().trim().nullIfEmpty;
-
-  // tableName.
-  String? get tableNameField => this.tableName;
-  set tableNameField(String? v) => this.tableName = v;
-  @protected
-  dynamic get $tableName => this.tableName?.toString().trim().nullIfEmpty;
-  @protected
-  set $tableName(v) => this.tableName = v?.toString().trim().nullIfEmpty;
 }

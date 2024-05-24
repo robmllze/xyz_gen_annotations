@@ -18,7 +18,6 @@ part '_data_ref_model.g.dart';
   shouldInherit: true,
   fields: {
     ('id?', String),
-    ('table_name?', String),
     ('collection?', List<String>),
   },
 )
@@ -33,18 +32,31 @@ extension DataRefModelExtension on DataRefModel {
   /// The document path of the model for databases like Firestore.
   String get docPath => this.doc.join('/');
 
-  /// The document path of the model for databases like Firestore.
+  /// The document path of the model.
   List<String> get doc => [...?this.collection, this.id].nonNulls.toList();
 
-  // The key of the model for databases like DynamoDB.
-  String get key => [this.tableName, this.id].nonNulls.join('/');
-
-  DataRefModel combineWith(DataRefModel other) {
-    return DataRefModel(
-      id: this.id,
-      tableName: [...?other.collection, this.tableName].nonNulls.join('-'),
-      collection: other.doc,
-    );
+  /// Adds two [DataRefModel] objects.
+  DataRefModel operator +(DataRefModel other) {
+    final temp = [...this.doc, ...other.doc];
+    if (temp.isNotEmpty) {
+      final length = temp.length;
+      if (length.isEven) {
+        final collection = temp.sublist(0, length - 1);
+        final id = temp.last;
+        return DataRefModel(
+          id: id,
+          collection: collection,
+        );
+      } else {
+        final collection = temp;
+        return DataRefModel(
+          id: null,
+          collection: collection,
+        );
+      }
+    } else {
+      return DataRefModel();
+    }
   }
 }
 
