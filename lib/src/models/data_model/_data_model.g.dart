@@ -152,7 +152,7 @@ class DataModel extends _DataModel {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      return DataModel.empty()..$data = otherData?[K_DATA];
+      return DataModel.empty()..$data = otherData;
     } catch (e) {
       return null;
     }
