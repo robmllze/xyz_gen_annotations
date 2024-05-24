@@ -14,6 +14,7 @@ import 'model.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
+@Deprecated('User DataModel instead.')
 class GenericModel extends Model {
   //
   //

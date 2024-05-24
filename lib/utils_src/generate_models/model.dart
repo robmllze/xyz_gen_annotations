@@ -10,6 +10,7 @@
 
 import 'package:collection/collection.dart' show DeepCollectionEquality;
 
+import '../../xyz_gen_annotations.dart';
 import '/src/models/data_ref/data_ref_model.dart';
 
 import '/_common.dart';
@@ -108,6 +109,7 @@ abstract class Model {
   //
 
   /// Converts this [Model] to a [GenericModel].
+  @Deprecated('Use toDataModel instead.')
   GenericModel toGenericModel() => GenericModel(data: this.toJson());
 
   //
@@ -121,8 +123,7 @@ abstract class Model {
     bool includeNulls = false,
   }) {
     final a = toJson(defaultValue: defaultValue, includeNulls: includeNulls);
-    final b = a.keys.toList(growable: false)
-      ..sort((k1, k2) => k1.compareTo(k2));
+    final b = a.keys.toList(growable: false)..sort((k1, k2) => k1.compareTo(k2));
     final c = {for (var k in b) k: a[k] as dynamic};
     return c;
   }
