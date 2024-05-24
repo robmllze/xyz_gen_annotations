@@ -20,7 +20,20 @@ part '_data_model.g.dart';
     ('data?', Map<String, dynamic>),
   },
 )
-abstract class _DataModel extends Model {}
+abstract class _DataModel extends ThisModel<DataModel> {
+  //
+  //
+  //
+
+  @override
+  DataRef? get ref {
+    final json = this.model.data?[Model.K_REF];
+    if (json != null) {
+      return DataRefModel.fromJson(json);
+    }
+    return null;
+  }
+}
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
