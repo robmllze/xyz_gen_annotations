@@ -8,13 +8,11 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'dart:convert' show jsonEncode;
-
-import 'package:xyz_utils/shared_src/web_friendly/_all_web_friendly.g.dart'
-    show MapKeysAndValyesOnMapExtension;
-
 import 'package:collection/collection.dart' show DeepCollectionEquality;
 
+import '/src/models/data_ref/data_ref_model.dart';
+
+import '/_common.dart';
 import 'generic_model.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -30,6 +28,12 @@ abstract class Model {
 
   /// The unique identifier of the model.
   String? id;
+
+  /// The key for the unique reference to the model.
+  static const K_REF = 'ref';
+
+  /// The unique reference to the model.
+  DataRefModel? ref;
 
   //
   //
@@ -113,8 +117,7 @@ abstract class Model {
     bool includeNulls = false,
   }) {
     final a = toJson(defaultValue: defaultValue, includeNulls: includeNulls);
-    final b = a.keys.toList(growable: false)
-      ..sort((k1, k2) => k1.compareTo(k2));
+    final b = a.keys.toList(growable: false)..sort((k1, k2) => k1.compareTo(k2));
     final c = {for (var k in b) k: a[k] as dynamic};
     return c;
   }
