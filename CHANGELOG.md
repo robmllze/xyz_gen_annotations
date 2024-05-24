@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.33.0]
+
+- Released @ 2024-05-24 02:26:51.561662Z
+- Changed DataRef to a Model
+
 ## [0.32.1]
 
 - Released @ 2024-05-20 02:33:20.822109Z
