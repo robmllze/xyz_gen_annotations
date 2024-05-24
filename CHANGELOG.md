@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.42.0]
+
+- Released @ 2024-05-24 11:27:58.976296Z
+- Update data model
+
 ## [0.41.0]
 
 - Released @ 2024-05-24 09:42:58.941482Z
