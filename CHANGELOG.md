@@ -1,10 +1,3 @@
-# Changelog
-
-## [0.40.0]
-
-- Released @ 2024-05-24 06:58:37.387566Z
-- Add ref and id to DataModel
-
 ## [0.39.0]
 
 - Released @ 2024-05-24 06:07:23.413447Z

@@ -29,13 +29,22 @@ abstract class _DataModel extends ThisModel<DataModel> {
   String? get id {
     final source = this.model.data?[Model.K_ID];
     final converted = letAs<String>(source);
+
     return converted;
   }
 
   @override
   DataRef? get ref {
     final source = this.model.data?[Model.K_REF];
-    final converted = letAs<Map>(source)?.mapKeys((e) => e.toString());
+    final converted = letMap(source)
+        ?.map(
+          (p0, p1) => MapEntry(
+            p0?.toString().trim().nullIfEmpty,
+            p1,
+          ),
+        )
+        .nonNulls
+        .nullIfEmpty;
     if (converted != null) {
       return DataRefModel.fromJson(converted);
     } else {
