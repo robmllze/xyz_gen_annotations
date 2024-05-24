@@ -4,7 +4,6 @@
 
 - Released @ 2024-05-24 09:40:23.923019Z
 - Add id and ref to DataModel
-- Update data model
 
 ## [0.39.0]
 
