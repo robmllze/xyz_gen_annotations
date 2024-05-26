@@ -77,9 +77,7 @@ class DataModel extends _DataModel {
   static DataModel? fromOrNull(
     Model? other,
   ) {
-    return fromJsonOrNull(
-      letAs<DataModel>(other)?.data ?? other?.toJson(),
-    )!;
+    return fromJsonOrNull(other?.toJson())!;
   }
 
   //
