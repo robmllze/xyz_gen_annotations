@@ -35,16 +35,10 @@ class GenerateScreenBindings {
   final String path;
 
   /// Specify a set of internal parameters that the Screen's configuration class can accept, e.g. `{'userId': 'String?'}`.
-  final Map<String, String> internalParameters;
+  final Set<Record> internalParameters;
 
   /// Specify a set of query parameters that the screen can accept, e.g. `{'userId', 'orderId'}`.
-  final Set<String> queryParameters;
-
-  @Deprecated('pathSegments is not fully supported at this time')
-  final List<String> pathSegments;
-
-  /// Specify a valid navigation control widget for the screen, e.g. `'BottomNavigationBar()'`.
-  final String navigationControlWidget;
+  final Set<Record> queryParameters;
 
   /// Set the title of the screen, e.g. 'Delete Account'.
   final String defaultTitle;
@@ -68,8 +62,6 @@ class GenerateScreenBindings {
     this.isRedirectable = false,
     this.internalParameters = const {},
     this.queryParameters = const {},
-    this.pathSegments = const [],
-    this.navigationControlWidget = 'null',
     this.defaultTitle = '...',
     this.makeup = 'null',
     this.className,
@@ -79,12 +71,46 @@ class GenerateScreenBindings {
           'Cannot set both `isAccessibleOnlyIfLoggedInAndVerified` and `isAccessibleOnlyIfLoggedIn` to `true`.',
         ),
         assert(
-          !isAccessibleOnlyIfLoggedInAndVerified ||
-              !isAccessibleOnlyIfLoggedOut,
+          !isAccessibleOnlyIfLoggedInAndVerified || !isAccessibleOnlyIfLoggedOut,
           'Cannot set both `isAccessibleOnlyIfLoggedInAndVerified` and `isAccessibleOnlyIfLoggedOut` to `true`.',
         ),
         assert(
           !isAccessibleOnlyIfLoggedIn || !isAccessibleOnlyIfLoggedOut,
           'Cannot set both `isAccessibleOnlyIfLoggedIn` and `isAccessibleOnlyIfLoggedOut` to `true`.',
         );
+
+  //
+  //
+  //
+
+  GenerateScreenBindings copyWith({
+    bool? isAccessibleOnlyIfLoggedInAndVerified,
+    bool? isAccessibleOnlyIfLoggedIn,
+    bool? isAccessibleOnlyIfLoggedOut,
+    bool? isRedirectable,
+    String? path,
+    Set<Record>? internalParameters,
+    Set<Record>? queryParameters,
+    List<Record>? pathSegments,
+    String? navigationControlWidget,
+    String? defaultTitle,
+    String? makeup,
+    String? className,
+    String? screenKey,
+  }) {
+    return GenerateScreenBindings(
+      isAccessibleOnlyIfLoggedInAndVerified:
+          isAccessibleOnlyIfLoggedInAndVerified ?? this.isAccessibleOnlyIfLoggedInAndVerified,
+      isAccessibleOnlyIfLoggedIn: isAccessibleOnlyIfLoggedIn ?? this.isAccessibleOnlyIfLoggedIn,
+      isAccessibleOnlyIfLoggedOut: isAccessibleOnlyIfLoggedOut ?? this.isAccessibleOnlyIfLoggedOut,
+      isRedirectable: isRedirectable ?? this.isRedirectable,
+      path: path ?? this.path,
+      internalParameters: internalParameters ?? this.internalParameters,
+      queryParameters: queryParameters ?? this.queryParameters,
+      defaultTitle: defaultTitle ?? this.defaultTitle,
+      makeup: makeup ?? this.makeup,
+      className: className ?? this.className,
+      screenKey: screenKey ?? this.screenKey,
+    );
+  }
 }

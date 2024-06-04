@@ -14,7 +14,7 @@ class GenerateMakeups {
   //
 
   final Set<String> variants;
-  final Map<String, String> properties;
+  final Set<Record> properties;
 
   //
   //
@@ -24,4 +24,18 @@ class GenerateMakeups {
     this.variants = const {},
     this.properties = const {},
   });
+
+  //
+  //
+  //
+
+  GenerateMakeups copyWith({
+    Set<String>? variants,
+    Set<Record>? properties,
+  }) {
+    return GenerateMakeups(
+      variants: variants ?? this.variants,
+      properties: properties ?? this.properties,
+    );
+  }
 }

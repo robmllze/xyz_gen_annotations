@@ -75,8 +75,7 @@ class GenerateModel {
       className: className ?? this.className,
       fields: fields ?? this.fields,
       shouldInherit: shouldInherit ?? this.shouldInherit,
-      inheritanceConstructor:
-          inheritanceConstructor ?? this.inheritanceConstructor,
+      inheritanceConstructor: inheritanceConstructor ?? this.inheritanceConstructor,
       keyStringCase: keyStringCase ?? this.keyStringCase,
     );
   }
