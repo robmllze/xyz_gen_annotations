@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.44.0]
+
+- Released @ 2024-06-04 01:10:01.463611Z
+- Experimental changes
+
 ## [0.43.1]
 
 - Released @ 2024-05-26 05:44:31.664430Z
