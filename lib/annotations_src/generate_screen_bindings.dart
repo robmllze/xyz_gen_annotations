@@ -133,7 +133,8 @@ enum IGenerateScreenBindings {
 
   $class('GenerateScreenBindings'),
   isAccessibleOnlyIfLoggedInAndVerified(
-      'isAccessibleOnlyIfLoggedInAndVerified',),
+    'isAccessibleOnlyIfLoggedInAndVerified',
+  ),
   isAccessibleOnlyIfLoggedIn('isAccessibleOnlyIfLoggedIn'),
   isAccessibleOnlyIfLoggedOut('isAccessibleOnlyIfLoggedOut'),
   isRedirectable('isRedirectable'),
