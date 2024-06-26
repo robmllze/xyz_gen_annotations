@@ -85,7 +85,7 @@ final class GenerateModel {
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 /// Identifier names for the [GenerateModel] annotation.
-enum GenerateModelIds {
+enum IGenerateModel {
   //
   //
   //
@@ -107,5 +107,5 @@ enum GenerateModelIds {
   //
   //
 
-  const GenerateModelIds(this.id);
+  const IGenerateModel(this.id);
 }

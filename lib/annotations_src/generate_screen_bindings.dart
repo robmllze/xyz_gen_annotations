@@ -126,7 +126,7 @@ final class GenerateScreenBindings {
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 /// Identifier names for the [GenerateScreenBindings] annotation.
-enum GenerateScreenBindingsIds {
+enum IGenerateScreenBindings {
   //
   //
   //
@@ -155,5 +155,5 @@ enum GenerateScreenBindingsIds {
   //
   //
 
-  const GenerateScreenBindingsIds(this.id);
+  const IGenerateScreenBindings(this.id);
 }

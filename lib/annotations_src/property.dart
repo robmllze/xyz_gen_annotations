@@ -37,7 +37,7 @@ final class Property {
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 /// Identifier names for the [Property] annotation.
-enum PropertyIds {
+enum IProperty {
   //
   //
   //
@@ -55,5 +55,5 @@ enum PropertyIds {
   //
   //
 
-  const PropertyIds(this.id);
+  const IProperty(this.id);
 }

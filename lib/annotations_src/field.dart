@@ -27,7 +27,7 @@ final class Field {
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 /// Identifier names for the [Field] annotation.
-enum FieldIds {
+enum IField {
   //
   //
   //
@@ -45,5 +45,5 @@ enum FieldIds {
   //
   //
 
-  const FieldIds(this.id);
+  const IField(this.id);
 }
