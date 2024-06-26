@@ -2,7 +2,7 @@
 
 ## [0.48.0]
 
-- Released @ 2024-06-26 07:11:37.597917Z
+- Released @ 2024-06-26 07:15:46.553891Z
 - Update annotations
 - Update
 
