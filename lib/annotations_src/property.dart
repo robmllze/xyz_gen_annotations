@@ -8,11 +8,23 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-class Property {
+/// A generic annotation.
+final class Property {
   //
   //
   //
 
+  /// The identifier [Property] as a [String] constant.
+  static const K_PROPERTY = 'Property';
+
+  /// The identifier [options] as a [String] constant.
+  static const K_OPTIONS = 'options';
+
+  //
+  //
+  //
+
+  /// Generic options for the annotation.
   final dynamic options;
 
   //
