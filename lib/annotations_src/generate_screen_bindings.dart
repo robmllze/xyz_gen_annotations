@@ -75,7 +75,8 @@ final class GenerateScreenBindings {
           'Cannot set both `isAccessibleOnlyIfLoggedInAndVerified` and `isAccessibleOnlyIfLoggedIn` to `true`.',
         ),
         assert(
-          !isAccessibleOnlyIfLoggedInAndVerified || !isAccessibleOnlyIfLoggedOut,
+          !isAccessibleOnlyIfLoggedInAndVerified ||
+              !isAccessibleOnlyIfLoggedOut,
           'Cannot set both `isAccessibleOnlyIfLoggedInAndVerified` and `isAccessibleOnlyIfLoggedOut` to `true`.',
         ),
         assert(
@@ -104,9 +105,12 @@ final class GenerateScreenBindings {
   }) {
     return GenerateScreenBindings(
       isAccessibleOnlyIfLoggedInAndVerified:
-          isAccessibleOnlyIfLoggedInAndVerified ?? this.isAccessibleOnlyIfLoggedInAndVerified,
-      isAccessibleOnlyIfLoggedIn: isAccessibleOnlyIfLoggedIn ?? this.isAccessibleOnlyIfLoggedIn,
-      isAccessibleOnlyIfLoggedOut: isAccessibleOnlyIfLoggedOut ?? this.isAccessibleOnlyIfLoggedOut,
+          isAccessibleOnlyIfLoggedInAndVerified ??
+              this.isAccessibleOnlyIfLoggedInAndVerified,
+      isAccessibleOnlyIfLoggedIn:
+          isAccessibleOnlyIfLoggedIn ?? this.isAccessibleOnlyIfLoggedIn,
+      isAccessibleOnlyIfLoggedOut:
+          isAccessibleOnlyIfLoggedOut ?? this.isAccessibleOnlyIfLoggedOut,
       isRedirectable: isRedirectable ?? this.isRedirectable,
       path: path ?? this.path,
       internalParameters: internalParameters ?? this.internalParameters,
@@ -128,7 +132,8 @@ enum GenerateScreenBindingsIds {
   //
 
   $class('GenerateScreenBindings'),
-  isAccessibleOnlyIfLoggedInAndVerified('isAccessibleOnlyIfLoggedInAndVerified'),
+  isAccessibleOnlyIfLoggedInAndVerified(
+      'isAccessibleOnlyIfLoggedInAndVerified',),
   isAccessibleOnlyIfLoggedIn('isAccessibleOnlyIfLoggedIn'),
   isAccessibleOnlyIfLoggedOut('isAccessibleOnlyIfLoggedOut'),
   isRedirectable('isRedirectable'),
