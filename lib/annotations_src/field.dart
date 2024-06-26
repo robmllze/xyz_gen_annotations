@@ -14,16 +14,6 @@ final class Field {
   //
   //
 
-  /// The identifier [Field] as a [String] constant.
-  static const I_FIELD = 'Field';
-
-  /// The identifier [options] as a [String] constant.
-  static const I_OPTIONS = 'options';
-
-  //
-  //
-  //
-
   /// Generic options for the annotation.
   final dynamic options;
 
@@ -32,4 +22,28 @@ final class Field {
   //
 
   const Field([this.options]);
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+/// Identifier names for the [Field] annotation.
+enum FieldIds {
+  //
+  //
+  //
+
+  $class('Field'),
+  options('options');
+
+  //
+  //
+  //
+
+  final String id;
+
+  //
+  //
+  //
+
+  const FieldIds(this.id);
 }

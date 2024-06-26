@@ -33,3 +33,27 @@ final class Property {
 
   const Property([this.options]);
 }
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+/// Identifier names for the [Property] annotation.
+enum PropertyIds {
+  //
+  //
+  //
+
+  $class('Property'),
+  options('options');
+
+  //
+  //
+  //
+
+  final String id;
+
+  //
+  //
+  //
+
+  const PropertyIds(this.id);
+}

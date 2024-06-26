@@ -13,28 +13,6 @@ final class GenerateModel {
   //
   //
 
-  /// The identifier [GenerateModel] as a [String] constant
-  static const I_GENERATE_MODEL = 'GenerateModel';
-
-  /// The identifier [className] as a [String] constant.
-  static const I_CLASS_NAME = 'className';
-
-  /// The identifier [fields] as a [String] constant.
-  static const I_FIELDS = 'fields';
-
-  /// The identifier [shouldInherit] as a [String] constant.
-  static const I_SHOULD_INHERIT = 'shouldInherit';
-
-  /// The identifier [inheritanceConstructor] as a [String] constant.
-  static const I_INHERITANCE_CONSTRUCTOR = 'inheritanceConstructor';
-
-  /// The identifier [keyStringCase] as a [String] constant.
-  static const I_KEY_STRING_CASE = 'keyStringCase';
-
-  //
-  //
-  //
-
   /// The name of the class to generate.
   final String? className;
 
@@ -97,9 +75,36 @@ final class GenerateModel {
       className: className ?? this.className,
       fields: fields ?? this.fields,
       shouldInherit: shouldInherit ?? this.shouldInherit,
-      inheritanceConstructor:
-          inheritanceConstructor ?? this.inheritanceConstructor,
+      inheritanceConstructor: inheritanceConstructor ?? this.inheritanceConstructor,
       keyStringCase: keyStringCase ?? this.keyStringCase,
     );
   }
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+/// Identifier names for the [GenerateModel] annotation.
+enum GenerateModelIds {
+  //
+  //
+  //
+
+  $class('GenerateModel'),
+  className('className'),
+  fields('fields'),
+  shouldInherit('shouldInherit'),
+  inheritanceConstructor('inheritanceConstructor'),
+  keyStringCase('keyStringCase');
+
+  //
+  //
+  //
+
+  final String id;
+
+  //
+  //
+  //
+
+  const GenerateModelIds(this.id);
 }

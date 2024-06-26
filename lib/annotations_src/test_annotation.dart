@@ -33,3 +33,27 @@ final class TestAnnotation {
 
   const TestAnnotation([this.options]);
 }
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+/// Identifier names for the [Field] annotation.
+enum TestAnnotationIds {
+  //
+  //
+  //
+
+  $class('TestAnnotation'),
+  options('options');
+
+  //
+  //
+  //
+
+  final String id;
+
+  //
+  //
+  //
+
+  const TestAnnotationIds(this.id);
+}

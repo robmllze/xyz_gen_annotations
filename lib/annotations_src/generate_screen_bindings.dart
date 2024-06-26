@@ -13,48 +13,6 @@ final class GenerateScreenBindings {
   //
   //
 
-  /// The identifier [GenerateScreenBindings] as a [String] constant.
-  static const I_GENERATE_SCREEN_BINDINGS = 'GenerateScreenBindings';
-
-  /// The identifier [isAccessibleOnlyIfLoggedInAndVerified] as a [String] constant.
-  static const I_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED =
-      'isAccessibleOnlyIfLoggedInAndVerified';
-
-  /// The identifier [isAccessibleOnlyIfLoggedIn] as a [String] constant.
-  static const I_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN = 'isAccessibleOnlyIfLoggedIn';
-
-  /// The identifier [isAccessibleOnlyIfLoggedOut] as a [String] constant.
-  static const I_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT =
-      'isAccessibleOnlyIfLoggedOut';
-
-  /// The identifier [isRedirectable] as a [String] constant.
-  static const I_IS_REDIRECTABLE = 'isRedirectable';
-
-  /// The identifier [path] as a [String] constant.
-  static const I_PATH = 'path';
-
-  /// The identifier [internalParameters] as a [String] constant.
-  static const I_INTERNAL_PARAMETERS = 'internalParameters';
-
-  /// The identifier [queryParameters] as a [String] constant.
-  static const I_QUERY_PARAMETERS = 'queryParameters';
-
-  /// The identifier [defaultTitle] as a [String] constant.
-  static const I_DEFAULT_TITLE = 'defaultTitle';
-
-  /// The identifier [makeup] as a [String] constant.
-  static const I_MAKEUP = 'makeup';
-
-  /// The identifier [className] as a [String] constant.
-  static const I_CLASS_NAME = 'className';
-
-  /// The identifier [screenKey] as a [String] constant.
-  static const I_SCREEN_KEY = 'screenKey';
-
-  //
-  //
-  //
-
   /// Set to `true` to ensure the screen can only be accessed if the current
   /// user is logged in and verified.
   final bool isAccessibleOnlyIfLoggedInAndVerified;
@@ -117,8 +75,7 @@ final class GenerateScreenBindings {
           'Cannot set both `isAccessibleOnlyIfLoggedInAndVerified` and `isAccessibleOnlyIfLoggedIn` to `true`.',
         ),
         assert(
-          !isAccessibleOnlyIfLoggedInAndVerified ||
-              !isAccessibleOnlyIfLoggedOut,
+          !isAccessibleOnlyIfLoggedInAndVerified || !isAccessibleOnlyIfLoggedOut,
           'Cannot set both `isAccessibleOnlyIfLoggedInAndVerified` and `isAccessibleOnlyIfLoggedOut` to `true`.',
         ),
         assert(
@@ -147,12 +104,9 @@ final class GenerateScreenBindings {
   }) {
     return GenerateScreenBindings(
       isAccessibleOnlyIfLoggedInAndVerified:
-          isAccessibleOnlyIfLoggedInAndVerified ??
-              this.isAccessibleOnlyIfLoggedInAndVerified,
-      isAccessibleOnlyIfLoggedIn:
-          isAccessibleOnlyIfLoggedIn ?? this.isAccessibleOnlyIfLoggedIn,
-      isAccessibleOnlyIfLoggedOut:
-          isAccessibleOnlyIfLoggedOut ?? this.isAccessibleOnlyIfLoggedOut,
+          isAccessibleOnlyIfLoggedInAndVerified ?? this.isAccessibleOnlyIfLoggedInAndVerified,
+      isAccessibleOnlyIfLoggedIn: isAccessibleOnlyIfLoggedIn ?? this.isAccessibleOnlyIfLoggedIn,
+      isAccessibleOnlyIfLoggedOut: isAccessibleOnlyIfLoggedOut ?? this.isAccessibleOnlyIfLoggedOut,
       isRedirectable: isRedirectable ?? this.isRedirectable,
       path: path ?? this.path,
       internalParameters: internalParameters ?? this.internalParameters,
@@ -163,4 +117,38 @@ final class GenerateScreenBindings {
       screenKey: screenKey ?? this.screenKey,
     );
   }
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+/// Identifier names for the [GenerateScreenBindings] annotation.
+enum GenerateScreenBindingsIds {
+  //
+  //
+  //
+
+  $class('GenerateScreenBindings'),
+  isAccessibleOnlyIfLoggedInAndVerified('isAccessibleOnlyIfLoggedInAndVerified'),
+  isAccessibleOnlyIfLoggedIn('isAccessibleOnlyIfLoggedIn'),
+  isAccessibleOnlyIfLoggedOut('isAccessibleOnlyIfLoggedOut'),
+  isRedirectable('isRedirectable'),
+  path('path'),
+  internalParameters('internalParameters'),
+  queryParameters('queryParameters'),
+  defaultTitle('defaultTitle'),
+  makeup('makeup'),
+  className('className'),
+  screenKey('screenKey');
+
+  //
+  //
+  //
+
+  final String id;
+
+  //
+  //
+  //
+
+  const GenerateScreenBindingsIds(this.id);
 }
