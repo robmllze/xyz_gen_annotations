@@ -15,10 +15,10 @@ final class Property {
   //
 
   /// The identifier [Property] as a [String] constant.
-  static const K_PROPERTY = 'Property';
+  static const I_PROPERTY = 'Property';
 
   /// The identifier [options] as a [String] constant.
-  static const K_OPTIONS = 'options';
+  static const I_OPTIONS = 'options';
 
   //
   //

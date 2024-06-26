@@ -15,10 +15,10 @@ final class TestAnnotation {
   //
 
   /// The identifier [TestAnnotation] as a [String] constant.
-  static const K_TEST_ANNOTATION = 'TestAnnotation';
+  static const I_TEST_ANNOTATION = 'TestAnnotation';
 
   /// The identifier [options] as a [String] constant.
-  static const K_OPTIONS = 'options';
+  static const I_OPTIONS = 'options';
 
   //
   //

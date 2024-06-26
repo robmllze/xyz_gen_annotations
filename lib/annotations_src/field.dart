@@ -15,10 +15,10 @@ final class Field {
   //
 
   /// The identifier [Field] as a [String] constant.
-  static const K_FIELD = 'Field';
+  static const I_FIELD = 'Field';
 
   /// The identifier [options] as a [String] constant.
-  static const K_OPTIONS = 'options';
+  static const I_OPTIONS = 'options';
 
   //
   //
