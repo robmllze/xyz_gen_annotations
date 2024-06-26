@@ -17,7 +17,7 @@ final class GenerateModel {
   final String? className;
 
   /// Fields to use when generating the class, e.g. `('first_name', 'String?')`.
-  final Set<Record> fields;
+  final Set<dynamic> fields;
 
   /// Indicates if the generated class should inherit from the annotated class.
   ///

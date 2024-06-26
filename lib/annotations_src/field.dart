@@ -8,32 +8,153 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-/// A generic annotation.
-final class Field {
+/// Represents a field, its name, type, and its nullability. Similar to
+/// [TFieldRecord].
+class Field {
   //
   //
   //
 
-  /// Generic options for the annotation.
-  final dynamic options;
+  /// The name of the field.
+  final String? fieldName;
+
+  /// The type of the field as a String, e.g. 'String'.
+  final String? fieldType;
+
+  /// Whether [fieldType] is nullable or not.
+  final bool? nullable;
 
   //
   //
   //
 
-  const Field([this.options]);
+  const Field({
+    this.fieldName,
+    this.fieldType,
+    this.nullable,
+  });
+
+  /// Derives an instance [DartGenField] from [source].
+  factory Field.from(Field source) {
+    return Field(
+      fieldName: source.fieldName,
+      fieldType: source.fieldType,
+      nullable: source.nullable,
+    );
+  }
+
+  /// Derives an instance [DartGenField] from [record].
+  factory Field.fromRecord(TFieldRecord record) {
+    return Field(
+      fieldName: record.fieldName,
+      fieldType: record.fieldType,
+      nullable: record.nullable,
+    );
+  }
+
+  //
+  //
+  //
+
+  /// Converts this to a [TFieldRecord].
+  TFieldRecord get toRecord => (
+        fieldName: this.fieldName,
+        fieldType: this.fieldType,
+        nullable: this.nullable,
+      );
+
+  //
+  //
+  //
+
+  /// Assumes [unknown] is a [TFieldRecord] or [Field] or similar and
+  /// tries to construct a [Field], otherwise returns `null`.
+  static Field? ofOrNull(dynamic unknown) {
+    try {
+      final fieldName = fieldNameOrNull(unknown)!;
+      final fieldType = fieldTypeOrNull(unknown) ?? 'dynamic';
+      final nullable = nullableOrNull(unknown);
+      return Field(
+        fieldName: fieldName,
+        fieldType: fieldType,
+        nullable: nullable,
+      );
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Assumes [unknown] is a [TFieldRecord] or [Field] or similar and
+  /// tries to get the [fieldName] property, or returns `null`.
+  static String? fieldNameOrNull(dynamic unknown) {
+    try {
+      return (unknown.fieldName as String);
+    } catch (_) {
+      try {
+        return unknown.$1 as String;
+      } catch (_) {
+        return null;
+      }
+    }
+  }
+
+  /// Assumes [unknown] is a [TFieldRecord] or [Field] or similar and
+  /// tries to get the [fieldType] property, or returns `null`.
+  static String? fieldTypeOrNull(dynamic unknown) {
+    try {
+      return unknown.fieldType as String;
+    } catch (_) {
+      try {
+        return unknown.$2 as String;
+      } catch (e) {
+        return null;
+      }
+    }
+  }
+
+  /// Assumes [unknown] is a [TFieldRecord] or [Field] or similar and
+  /// tries to get the [nullable] property, or returns `null`.
+  static bool? nullableOrNull(dynamic unknown) {
+    try {
+      return unknown.nullable as bool?;
+    } catch (_) {
+      try {
+        return unknown.$3 as bool?;
+      } catch (_) {
+        return null;
+      }
+    }
+  }
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-/// Identifier names for the [Field] annotation.
+/// A record representing a field. Similar to [Field].
+typedef TFieldRecord = ({
+  String? fieldName,
+  String? fieldType,
+  bool? nullable,
+});
+
+extension ToClassOnTFieldRecordExtension on TFieldRecord {
+  /// Converts this to a [Field].
+  Field get toClass => Field(
+        fieldName: fieldName,
+        fieldType: fieldType,
+        nullable: nullable,
+      );
+}
+
+/// Identifier names for the [IField] type.
 enum IField {
   //
   //
   //
 
-  $this('Field'),
-  options('options');
+  $this('IField'),
+  fieldName('fieldName'),
+  fieldType('fieldType'),
+  nullable('nullable');
 
   //
   //
