@@ -32,7 +32,7 @@ enum IField {
   //
   //
 
-  $class('Field'),
+  $this('Field'),
   options('options');
 
   //

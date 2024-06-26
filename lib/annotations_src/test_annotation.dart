@@ -42,7 +42,7 @@ enum TestAnnotationIds {
   //
   //
 
-  $class('TestAnnotation'),
+  $this('TestAnnotation'),
   options('options');
 
   //

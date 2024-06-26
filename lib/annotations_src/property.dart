@@ -42,7 +42,7 @@ enum IProperty {
   //
   //
 
-  $class('Property'),
+  $this('Property'),
   options('options');
 
   //
