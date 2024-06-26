@@ -151,7 +151,7 @@ enum IField {
   //
   //
 
-  $this('IField'),
+  $this('Field'),
   fieldName('fieldName'),
   fieldType('fieldType'),
   nullable('nullable');
