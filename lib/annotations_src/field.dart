@@ -18,8 +18,12 @@ class Field {
   /// The name of the field.
   final String? fieldName;
 
-  /// The type of the field as a String, e.g. 'String'.
+  /// The type of the field, e.g. 'String'.
   final String? fieldType;
+
+  /// The type code of the field (the type with any special, characters, such
+  /// as 'String?').
+  String? get fieldTypeCode => this.fieldType;
 
   /// Whether [fieldType] is nullable or not.
   final bool? nullable;
