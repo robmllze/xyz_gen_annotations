@@ -2,7 +2,7 @@
 
 ## [0.48.1]
 
-- Released @ 2024-07-02 07:08:17.198478Z
+- Released @ 2024-07-02 07:09:46.151078Z
 - Update default keyStringCase to 'CAMEL_CASE' in generate_model.dart
 
 ## [0.48.0]
