@@ -56,7 +56,7 @@ final class GenerateModel {
     this.fields = const {('id', 'String?')},
     this.shouldInherit = false,
     this.inheritanceConstructor,
-    this.keyStringCase = 'LOWER_SNAKE_CASE',
+    this.keyStringCase = 'CAMEL_CASE',
   });
 
   //
