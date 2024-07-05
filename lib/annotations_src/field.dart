@@ -38,6 +38,16 @@ class Field {
     this.nullable,
   });
 
+  const Field.string(this.fieldName)
+      : fieldType = 'String',
+        nullable = false;
+
+  const Field.strinOrNull(this.fieldName)
+      : fieldType = 'String',
+        nullable = true;
+
+  // TODO: Add constructors for all supported types.
+
   /// Derives an instance [DartGenField] from [source].
   factory Field.from(Field source) {
     return Field(
