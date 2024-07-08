@@ -2,8 +2,9 @@
 
 ## [0.49.0]
 
-- Released @ 2024-07-08 13:31:30.596154Z
+- Released @ 2024-07-08 13:33:10.065625Z
 - Remove unused code
+- Bugfixes
 
 ## [0.48.3]
 
