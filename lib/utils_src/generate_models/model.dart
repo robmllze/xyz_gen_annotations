@@ -104,14 +104,6 @@ abstract class Model {
   //
   //
 
-  /// Converts this [Model] to a [GenericModel].
-  @Deprecated('Use toDataModel instead.')
-  GenericModel toGenericModel() => GenericModel(data: this.toJson());
-
-  //
-  //
-  //
-
   /// Returns a Json i.e. `Map<String, dynamic>` representation of the Model,
   /// with the keys sorted alphabetically.
   Map<String, dynamic> sortedJson({
@@ -119,8 +111,7 @@ abstract class Model {
     bool includeNulls = false,
   }) {
     final a = toJson(defaultValue: defaultValue, includeNulls: includeNulls);
-    final b = a.keys.toList(growable: false)
-      ..sort((k1, k2) => k1.compareTo(k2));
+    final b = a.keys.toList(growable: false)..sort((k1, k2) => k1.compareTo(k2));
     final c = {for (var k in b) k: a[k] as dynamic};
     return c;
   }
@@ -212,8 +203,12 @@ abstract class Model {
 
   /// Compares the Model with another Model using the `DeepCollectionEquality`
   /// and returns `true` if they are equal.
-  bool equals(Model? other) {
-    return const DeepCollectionEquality().equals(other?.toJson(), toJson());
+  bool equals(dynamic other) {
+    if (other is Model) {
+      return const DeepCollectionEquality().equals(other.toJson(), toJson());
+    } else {
+      return false;
+    }
   }
 
   //

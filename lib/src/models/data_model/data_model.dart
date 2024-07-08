@@ -29,7 +29,6 @@ abstract class _DataModel extends ThisModel<DataModel> {
   String? get id {
     final source = this.model.data?[Model.K_ID];
     final converted = letAs<String>(source);
-
     return converted;
   }
 
