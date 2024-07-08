@@ -42,13 +42,13 @@ class Field {
       : fieldType = 'String',
         nullable = false;
 
-  const Field.strinOrNull(this.fieldName)
+  const Field.stringOrNull(this.fieldName)
       : fieldType = 'String',
         nullable = true;
 
   // TODO: Add constructors for all supported types.
 
-  /// Derives an instance [DartGenField] from [source].
+  /// Derives an instance [Field] from [source].
   factory Field.from(Field source) {
     return Field(
       fieldName: source.fieldName,
@@ -57,7 +57,7 @@ class Field {
     );
   }
 
-  /// Derives an instance [DartGenField] from [record].
+  /// Derives an instance [Field] from [record].
   factory Field.fromRecord(TFieldRecord record) {
     return Field(
       fieldName: record.fieldName,
