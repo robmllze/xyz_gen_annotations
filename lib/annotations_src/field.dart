@@ -38,16 +38,6 @@ class Field {
     this.nullable,
   });
 
-  const Field.string(this.fieldName)
-      : fieldType = 'String',
-        nullable = false;
-
-  const Field.stringOrNull(this.fieldName)
-      : fieldType = 'String',
-        nullable = true;
-
-  // TODO: Add constructors for all supported types.
-
   /// Derives an instance [Field] from [source].
   factory Field.from(Field source) {
     return Field(

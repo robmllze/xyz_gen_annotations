@@ -17,6 +17,6 @@ export 'package:meta/meta.dart';
 
 export 'package:xyz_utils/xyz_utils.dart';
 
-export 'annotations_src/_all_annotations_src.g.dart';
-export 'src/_all_src.g.dart';
-export 'utils_src/_all_utils_src.g.dart';
+export 'annotations_src/_index.g.dart';
+export 'src/_index.g.dart';
+export 'utils_src/_index.g.dart';
