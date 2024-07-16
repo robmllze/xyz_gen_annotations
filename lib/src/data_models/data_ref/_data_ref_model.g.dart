@@ -24,45 +24,39 @@ class DataRefModel extends _DataRefModel {
   //
   //
 
-  static const K_COLLECTION = 'collection';
   static const K_ID = 'id';
+  static const K_COLLECTION = 'collection';
 
   static const CLASS = 'DataRefModel';
 
   @override
   String get $class => CLASS;
 
-  List<String>? collection;
-  String? id;
+  final String? id;
+  final List<String>? collection;
 
   //
   //
   //
 
-  DataRefModel.empty();
+  const DataRefModel({
+    this.id,
+    this.collection,
+  });
 
   //
   //
   //
 
-  factory DataRefModel({
-    List<String>? collection,
+  factory DataRefModel.b({
     String? id,
+    List<String>? collection,
   }) {
-    return DataRefModel.b(
-      collection: collection,
+    return DataRefModel(
       id: id,
+      collection: collection,
     );
   }
-
-  //
-  //
-  //
-
-  DataRefModel.b({
-    this.collection,
-    this.id,
-  }) {}
 
   //
   //
@@ -74,7 +68,7 @@ class DataRefModel extends _DataRefModel {
     try {
       return fromOrNull(other)!;
     } catch (e) {
-      assert(false, e);
+      assert(false, 'DataRefModel.from: $e');
       rethrow;
     }
   }
@@ -95,7 +89,7 @@ class DataRefModel extends _DataRefModel {
     try {
       return ofOrNull(other)!;
     } catch (e) {
-      assert(false, e);
+      assert(false, 'DataRefModel.of: $e');
       rethrow;
     }
   }
@@ -116,7 +110,7 @@ class DataRefModel extends _DataRefModel {
     try {
       return fromJsonStringOrNull(source)!;
     } catch (e) {
-      assert(false, e);
+      assert(false, 'DataRefModel.fromJsonString: $e');
       rethrow;
     }
   }
@@ -129,7 +123,7 @@ class DataRefModel extends _DataRefModel {
         final decoded = jsonDecode(source);
         return DataRefModel.fromJson(decoded);
       } else {
-        return DataRefModel.empty();
+        return DataRefModel.b();
       }
     } catch (_) {
       return null;
@@ -146,7 +140,7 @@ class DataRefModel extends _DataRefModel {
     try {
       return fromJsonOrNull(otherData)!;
     } catch (e) {
-      assert(false, e);
+      assert(false, 'DataRefModel.fromJson: $e');
       rethrow;
     }
   }
@@ -155,9 +149,20 @@ class DataRefModel extends _DataRefModel {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      return DataRefModel.empty()
-        ..$collection = otherData?[K_COLLECTION]
-        ..$id = otherData?[K_ID];
+      final id0 = otherData?[K_ID];
+      final id = id0?.toString().trim().nullIfEmpty;
+      final collection0 = otherData?[K_COLLECTION];
+      final collection = letList(collection0)
+          ?.map(
+            (p0) => p0?.toString().trim().nullIfEmpty,
+          )
+          .nonNulls
+          .nullIfEmpty
+          ?.toList();
+      return DataRefModel(
+        id: id,
+        collection: collection,
+      );
     } catch (e) {
       return null;
     }
@@ -173,7 +178,7 @@ class DataRefModel extends _DataRefModel {
     try {
       return fromUriOrNull(uri)!;
     } catch (e) {
-      assert(false, e);
+      assert(false, 'DataRefModel.fromUri: $e');
       rethrow;
     }
   }
@@ -202,13 +207,22 @@ class DataRefModel extends _DataRefModel {
     bool includeNulls = false,
   }) {
     try {
+      final id0 = this.id?.trim().nullIfEmpty;
+      final collection0 = this
+          .collection
+          ?.map(
+            (p0) => p0?.trim().nullIfEmpty,
+          )
+          .nonNulls
+          .nullIfEmpty
+          ?.toList();
       final withNulls = <String, dynamic>{
-        K_COLLECTION: this.$collection,
-        K_ID: this.$id,
+        K_ID: id0,
+        K_COLLECTION: collection0,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
-      assert(false, e);
+      assert(false, 'DataRefModel.toJson: $e');
       rethrow;
     }
   }
@@ -218,69 +232,20 @@ class DataRefModel extends _DataRefModel {
   //
 
   @override
-  T empty<T extends Model>() {
-    return DataRefModel.b() as T;
+  DataRefModel copyWith(Model? other) {
+    final a = this.toJson();
+    final b = other?.toJson();
+    final c = {...a, ...?b};
+    return DataRefModel.fromJson(c);
   }
 
   //
   //
   //
-
-  @override
-  T copy<T extends Model>() {
-    return (DataRefModel.b()..updateWith(this)) as T;
-  }
-
-  //
-  //
-  //
-
-  @override
-  void updateWithJson(
-    Map<String, dynamic>? otherData,
-  ) {
-    if (otherData != null && otherData.isNotEmpty) {
-      final other = DataRefModel.fromJson(otherData);
-      if (other.collection != null) {
-        this.collection = other.collection!;
-      }
-      if (other.id != null) {
-        this.id = other.id!;
-      }
-    }
-  }
-
-  //
-  //
-  //
-
-  // collection.
-  List<String>? get collectionField => this.collection;
-  set collectionField(List<String>? v) => this.collection = v;
-  @protected
-  dynamic get $collection => this
-      .collection
-      ?.map(
-        (p0) => p0?.toString().trim().nullIfEmpty,
-      )
-      .nonNulls
-      .nullIfEmpty
-      ?.toList();
-  @protected
-  set $collection(v) => this.collection = letList(v)
-      ?.map(
-        (p0) => p0?.toString().trim().nullIfEmpty,
-      )
-      .nonNulls
-      .nullIfEmpty
-      ?.toList()
-      .cast();
 
   // id.
   String? get idField => this.id;
-  set idField(String? v) => this.id = v;
-  @protected
-  dynamic get $id => this.id?.toString().trim().nullIfEmpty;
-  @protected
-  set $id(v) => this.id = v?.toString().trim().nullIfEmpty;
+
+  // collection.
+  List<String>? get collectionField => this.collection;
 }

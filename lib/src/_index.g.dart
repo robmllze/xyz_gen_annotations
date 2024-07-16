@@ -8,8 +8,7 @@
 //.title~
 
 // --- PUBLIC FILES ---
-export 'models/data_ref/data_ref_model.dart';
-export 'models/data_model/data_model.dart';
+export 'data_models/data_ref/data_ref_model.dart';
 
 // --- PRIVATE FILES (EXCLUDED) ---
 // None found.

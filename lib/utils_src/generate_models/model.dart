@@ -62,61 +62,9 @@ abstract class Model {
   //
   //
 
-  /// Returns a new instance of the Model with all fields set to `null`.
-  T empty<T extends Model>() {
-    throw UnimplementedError();
-  }
-
-  //
-  //
-  //
-
-  /// Returns a new copy of the Model with the exact same fields.
-  T copy<T extends Model>() {
-    throw UnimplementedError();
-  }
-
-  //
-  //
-  //
-
   /// Returns a new copy of the Model with the fields updated from the [other]
   /// Model.
-  T copyWith<T extends Model>(
-    Model? other,
-  ) {
-    return this.copy<T>()..updateWith(other);
-  }
-
-  //
-  //
-  //
-
-  /// Returns a new copy of the Model with the fields updated from [otherData].
-  T copyWithJson<T extends Model>(
-    Map<String, dynamic>? otherData,
-  ) {
-    if (otherData != null && otherData.isNotEmpty) {
-      return this.copy<T>()..updateWithJson(otherData);
-    }
-    return this.copy<T>();
-  }
-
-  //
-  //
-  //
-
-  /// Updates the fields of the Model with the fields from the [other] Model.
-  void updateWith(Model? other) => this.updateWithJson(other?.toJson());
-
-  //
-  //
-  //
-
-  /// Updates the fields of the Model with the fields from [otherData].
-  void updateWithJson(Map<String, dynamic>? otherData) {
-    throw UnimplementedError();
-  }
+  Model copyWith(Model? other);
 
   //
   //

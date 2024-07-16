@@ -21,7 +21,9 @@ part '_data_ref_model.g.dart';
     ('collection?', List<String>),
   },
 )
-abstract class _DataRefModel extends Model {}
+abstract class _DataRefModel extends Model {
+  const _DataRefModel();
+}
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -55,7 +57,7 @@ extension DataRefModelExtension on DataRefModel {
         );
       }
     } else {
-      return DataRefModel();
+      return const DataRefModel();
     }
   }
 }
