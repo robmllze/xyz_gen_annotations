@@ -63,7 +63,7 @@ class DataRefModel extends _DataRefModel {
   //
 
   factory DataRefModel.from(
-    Model? other,
+    BaseModel? other,
   ) {
     try {
       return fromOrNull(other)!;
@@ -74,7 +74,7 @@ class DataRefModel extends _DataRefModel {
   }
 
   static DataRefModel? fromOrNull(
-    Model? other,
+    BaseModel? other,
   ) {
     return fromJsonOrNull(other?.toJson())!;
   }
@@ -232,7 +232,7 @@ class DataRefModel extends _DataRefModel {
   //
 
   @override
-  DataRefModel copyWith(Model? other) {
+  DataRefModel copyWith(BaseModel? other) {
     final a = this.toJson();
     final b = other?.toJson();
     final c = {...a, ...?b};

@@ -8,7 +8,6 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-
 import '/xyz_gen_annotations.dart';
 
 part '_field.g.dart';
@@ -19,10 +18,10 @@ part '_field.g.dart';
   shouldInherit: true,
   fields: {
     /// The name of the field.
-    ('fieldName', String),
+    ('fieldName?', String),
 
     /// The type of the field, e.g. 'String'.
-    ('fieldType', String),
+    ('fieldType?', dynamic),
 
     /// Whether [fieldType] is nullable or not.
     ('nullable?', bool),
@@ -31,18 +30,18 @@ part '_field.g.dart';
 
 /// Represents a field, its name, type, and its nullability. Similar to
 /// [TFieldRecord].
-abstract class _Field extends ThisModel<Field> {
+abstract class _Field extends BaseModel {
   const _Field();
 
   /// The type code of the field (the type with any special, characters, such
   /// as 'String?').
-  String? get fieldTypeCode => this.model.fieldType;
+  String? get fieldTypeCode => (this as Field).fieldType;
 
   /// Converts this to a [TFieldRecord].
   TFieldRecord get toRecord => (
-        fieldName: this.model.fieldName,
-        fieldType: this.model.fieldType,
-        nullable: this.model.nullable,
+        fieldName: (this as Field).fieldName,
+        fieldType: (this as Field).fieldType,
+        nullable: (this as Field).nullable,
       );
 }
 

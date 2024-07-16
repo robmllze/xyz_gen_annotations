@@ -15,53 +15,41 @@
 // ignore_for_file: unnecessary_null_comparison
 // ignore_for_file: unnecessary_this
 
-part of 'field.dart';
+part of 'property.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class Field extends _Field {
+class Property extends _Property {
   //
   //
   //
 
-  static const K_FIELD_NAME = 'fieldName';
-  static const K_FIELD_TYPE = 'fieldType';
-  static const K_NULLABLE = 'nullable';
+  static const K_OPTIONS = 'options';
 
-  static const CLASS = 'Field';
+  static const CLASS = 'Property';
 
   @override
   String get $class => CLASS;
 
-  final String? fieldName;
-  final dynamic? fieldType;
-  final bool? nullable;
+  final Map<String, dynamic>? options;
 
   //
   //
   //
 
-  const Field({
-    this.fieldName,
-    required this.fieldType,
-    this.nullable,
+  const Property({
+    this.options,
   });
 
   //
   //
   //
 
-  factory Field.b({
-    String? fieldName,
-    dynamic? fieldType,
-    bool? nullable,
+  factory Property.b({
+    Map<String, dynamic>? options,
   }) {
-    assert(fieldType != null);
-
-    return Field(
-      fieldName: fieldName,
-      fieldType: fieldType,
-      nullable: nullable,
+    return Property(
+      options: options,
     );
   }
 
@@ -69,18 +57,18 @@ class Field extends _Field {
   //
   //
 
-  factory Field.from(
+  factory Property.from(
     BaseModel? other,
   ) {
     try {
       return fromOrNull(other)!;
     } catch (e) {
-      assert(false, 'Field.from: $e');
+      assert(false, 'Property.from: $e');
       rethrow;
     }
   }
 
-  static Field? fromOrNull(
+  static Property? fromOrNull(
     BaseModel? other,
   ) {
     return fromJsonOrNull(other?.toJson())!;
@@ -90,19 +78,19 @@ class Field extends _Field {
   //
   //
 
-  factory Field.of(
-    Field other,
+  factory Property.of(
+    Property other,
   ) {
     try {
       return ofOrNull(other)!;
     } catch (e) {
-      assert(false, 'Field.of: $e');
+      assert(false, 'Property.of: $e');
       rethrow;
     }
   }
 
-  static Field? ofOrNull(
-    Field? other,
+  static Property? ofOrNull(
+    Property? other,
   ) {
     return fromJsonOrNull(other?.toJson());
   }
@@ -111,26 +99,26 @@ class Field extends _Field {
   //
   //
 
-  factory Field.fromJsonString(
+  factory Property.fromJsonString(
     String source,
   ) {
     try {
       return fromJsonStringOrNull(source)!;
     } catch (e) {
-      assert(false, 'Field.fromJsonString: $e');
+      assert(false, 'Property.fromJsonString: $e');
       rethrow;
     }
   }
 
-  static Field? fromJsonStringOrNull(
+  static Property? fromJsonStringOrNull(
     String? source,
   ) {
     try {
       if (source!.isNotEmpty) {
         final decoded = jsonDecode(source);
-        return Field.fromJson(decoded);
+        return Property.fromJson(decoded);
       } else {
-        return Field.b();
+        return Property.b();
       }
     } catch (_) {
       return null;
@@ -141,31 +129,33 @@ class Field extends _Field {
   //
   //
 
-  factory Field.fromJson(
+  factory Property.fromJson(
     Map<String, dynamic>? otherData,
   ) {
     try {
       return fromJsonOrNull(otherData)!;
     } catch (e) {
-      assert(false, 'Field.fromJson: $e');
+      assert(false, 'Property.fromJson: $e');
       rethrow;
     }
   }
 
-  static Field? fromJsonOrNull(
+  static Property? fromJsonOrNull(
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final fieldName0 = otherData?[K_FIELD_NAME];
-      final fieldName = fieldName0?.toString().trim().nullIfEmpty;
-      final fieldType0 = otherData?[K_FIELD_TYPE];
-      final fieldType = fieldType0;
-      final nullable0 = otherData?[K_NULLABLE];
-      final nullable = letBool(nullable0);
-      return Field(
-        fieldName: fieldName,
-        fieldType: fieldType,
-        nullable: nullable,
+      final options0 = otherData?[K_OPTIONS];
+      final options = letMap(options0)
+          ?.map(
+            (p0, p1) => MapEntry(
+              p0?.toString().trim().nullIfEmpty,
+              p1,
+            ),
+          )
+          .nonNulls
+          .nullIfEmpty;
+      return Property(
+        options: options,
       );
     } catch (e) {
       return null;
@@ -176,25 +166,25 @@ class Field extends _Field {
   //
   //
 
-  factory Field.fromUri(
+  factory Property.fromUri(
     Uri? uri,
   ) {
     try {
       return fromUriOrNull(uri)!;
     } catch (e) {
-      assert(false, 'Field.fromUri: $e');
+      assert(false, 'Property.fromUri: $e');
       rethrow;
     }
   }
 
-  static Field? fromUriOrNull(
+  static Property? fromUriOrNull(
     Uri? uri,
   ) {
     try {
       if (uri != null && uri.path == CLASS) {
-        return Field.fromJson(uri.queryParameters);
+        return Property.fromJson(uri.queryParameters);
       } else {
-        return Field.b();
+        return Property.b();
       }
     } catch (_) {
       return null;
@@ -211,17 +201,22 @@ class Field extends _Field {
     bool includeNulls = false,
   }) {
     try {
-      final fieldName0 = this.fieldName?.trim().nullIfEmpty;
-      final fieldType0 = this.fieldType;
-      final nullable0 = this.nullable;
+      final options0 = this
+          .options
+          ?.map(
+            (p0, p1) => MapEntry(
+              p0?.trim().nullIfEmpty,
+              p1,
+            ),
+          )
+          .nonNulls
+          .nullIfEmpty;
       final withNulls = <String, dynamic>{
-        K_FIELD_NAME: fieldName0,
-        K_FIELD_TYPE: fieldType0,
-        K_NULLABLE: nullable0,
+        K_OPTIONS: options0,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
-      assert(false, 'Field.toJson: $e');
+      assert(false, 'Property.toJson: $e');
       rethrow;
     }
   }
@@ -231,52 +226,32 @@ class Field extends _Field {
   //
 
   @override
-  Field copyWith(BaseModel? other) {
+  Property copyWith(BaseModel? other) {
     final a = this.toJson();
     final b = other?.toJson();
     final c = {...a, ...?b};
-    return Field.fromJson(c);
+    return Property.fromJson(c);
   }
 
   //
   //
   //
 
-  // fieldName.
-  String? get fieldNameField => this.fieldName;
-
-  // fieldType.
-  dynamic get fieldTypeField => this.fieldType!;
-
-  // nullable.
-  bool? get nullableField => this.nullable;
+  // options.
+  Map<String, dynamic>? get optionsField => this.options;
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-enum FieldFields {
+enum PropertyFields {
   //
   //
   //
 
-  fieldName(
+  options(
     const Field(
-      fieldName: 'fieldName',
-      fieldType: 'String',
-      nullable: true,
-    ),
-  ),
-  fieldType(
-    const Field(
-      fieldName: 'fieldType',
-      fieldType: 'dynamic',
-      nullable: false,
-    ),
-  ),
-  nullable(
-    const Field(
-      fieldName: 'nullable',
-      fieldType: 'bool',
+      fieldName: 'options',
+      fieldType: 'Map<String, dynamic>',
       nullable: true,
     ),
   );
@@ -291,5 +266,5 @@ enum FieldFields {
   //
   //
 
-  const FieldFields(this.field);
+  const PropertyFields(this.field);
 }

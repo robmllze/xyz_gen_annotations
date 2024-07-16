@@ -10,6 +10,8 @@
 // --- PUBLIC FILES ---
 export 'data_models/data_ref/data_ref_model.dart';
 export 'data_models/annotations/generate_model/generate_model.dart';
+export 'data_models/annotations/property/property.dart';
+export 'data_models/annotations/generate_screen_bindings/generate_screen_bindings.dart';
 export 'data_models/annotations/field/field.dart';
 
 // --- PRIVATE FILES (EXCLUDED) ---

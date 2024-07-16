@@ -10,21 +10,20 @@
 
 import '/xyz_gen_annotations.dart';
 
-part '_generate_model.g.dart';
+part '_property.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 @GenerateModel(
   shouldInherit: true,
   fields: {
-    ('className?', String),
-    ('fields?', Set<dynamic>),
-    ('shouldInherit?', bool),
-    ('inheritanceConstructor?', String),
-    ('keyStringCase?', String),
+    const Field(
+      fieldName: 'options',
+      fieldType: Map<String, dynamic>,
+      nullable: true,
+    ),
   },
 )
-
-abstract class _GenerateModel extends Model {
-  const _GenerateModel();
+abstract class _Property extends BaseModel {
+  const _Property();
 }

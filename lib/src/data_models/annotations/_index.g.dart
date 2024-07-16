@@ -9,6 +9,8 @@
 
 // --- PUBLIC FILES ---
 export 'generate_model/generate_model.dart';
+export 'property/property.dart';
+export 'generate_screen_bindings/generate_screen_bindings.dart';
 export 'field/field.dart';
 
 // --- PRIVATE FILES (EXCLUDED) ---

@@ -9,12 +9,13 @@
 
 // --- PUBLIC FILES ---
 export 'generate_preps/prep_value_on_string_extension.dart';
+export 'generate_models/base_model.dart';
 export 'generate_models/types.dart';
-export 'generate_models/model.dart';
 export 'generate_models/model_with_ref.dart';
+export 'generate_models/model.dart';
 
 // --- PRIVATE FILES (EXCLUDED) ---
 // None found.
 
 // --- GENERATED FILES (EXCLUDED) ---
-// export '_all_utils_src.g.dart';
+// export '_index.g.dart';
