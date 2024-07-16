@@ -14,70 +14,12 @@ import '/xyz_gen_annotations.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-/// Abstract class serving as a template for data models.
 abstract class Model {
   //
   //
   //
 
-  /// The key for the unique identifier of the model.
-  static const K_ID = 'id';
-
-  /// The unique identifier of the model.
-  String? id;
-
-  /// The key for the unique reference to the model.
-  static const K_REF = 'ref';
-
-  /// The unique reference to the model.
-  DataRefModel? ref;
-
-  //
-  //
-  //
-
-  /// Returns a new list from [source] by removing duplicate keys equal to
-  /// [K_ID].
-  static List<T> removeDuplicateIds<T extends Model>(
-    Iterable<T> source,
-  ) {
-    return removeDuplicateProperties(source, K_ID);
-  }
-
-  /// Returns a new list from [source] by removing duplicate keys equal to
-  /// [K_ID].
-  static List<T> removeDuplicateRefs<T extends Model>(
-    Iterable<T> source,
-  ) {
-    return removeDuplicateProperties(source, K_REF);
-  }
-
-  /// Returns a new list from [source] by removing duplicate properties with
-  /// keys equal to [k].
-  static List<T> removeDuplicateProperties<T extends Model>(
-    Iterable<T> source,
-    String k,
-  ) {
-    final temp = List.of(source);
-    final properties = <dynamic>{null};
-    temp.removeWhere((m) {
-      final json = m.toJson();
-      final property = json[k];
-      if (properties.contains(property)) {
-        return true;
-      }
-      properties.add(property);
-      return false;
-    });
-    return temp;
-  }
-
-  //
-  //
-  //
-
-  /// The class name of the model as a string.
-  String $class = '';
+  const Model();
 
   //
   //
@@ -111,8 +53,7 @@ abstract class Model {
     bool includeNulls = false,
   }) {
     final a = toJson(defaultValue: defaultValue, includeNulls: includeNulls);
-    final b = a.keys.toList(growable: false)
-      ..sort((k1, k2) => k1.compareTo(k2));
+    final b = a.keys.toList(growable: false)..sort((k1, k2) => k1.compareTo(k2));
     final c = {for (var k in b) k: a[k] as dynamic};
     return c;
   }
@@ -233,4 +174,18 @@ abstract class Model {
 
   @override
   int get hashCode => sortedJson().toString().hashCode;
+
+  //
+  //
+  //
+
+  /// The class name of the model as a string.
+  String get $class => '';
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+/// A class that extends [Model] and provides a reference to itself.
+abstract class ThisModel<T extends Model> extends Model {
+  late final T model = this as T;
 }

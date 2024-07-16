@@ -20,21 +20,14 @@ part '_data_model.g.dart';
     ('data?', Map<String, dynamic>),
   },
 )
-abstract class _DataModel extends ThisModel<DataModel> {
+abstract class _DataModel extends ThisModelWithRef<DataModel> {
   //
   //
   //
-
-  @override
-  String? get id {
-    final source = this.model.data?[Model.K_ID];
-    final converted = letAs<String>(source);
-    return converted;
-  }
 
   @override
   DataRef? get ref {
-    final source = this.model.data?[Model.K_REF];
+    final source = this.model.data?[ModelWithRef.K_REF];
     final converted = letMap(source)
         ?.map(
           (p0, p1) => MapEntry(

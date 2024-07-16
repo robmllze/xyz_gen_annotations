@@ -10,8 +10,8 @@
 // --- PUBLIC FILES ---
 export 'generate_preps/prep_value_on_string_extension.dart';
 export 'generate_models/types.dart';
-export 'generate_models/this_model.dart';
 export 'generate_models/model.dart';
+export 'generate_models/model_with_ref.dart';
 
 // --- PRIVATE FILES (EXCLUDED) ---
 // None found.
