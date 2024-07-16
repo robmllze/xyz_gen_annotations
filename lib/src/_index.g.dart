@@ -9,12 +9,11 @@
 
 // --- PUBLIC FILES ---
 export 'data_models/data_ref/data_ref_model.dart';
+export 'data_models/annotations/generate_model/generate_model.dart';
+export 'data_models/annotations/field/field.dart';
 
 // --- PRIVATE FILES (EXCLUDED) ---
 // None found.
 
 // --- GENERATED FILES (EXCLUDED) ---
-// export '_all_src.g.dart';
-// export 'models/_all_models.g.dart';
-// export 'models/data_ref/_data_ref_model.g.dart';
-// export 'models/data_model/_data_model.g.dart';
+// export '_index.g.dart';

@@ -8,16 +8,10 @@
 //.title~
 
 // --- PUBLIC FILES ---
-export 'property.dart';
-export 'test_annotation.dart';
-export 'generate_screen_bindings.dart';
-export 'generate_makeups.dart';
-export 'generate_model.dart';
-export 'generate_type_utils.dart';
-export 'field.dart';
+// None found.
 
 // --- PRIVATE FILES (EXCLUDED) ---
 // None found.
 
 // --- GENERATED FILES (EXCLUDED) ---
-// export '_all_annotations_src.g.dart';
+// export '_index.g.dart';

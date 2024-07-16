@@ -15,46 +15,54 @@
 // ignore_for_file: unnecessary_null_comparison
 // ignore_for_file: unnecessary_this
 
-part of 'data_ref_model.dart';
+part of 'field.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class DataRefModel extends _DataRefModel {
+class Field extends _Field {
   //
   //
   //
 
-  static const K_ID = 'id';
-  static const K_COLLECTION = 'collection';
+  static const K_FIELD_NAME = 'fieldName';
+  static const K_FIELD_TYPE = 'fieldType';
+  static const K_NULLABLE = 'nullable';
 
-  static const CLASS = 'DataRefModel';
+  static const CLASS = 'Field';
 
   @override
   String get $class => CLASS;
 
-  final String? id;
-  final List<String>? collection;
+  final String? fieldName;
+  final String? fieldType;
+  final bool? nullable;
 
   //
   //
   //
 
-  const DataRefModel({
-    this.id,
-    this.collection,
+  const Field({
+    required this.fieldName,
+    required this.fieldType,
+    this.nullable,
   });
 
   //
   //
   //
 
-  factory DataRefModel.b({
-    String? id,
-    List<String>? collection,
+  factory Field.b({
+    String? fieldName,
+    String? fieldType,
+    bool? nullable,
   }) {
-    return DataRefModel(
-      id: id,
-      collection: collection,
+    assert(fieldName != null);
+    assert(fieldType != null);
+
+    return Field(
+      fieldName: fieldName,
+      fieldType: fieldType,
+      nullable: nullable,
     );
   }
 
@@ -62,18 +70,18 @@ class DataRefModel extends _DataRefModel {
   //
   //
 
-  factory DataRefModel.from(
+  factory Field.from(
     Model? other,
   ) {
     try {
       return fromOrNull(other)!;
     } catch (e) {
-      assert(false, 'DataRefModel.from: $e');
+      assert(false, 'Field.from: $e');
       rethrow;
     }
   }
 
-  static DataRefModel? fromOrNull(
+  static Field? fromOrNull(
     Model? other,
   ) {
     return fromJsonOrNull(other?.toJson())!;
@@ -83,19 +91,19 @@ class DataRefModel extends _DataRefModel {
   //
   //
 
-  factory DataRefModel.of(
-    DataRefModel other,
+  factory Field.of(
+    Field other,
   ) {
     try {
       return ofOrNull(other)!;
     } catch (e) {
-      assert(false, 'DataRefModel.of: $e');
+      assert(false, 'Field.of: $e');
       rethrow;
     }
   }
 
-  static DataRefModel? ofOrNull(
-    DataRefModel? other,
+  static Field? ofOrNull(
+    Field? other,
   ) {
     return fromJsonOrNull(other?.toJson());
   }
@@ -104,26 +112,26 @@ class DataRefModel extends _DataRefModel {
   //
   //
 
-  factory DataRefModel.fromJsonString(
+  factory Field.fromJsonString(
     String source,
   ) {
     try {
       return fromJsonStringOrNull(source)!;
     } catch (e) {
-      assert(false, 'DataRefModel.fromJsonString: $e');
+      assert(false, 'Field.fromJsonString: $e');
       rethrow;
     }
   }
 
-  static DataRefModel? fromJsonStringOrNull(
+  static Field? fromJsonStringOrNull(
     String? source,
   ) {
     try {
       if (source!.isNotEmpty) {
         final decoded = jsonDecode(source);
-        return DataRefModel.fromJson(decoded);
+        return Field.fromJson(decoded);
       } else {
-        return DataRefModel.b();
+        return Field.b();
       }
     } catch (_) {
       return null;
@@ -134,34 +142,31 @@ class DataRefModel extends _DataRefModel {
   //
   //
 
-  factory DataRefModel.fromJson(
+  factory Field.fromJson(
     Map<String, dynamic>? otherData,
   ) {
     try {
       return fromJsonOrNull(otherData)!;
     } catch (e) {
-      assert(false, 'DataRefModel.fromJson: $e');
+      assert(false, 'Field.fromJson: $e');
       rethrow;
     }
   }
 
-  static DataRefModel? fromJsonOrNull(
+  static Field? fromJsonOrNull(
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final id0 = otherData?[K_ID];
-      final id = id0?.toString().trim().nullIfEmpty;
-      final collection0 = otherData?[K_COLLECTION];
-      final collection = letList(collection0)
-          ?.map(
-            (p0) => p0?.toString().trim().nullIfEmpty,
-          )
-          .nonNulls
-          .nullIfEmpty
-          ?.toList();
-      return DataRefModel(
-        id: id,
-        collection: collection,
+      final fieldName0 = otherData?[K_FIELD_NAME];
+      final fieldName = fieldName0?.toString().trim().nullIfEmpty;
+      final fieldType0 = otherData?[K_FIELD_TYPE];
+      final fieldType = fieldType0?.toString().trim().nullIfEmpty;
+      final nullable0 = otherData?[K_NULLABLE];
+      final nullable = letBool(nullable0);
+      return Field(
+        fieldName: fieldName,
+        fieldType: fieldType,
+        nullable: nullable,
       );
     } catch (e) {
       return null;
@@ -172,25 +177,25 @@ class DataRefModel extends _DataRefModel {
   //
   //
 
-  factory DataRefModel.fromUri(
+  factory Field.fromUri(
     Uri? uri,
   ) {
     try {
       return fromUriOrNull(uri)!;
     } catch (e) {
-      assert(false, 'DataRefModel.fromUri: $e');
+      assert(false, 'Field.fromUri: $e');
       rethrow;
     }
   }
 
-  static DataRefModel? fromUriOrNull(
+  static Field? fromUriOrNull(
     Uri? uri,
   ) {
     try {
       if (uri != null && uri.path == CLASS) {
-        return DataRefModel.fromJson(uri.queryParameters);
+        return Field.fromJson(uri.queryParameters);
       } else {
-        return DataRefModel.b();
+        return Field.b();
       }
     } catch (_) {
       return null;
@@ -207,22 +212,17 @@ class DataRefModel extends _DataRefModel {
     bool includeNulls = false,
   }) {
     try {
-      final id0 = this.id?.trim().nullIfEmpty;
-      final collection0 = this
-          .collection
-          ?.map(
-            (p0) => p0?.trim().nullIfEmpty,
-          )
-          .nonNulls
-          .nullIfEmpty
-          ?.toList();
+      final fieldName0 = this.fieldName?.trim().nullIfEmpty;
+      final fieldType0 = this.fieldType?.trim().nullIfEmpty;
+      final nullable0 = this.nullable;
       final withNulls = <String, dynamic>{
-        K_ID: id0,
-        K_COLLECTION: collection0,
+        K_FIELD_NAME: fieldName0,
+        K_FIELD_TYPE: fieldType0,
+        K_NULLABLE: nullable0,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
-      assert(false, 'DataRefModel.toJson: $e');
+      assert(false, 'Field.toJson: $e');
       rethrow;
     }
   }
@@ -232,42 +232,52 @@ class DataRefModel extends _DataRefModel {
   //
 
   @override
-  DataRefModel copyWith(Model? other) {
+  Field copyWith(Model? other) {
     final a = this.toJson();
     final b = other?.toJson();
     final c = {...a, ...?b};
-    return DataRefModel.fromJson(c);
+    return Field.fromJson(c);
   }
 
   //
   //
   //
 
-  // id.
-  String? get idField => this.id;
+  // fieldName.
+  String get fieldNameField => this.fieldName!;
 
-  // collection.
-  List<String>? get collectionField => this.collection;
+  // fieldType.
+  String get fieldTypeField => this.fieldType!;
+
+  // nullable.
+  bool? get nullableField => this.nullable;
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-enum DataRefModelFields {
+enum FieldFields {
   //
   //
   //
 
-  id(
+  fieldName(
     const Field(
-      fieldName: 'id',
+      fieldName: 'fieldName',
       fieldType: 'String',
-      nullable: true,
+      nullable: false,
     ),
   ),
-  collection(
+  fieldType(
     const Field(
-      fieldName: 'collection',
-      fieldType: 'List<String>',
+      fieldName: 'fieldType',
+      fieldType: 'String',
+      nullable: false,
+    ),
+  ),
+  nullable(
+    const Field(
+      fieldName: 'nullable',
+      fieldType: 'bool',
       nullable: true,
     ),
   );
@@ -282,5 +292,5 @@ enum DataRefModelFields {
   //
   //
 
-  const DataRefModelFields(this.field);
+  const FieldFields(this.field);
 }

@@ -69,5 +69,6 @@ abstract class ModelWithRef extends Model {
 
 /// A class that extends [ModelWithRef] and provides a reference to itself.
 abstract class ThisModelWithRef<T extends ModelWithRef> extends ModelWithRef {
-  late final T model = this as T;
+  T get model => this as T;
+  const ThisModelWithRef();
 }
