@@ -39,11 +39,11 @@ class ModelWithRef extends _ModelWithRef {
     required this.ref,
   });
 
-  //
-  //
-  //
+  const ModelWithRef.c2({
+    this.ref,
+  });
 
-  factory ModelWithRef.b({
+  factory ModelWithRef.c3({
     DataRefModel? ref,
   }) {
     assert(ref != null);
@@ -51,10 +51,6 @@ class ModelWithRef extends _ModelWithRef {
       ref: ref,
     );
   }
-
-  //
-  //
-  //
 
   factory ModelWithRef.from(
     BaseModel? other,
@@ -73,10 +69,6 @@ class ModelWithRef extends _ModelWithRef {
     return fromJsonOrNull(other?.toJson())!;
   }
 
-  //
-  //
-  //
-
   factory ModelWithRef.of(
     ModelWithRef other,
   ) {
@@ -93,10 +85,6 @@ class ModelWithRef extends _ModelWithRef {
   ) {
     return fromJsonOrNull(other?.toJson());
   }
-
-  //
-  //
-  //
 
   factory ModelWithRef.fromJsonString(
     String source,
@@ -117,16 +105,12 @@ class ModelWithRef extends _ModelWithRef {
         final decoded = jsonDecode(source);
         return ModelWithRef.fromJson(decoded);
       } else {
-        return ModelWithRef.b();
+        return const ModelWithRef.c2();
       }
     } catch (_) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory ModelWithRef.fromJson(
     Map<String, dynamic>? otherData,
@@ -156,10 +140,6 @@ class ModelWithRef extends _ModelWithRef {
     }
   }
 
-  //
-  //
-  //
-
   factory ModelWithRef.fromUri(
     Uri? uri,
   ) {
@@ -178,7 +158,7 @@ class ModelWithRef extends _ModelWithRef {
       if (uri != null && uri.path == CLASS_NAME) {
         return ModelWithRef.fromJson(uri.queryParameters);
       } else {
-        return ModelWithRef.b();
+        return const ModelWithRef.c2();
       }
     } catch (_) {
       return null;

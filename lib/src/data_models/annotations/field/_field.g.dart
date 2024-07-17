@@ -43,11 +43,13 @@ class Field extends _Field {
     this.nullable,
   });
 
-  //
-  //
-  //
+  const Field.c2({
+    this.fieldName,
+    this.fieldType,
+    this.nullable,
+  });
 
-  factory Field.b({
+  factory Field.c3({
     String? fieldName,
     dynamic? fieldType,
     bool? nullable,
@@ -60,10 +62,6 @@ class Field extends _Field {
       nullable: nullable,
     );
   }
-
-  //
-  //
-  //
 
   factory Field.from(
     BaseModel? other,
@@ -82,10 +80,6 @@ class Field extends _Field {
     return fromJsonOrNull(other?.toJson())!;
   }
 
-  //
-  //
-  //
-
   factory Field.of(
     Field other,
   ) {
@@ -102,10 +96,6 @@ class Field extends _Field {
   ) {
     return fromJsonOrNull(other?.toJson());
   }
-
-  //
-  //
-  //
 
   factory Field.fromJsonString(
     String source,
@@ -126,16 +116,12 @@ class Field extends _Field {
         final decoded = jsonDecode(source);
         return Field.fromJson(decoded);
       } else {
-        return Field.b();
+        return const Field.c2();
       }
     } catch (_) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory Field.fromJson(
     Map<String, dynamic>? otherData,
@@ -168,10 +154,6 @@ class Field extends _Field {
     }
   }
 
-  //
-  //
-  //
-
   factory Field.fromUri(
     Uri? uri,
   ) {
@@ -190,7 +172,7 @@ class Field extends _Field {
       if (uri != null && uri.path == CLASS_NAME) {
         return Field.fromJson(uri.queryParameters);
       } else {
-        return Field.b();
+        return const Field.c2();
       }
     } catch (_) {
       return null;

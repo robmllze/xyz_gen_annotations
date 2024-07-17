@@ -47,11 +47,15 @@ class GenerateModel extends _GenerateModel {
     this.keyStringCase,
   });
 
-  //
-  //
-  //
+  const GenerateModel.c2({
+    this.className,
+    this.fields,
+    this.shouldInherit,
+    this.inheritanceConstructor,
+    this.keyStringCase,
+  });
 
-  factory GenerateModel.b({
+  factory GenerateModel.c3({
     String? className,
     Set<dynamic>? fields,
     bool? shouldInherit,
@@ -66,10 +70,6 @@ class GenerateModel extends _GenerateModel {
       keyStringCase: keyStringCase,
     );
   }
-
-  //
-  //
-  //
 
   factory GenerateModel.from(
     BaseModel? other,
@@ -88,10 +88,6 @@ class GenerateModel extends _GenerateModel {
     return fromJsonOrNull(other?.toJson())!;
   }
 
-  //
-  //
-  //
-
   factory GenerateModel.of(
     GenerateModel other,
   ) {
@@ -108,10 +104,6 @@ class GenerateModel extends _GenerateModel {
   ) {
     return fromJsonOrNull(other?.toJson());
   }
-
-  //
-  //
-  //
 
   factory GenerateModel.fromJsonString(
     String source,
@@ -132,16 +124,12 @@ class GenerateModel extends _GenerateModel {
         final decoded = jsonDecode(source);
         return GenerateModel.fromJson(decoded);
       } else {
-        return GenerateModel.b();
+        return const GenerateModel.c2();
       }
     } catch (_) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory GenerateModel.fromJson(
     Map<String, dynamic>? otherData,
@@ -188,10 +176,6 @@ class GenerateModel extends _GenerateModel {
     }
   }
 
-  //
-  //
-  //
-
   factory GenerateModel.fromUri(
     Uri? uri,
   ) {
@@ -210,7 +194,7 @@ class GenerateModel extends _GenerateModel {
       if (uri != null && uri.path == CLASS_NAME) {
         return GenerateModel.fromJson(uri.queryParameters);
       } else {
-        return GenerateModel.b();
+        return const GenerateModel.c2();
       }
     } catch (_) {
       return null;

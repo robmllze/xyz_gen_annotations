@@ -41,11 +41,12 @@ class DataRefModel extends _DataRefModel {
     this.collection,
   });
 
-  //
-  //
-  //
+  const DataRefModel.c2({
+    this.id,
+    this.collection,
+  });
 
-  factory DataRefModel.b({
+  factory DataRefModel.c3({
     String? id,
     List<String>? collection,
   }) {
@@ -54,10 +55,6 @@ class DataRefModel extends _DataRefModel {
       collection: collection,
     );
   }
-
-  //
-  //
-  //
 
   factory DataRefModel.from(
     BaseModel? other,
@@ -76,10 +73,6 @@ class DataRefModel extends _DataRefModel {
     return fromJsonOrNull(other?.toJson())!;
   }
 
-  //
-  //
-  //
-
   factory DataRefModel.of(
     DataRefModel other,
   ) {
@@ -96,10 +89,6 @@ class DataRefModel extends _DataRefModel {
   ) {
     return fromJsonOrNull(other?.toJson());
   }
-
-  //
-  //
-  //
 
   factory DataRefModel.fromJsonString(
     String source,
@@ -120,16 +109,12 @@ class DataRefModel extends _DataRefModel {
         final decoded = jsonDecode(source);
         return DataRefModel.fromJson(decoded);
       } else {
-        return DataRefModel.b();
+        return const DataRefModel.c2();
       }
     } catch (_) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory DataRefModel.fromJson(
     Map<String, dynamic>? otherData,
@@ -165,10 +150,6 @@ class DataRefModel extends _DataRefModel {
     }
   }
 
-  //
-  //
-  //
-
   factory DataRefModel.fromUri(
     Uri? uri,
   ) {
@@ -187,7 +168,7 @@ class DataRefModel extends _DataRefModel {
       if (uri != null && uri.path == CLASS_NAME) {
         return DataRefModel.fromJson(uri.queryParameters);
       } else {
-        return DataRefModel.b();
+        return const DataRefModel.c2();
       }
     } catch (_) {
       return null;

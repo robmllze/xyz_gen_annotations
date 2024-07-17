@@ -39,21 +39,17 @@ class Property extends _Property {
     this.options,
   });
 
-  //
-  //
-  //
+  const Property.c2({
+    this.options,
+  });
 
-  factory Property.b({
+  factory Property.c3({
     Map<String, dynamic>? options,
   }) {
     return Property(
       options: options,
     );
   }
-
-  //
-  //
-  //
 
   factory Property.from(
     BaseModel? other,
@@ -72,10 +68,6 @@ class Property extends _Property {
     return fromJsonOrNull(other?.toJson())!;
   }
 
-  //
-  //
-  //
-
   factory Property.of(
     Property other,
   ) {
@@ -92,10 +84,6 @@ class Property extends _Property {
   ) {
     return fromJsonOrNull(other?.toJson());
   }
-
-  //
-  //
-  //
 
   factory Property.fromJsonString(
     String source,
@@ -116,16 +104,12 @@ class Property extends _Property {
         final decoded = jsonDecode(source);
         return Property.fromJson(decoded);
       } else {
-        return Property.b();
+        return const Property.c2();
       }
     } catch (_) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory Property.fromJson(
     Map<String, dynamic>? otherData,
@@ -160,10 +144,6 @@ class Property extends _Property {
     }
   }
 
-  //
-  //
-  //
-
   factory Property.fromUri(
     Uri? uri,
   ) {
@@ -182,7 +162,7 @@ class Property extends _Property {
       if (uri != null && uri.path == CLASS_NAME) {
         return Property.fromJson(uri.queryParameters);
       } else {
-        return Property.b();
+        return const Property.c2();
       }
     } catch (_) {
       return null;

@@ -51,11 +51,17 @@ class Generate extends _Generate {
     this.annotations,
   });
 
-  //
-  //
-  //
+  const Generate.c2({
+    this.fallbackDartSdkPath,
+    this.templateFilePaths,
+    this.rootPaths,
+    this.subPaths,
+    this.pathPatterns,
+    this.outputDirPath,
+    this.annotations,
+  });
 
-  factory Generate.b({
+  factory Generate.c3({
     String? fallbackDartSdkPath,
     Set<String>? templateFilePaths,
     Set<String>? rootPaths,
@@ -75,10 +81,6 @@ class Generate extends _Generate {
     );
   }
 
-  //
-  //
-  //
-
   factory Generate.from(
     BaseModel? other,
   ) {
@@ -96,10 +98,6 @@ class Generate extends _Generate {
     return fromJsonOrNull(other?.toJson())!;
   }
 
-  //
-  //
-  //
-
   factory Generate.of(
     Generate other,
   ) {
@@ -116,10 +114,6 @@ class Generate extends _Generate {
   ) {
     return fromJsonOrNull(other?.toJson());
   }
-
-  //
-  //
-  //
 
   factory Generate.fromJsonString(
     String source,
@@ -140,16 +134,12 @@ class Generate extends _Generate {
         final decoded = jsonDecode(source);
         return Generate.fromJson(decoded);
       } else {
-        return Generate.b();
+        return const Generate.c2();
       }
     } catch (_) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory Generate.fromJson(
     Map<String, dynamic>? otherData,
@@ -230,10 +220,6 @@ class Generate extends _Generate {
     }
   }
 
-  //
-  //
-  //
-
   factory Generate.fromUri(
     Uri? uri,
   ) {
@@ -252,7 +238,7 @@ class Generate extends _Generate {
       if (uri != null && uri.path == CLASS_NAME) {
         return Generate.fromJson(uri.queryParameters);
       } else {
-        return Generate.b();
+        return const Generate.c2();
       }
     } catch (_) {
       return null;

@@ -59,11 +59,21 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
     this.screenKey,
   });
 
-  //
-  //
-  //
+  const GenerateScreenBindings.c2({
+    this.isAccessibleOnlyIfLoggedInAndVerified,
+    this.isAccessibleOnlyIfLoggedIn,
+    this.isAccessibleOnlyIfLoggedOut,
+    this.isRedirectable,
+    this.path,
+    this.internalParameters,
+    this.queryParameters,
+    this.defaultTitle,
+    this.makeup,
+    this.className,
+    this.screenKey,
+  });
 
-  factory GenerateScreenBindings.b({
+  factory GenerateScreenBindings.c3({
     bool? isAccessibleOnlyIfLoggedInAndVerified,
     bool? isAccessibleOnlyIfLoggedIn,
     bool? isAccessibleOnlyIfLoggedOut,
@@ -92,10 +102,6 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
     );
   }
 
-  //
-  //
-  //
-
   factory GenerateScreenBindings.from(
     BaseModel? other,
   ) {
@@ -113,10 +119,6 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
     return fromJsonOrNull(other?.toJson())!;
   }
 
-  //
-  //
-  //
-
   factory GenerateScreenBindings.of(
     GenerateScreenBindings other,
   ) {
@@ -133,10 +135,6 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
   ) {
     return fromJsonOrNull(other?.toJson());
   }
-
-  //
-  //
-  //
 
   factory GenerateScreenBindings.fromJsonString(
     String source,
@@ -157,16 +155,12 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
         final decoded = jsonDecode(source);
         return GenerateScreenBindings.fromJson(decoded);
       } else {
-        return GenerateScreenBindings.b();
+        return const GenerateScreenBindings.c2();
       }
     } catch (_) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory GenerateScreenBindings.fromJson(
     Map<String, dynamic>? otherData,
@@ -247,10 +241,6 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
     }
   }
 
-  //
-  //
-  //
-
   factory GenerateScreenBindings.fromUri(
     Uri? uri,
   ) {
@@ -269,7 +259,7 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
       if (uri != null && uri.path == CLASS_NAME) {
         return GenerateScreenBindings.fromJson(uri.queryParameters);
       } else {
-        return GenerateScreenBindings.b();
+        return const GenerateScreenBindings.c2();
       }
     } catch (_) {
       return null;
