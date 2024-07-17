@@ -15,53 +15,40 @@
 // ignore_for_file: unnecessary_null_comparison
 // ignore_for_file: unnecessary_this
 
-part of 'field.dart';
+part of 'model_with_ref.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class Field extends _Field {
+class ModelWithRef extends _ModelWithRef {
   //
   //
   //
 
-  static const K_FIELD_NAME = 'fieldName';
-  static const K_FIELD_TYPE = 'fieldType';
-  static const K_NULLABLE = 'nullable';
-
-  static const CLASS = 'Field';
+  static const CLASS_NAME = 'ModelWithRef';
 
   @override
-  String get $class => CLASS;
+  String get $className => CLASS_NAME;
 
-  final String? fieldName;
-  final dynamic? fieldType;
-  final bool? nullable;
+  final DataRefModel? ref;
 
   //
   //
   //
 
-  const Field({
-    this.fieldName,
-    required this.fieldType,
-    this.nullable,
+  const ModelWithRef({
+    required this.ref,
   });
 
   //
   //
   //
 
-  factory Field.b({
-    String? fieldName,
-    dynamic? fieldType,
-    bool? nullable,
+  factory ModelWithRef.b({
+    DataRefModel? ref,
   }) {
-    assert(fieldType != null);
-
-    return Field(
-      fieldName: fieldName,
-      fieldType: fieldType,
-      nullable: nullable,
+    assert(ref != null);
+    return ModelWithRef(
+      ref: ref,
     );
   }
 
@@ -69,18 +56,18 @@ class Field extends _Field {
   //
   //
 
-  factory Field.from(
+  factory ModelWithRef.from(
     BaseModel? other,
   ) {
     try {
       return fromOrNull(other)!;
     } catch (e) {
-      assert(false, 'Field.from: $e');
+      assert(false, 'ModelWithRef.from: $e');
       rethrow;
     }
   }
 
-  static Field? fromOrNull(
+  static ModelWithRef? fromOrNull(
     BaseModel? other,
   ) {
     return fromJsonOrNull(other?.toJson())!;
@@ -90,19 +77,19 @@ class Field extends _Field {
   //
   //
 
-  factory Field.of(
-    Field other,
+  factory ModelWithRef.of(
+    ModelWithRef other,
   ) {
     try {
       return ofOrNull(other)!;
     } catch (e) {
-      assert(false, 'Field.of: $e');
+      assert(false, 'ModelWithRef.of: $e');
       rethrow;
     }
   }
 
-  static Field? ofOrNull(
-    Field? other,
+  static ModelWithRef? ofOrNull(
+    ModelWithRef? other,
   ) {
     return fromJsonOrNull(other?.toJson());
   }
@@ -111,26 +98,26 @@ class Field extends _Field {
   //
   //
 
-  factory Field.fromJsonString(
+  factory ModelWithRef.fromJsonString(
     String source,
   ) {
     try {
       return fromJsonStringOrNull(source)!;
     } catch (e) {
-      assert(false, 'Field.fromJsonString: $e');
+      assert(false, 'ModelWithRef.fromJsonString: $e');
       rethrow;
     }
   }
 
-  static Field? fromJsonStringOrNull(
+  static ModelWithRef? fromJsonStringOrNull(
     String? source,
   ) {
     try {
       if (source!.isNotEmpty) {
         final decoded = jsonDecode(source);
-        return Field.fromJson(decoded);
+        return ModelWithRef.fromJson(decoded);
       } else {
-        return Field.b();
+        return ModelWithRef.b();
       }
     } catch (_) {
       return null;
@@ -141,31 +128,28 @@ class Field extends _Field {
   //
   //
 
-  factory Field.fromJson(
+  factory ModelWithRef.fromJson(
     Map<String, dynamic>? otherData,
   ) {
     try {
       return fromJsonOrNull(otherData)!;
     } catch (e) {
-      assert(false, 'Field.fromJson: $e');
+      assert(false, 'ModelWithRef.fromJson: $e');
       rethrow;
     }
   }
 
-  static Field? fromJsonOrNull(
+  static ModelWithRef? fromJsonOrNull(
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final fieldName0 = otherData?[K_FIELD_NAME];
-      final fieldName = fieldName0?.toString().trim().nullIfEmpty;
-      final fieldType0 = otherData?[K_FIELD_TYPE];
-      final fieldType = fieldType0;
-      final nullable0 = otherData?[K_NULLABLE];
-      final nullable = letBool(nullable0);
-      return Field(
-        fieldName: fieldName,
-        fieldType: fieldType,
-        nullable: nullable,
+      final ref0 = otherData?['ref'];
+      final ref = () {
+        final a = letMap<String, dynamic>(ref0);
+        return a != null ? DataRefModel.fromJson(a) : null;
+      }();
+      return ModelWithRef(
+        ref: ref,
       );
     } catch (e) {
       return null;
@@ -176,25 +160,25 @@ class Field extends _Field {
   //
   //
 
-  factory Field.fromUri(
+  factory ModelWithRef.fromUri(
     Uri? uri,
   ) {
     try {
       return fromUriOrNull(uri)!;
     } catch (e) {
-      assert(false, 'Field.fromUri: $e');
+      assert(false, 'ModelWithRef.fromUri: $e');
       rethrow;
     }
   }
 
-  static Field? fromUriOrNull(
+  static ModelWithRef? fromUriOrNull(
     Uri? uri,
   ) {
     try {
-      if (uri != null && uri.path == CLASS) {
-        return Field.fromJson(uri.queryParameters);
+      if (uri != null && uri.path == CLASS_NAME) {
+        return ModelWithRef.fromJson(uri.queryParameters);
       } else {
-        return Field.b();
+        return ModelWithRef.b();
       }
     } catch (_) {
       return null;
@@ -211,17 +195,13 @@ class Field extends _Field {
     bool includeNulls = false,
   }) {
     try {
-      final fieldName0 = this.fieldName?.trim().nullIfEmpty;
-      final fieldType0 = this.fieldType;
-      final nullable0 = this.nullable;
+      final ref0 = this.ref?.toJson();
       final withNulls = <String, dynamic>{
-        K_FIELD_NAME: fieldName0,
-        K_FIELD_TYPE: fieldType0,
-        K_NULLABLE: nullable0,
+        'ref': ref0,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
-      assert(false, 'Field.toJson: $e');
+      assert(false, 'ModelWithRef.toJson: $e');
       rethrow;
     }
   }
@@ -231,53 +211,33 @@ class Field extends _Field {
   //
 
   @override
-  Field copyWith(BaseModel? other) {
+  ModelWithRef copyWith(BaseModel? other) {
     final a = this.toJson();
     final b = other?.toJson();
     final c = {...a, ...?b};
-    return Field.fromJson(c);
+    return ModelWithRef.fromJson(c);
   }
 
   //
   //
   //
 
-  // fieldName.
-  String? get fieldNameField => this.fieldName;
-
-  // fieldType.
-  dynamic get fieldTypeField => this.fieldType!;
-
-  // nullable.
-  bool? get nullableField => this.nullable;
+  // ref.
+  DataRefModel get refField => this.ref!;
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-enum FieldFields {
+enum ModelWithRefFields {
   //
   //
   //
 
-  fieldName(
+  ref(
     const Field(
-      fieldName: 'fieldName',
-      fieldType: 'String',
-      nullable: true,
-    ),
-  ),
-  fieldType(
-    const Field(
-      fieldName: 'fieldType',
-      fieldType: 'dynamic',
+      fieldName: 'ref',
+      fieldType: 'DataRefModel',
       nullable: false,
-    ),
-  ),
-  nullable(
-    const Field(
-      fieldName: 'nullable',
-      fieldType: 'bool',
-      nullable: true,
     ),
   );
 
@@ -291,7 +251,7 @@ enum FieldFields {
   //
   //
 
-  const FieldFields(this.field);
+  const ModelWithRefFields(this.field);
 
   //
   //

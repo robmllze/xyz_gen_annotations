@@ -488,4 +488,10 @@ enum GenerateScreenBindingsFields {
   //
 
   const GenerateScreenBindingsFields(this.field);
+
+  //
+  //
+  //
+
+  String get name => this.field.fieldName!;
 }

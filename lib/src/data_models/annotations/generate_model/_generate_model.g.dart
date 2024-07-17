@@ -345,4 +345,10 @@ enum GenerateModelFields {
   //
 
   const GenerateModelFields(this.field);
+
+  //
+  //
+  //
+
+  String get name => this.field.fieldName!;
 }

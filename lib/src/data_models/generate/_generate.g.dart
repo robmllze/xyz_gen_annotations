@@ -439,4 +439,10 @@ enum GenerateFields {
   //
 
   const GenerateFields(this.field);
+
+  //
+  //
+  //
+
+  String get name => this.field.fieldName!;
 }

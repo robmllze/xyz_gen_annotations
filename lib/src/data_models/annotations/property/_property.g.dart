@@ -267,4 +267,10 @@ enum PropertyFields {
   //
 
   const PropertyFields(this.field);
+
+  //
+  //
+  //
+
+  String get name => this.field.fieldName!;
 }

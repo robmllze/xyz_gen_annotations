@@ -283,4 +283,10 @@ enum DataRefModelFields {
   //
 
   const DataRefModelFields(this.field);
+
+  //
+  //
+  //
+
+  String get name => this.field.fieldName!;
 }
