@@ -103,7 +103,10 @@ class Model extends BaseModel {
 
   @override
   Model copyWith(BaseModel? other) {
-    return Model(other?.toJson() ?? {});
+    return Model({
+      ...this.toJson(),
+      ...?other?.toJson(),
+    });
   }
 
   //
