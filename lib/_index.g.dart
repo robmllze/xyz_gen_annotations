@@ -27,6 +27,7 @@ export 'src/data_models/annotations/generate_model/generate_model.dart';
 export 'src/data_models/annotations/property/property.dart';
 export 'src/data_models/annotations/generate_screen_bindings/generate_screen_bindings.dart';
 export 'src/data_models/annotations/field/field.dart';
+export 'src/data_models/generate/generate.dart';
 
 // --- PRIVATE FILES (EXCLUDED) ---
 // None found.

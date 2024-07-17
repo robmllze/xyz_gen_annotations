@@ -13,6 +13,7 @@ export 'data_models/annotations/generate_model/generate_model.dart';
 export 'data_models/annotations/property/property.dart';
 export 'data_models/annotations/generate_screen_bindings/generate_screen_bindings.dart';
 export 'data_models/annotations/field/field.dart';
+export 'data_models/generate/generate.dart';
 
 // --- PRIVATE FILES (EXCLUDED) ---
 // None found.

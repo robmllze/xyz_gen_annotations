@@ -18,6 +18,7 @@ class Model extends BaseModel {
   //
 
   final Map<String, dynamic> _data;
+  Map<String, dynamic> get data => this._data;
 
   //
   //
@@ -25,10 +26,49 @@ class Model extends BaseModel {
 
   const Model([this._data = const {}]);
 
+  const Model.fromJson([
+    Map<String, dynamic>? otherData,
+  ]) : this._data = otherData ?? const {};
+
+  factory Model.from(BaseModel? other) {
+    return Model(other?.toJson() ?? {});
+  }
+
+  factory Model.of(Model other) {
+    return Model(other.toJson());
+  }
+
+  factory Model.fromJsonString(
+    String source,
+  ) {
+    try {
+      return fromJsonStringOrNull(source)!;
+    } catch (e) {
+      assert(false, 'Model.fromJsonString: $e');
+      rethrow;
+    }
+  }
+
+  static Model? fromJsonStringOrNull(
+    String? source,
+  ) {
+    try {
+      if (source!.isNotEmpty) {
+        final decoded = jsonDecode(source);
+        return Model.fromJson(decoded);
+      } else {
+        return const Model();
+      }
+    } catch (_) {
+      return null;
+    }
+  }
+
   //
   //
   //
 
+  @override
   int get hashCode => this.toString().hashCode;
 
   //
@@ -36,15 +76,7 @@ class Model extends BaseModel {
   //
 
   @override
-  bool operator ==(Object other) {
-    if (other is! Model) {
-      return false;
-    }
-    if (other.runtimeType != runtimeType) {
-      return false;
-    }
-    return equals(other);
-  }
+  bool operator ==(Object other) => this.equals(other);
 
   //
   //

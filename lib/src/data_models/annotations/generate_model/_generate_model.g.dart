@@ -177,7 +177,8 @@ class GenerateModel extends _GenerateModel {
       final shouldInherit0 = otherData?[K_SHOULD_INHERIT];
       final shouldInherit = letBool(shouldInherit0);
       final inheritanceConstructor0 = otherData?[K_INHERITANCE_CONSTRUCTOR];
-      final inheritanceConstructor = inheritanceConstructor0?.toString().trim().nullIfEmpty;
+      final inheritanceConstructor =
+          inheritanceConstructor0?.toString().trim().nullIfEmpty;
       final keyStringCase0 = otherData?[K_KEY_STRING_CASE];
       final keyStringCase = keyStringCase0?.toString().trim().nullIfEmpty;
       return GenerateModel(
@@ -241,7 +242,8 @@ class GenerateModel extends _GenerateModel {
           .nullIfEmpty
           ?.toList();
       final shouldInherit0 = this.shouldInherit;
-      final inheritanceConstructor0 = this.inheritanceConstructor?.trim().nullIfEmpty;
+      final inheritanceConstructor0 =
+          this.inheritanceConstructor?.trim().nullIfEmpty;
       final keyStringCase0 = this.keyStringCase?.trim().nullIfEmpty;
       final withNulls = <String, dynamic>{
         K_CLASS_NAME: className0,

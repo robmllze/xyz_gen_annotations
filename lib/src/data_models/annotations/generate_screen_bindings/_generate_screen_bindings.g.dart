@@ -27,7 +27,8 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
   static const K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED =
       'isAccessibleOnlyIfLoggedInAndVerified';
   static const K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN = 'isAccessibleOnlyIfLoggedIn';
-  static const K_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT = 'isAccessibleOnlyIfLoggedOut';
+  static const K_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT =
+      'isAccessibleOnlyIfLoggedOut';
   static const K_IS_REDIRECTABLE = 'isRedirectable';
   static const K_PATH = 'path';
   static const K_INTERNAL_PARAMETERS = 'internalParameters';
@@ -90,7 +91,8 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
     String? screenKey,
   }) {
     return GenerateScreenBindings(
-      isAccessibleOnlyIfLoggedInAndVerified: isAccessibleOnlyIfLoggedInAndVerified,
+      isAccessibleOnlyIfLoggedInAndVerified:
+          isAccessibleOnlyIfLoggedInAndVerified,
       isAccessibleOnlyIfLoggedIn: isAccessibleOnlyIfLoggedIn,
       isAccessibleOnlyIfLoggedOut: isAccessibleOnlyIfLoggedOut,
       isRedirectable: isRedirectable,
@@ -197,10 +199,13 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
     try {
       final isAccessibleOnlyIfLoggedInAndVerified0 =
           otherData?[K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED];
-      final isAccessibleOnlyIfLoggedInAndVerified = letBool(isAccessibleOnlyIfLoggedInAndVerified0);
-      final isAccessibleOnlyIfLoggedIn0 = otherData?[K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN];
+      final isAccessibleOnlyIfLoggedInAndVerified =
+          letBool(isAccessibleOnlyIfLoggedInAndVerified0);
+      final isAccessibleOnlyIfLoggedIn0 =
+          otherData?[K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN];
       final isAccessibleOnlyIfLoggedIn = letBool(isAccessibleOnlyIfLoggedIn0);
-      final isAccessibleOnlyIfLoggedOut0 = otherData?[K_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT];
+      final isAccessibleOnlyIfLoggedOut0 =
+          otherData?[K_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT];
       final isAccessibleOnlyIfLoggedOut = letBool(isAccessibleOnlyIfLoggedOut0);
       final isRedirectable0 = otherData?[K_IS_REDIRECTABLE];
       final isRedirectable = letBool(isRedirectable0);
@@ -231,7 +236,8 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
       final screenKey0 = otherData?[K_SCREEN_KEY];
       final screenKey = screenKey0?.toString().trim().nullIfEmpty;
       return GenerateScreenBindings(
-        isAccessibleOnlyIfLoggedInAndVerified: isAccessibleOnlyIfLoggedInAndVerified,
+        isAccessibleOnlyIfLoggedInAndVerified:
+            isAccessibleOnlyIfLoggedInAndVerified,
         isAccessibleOnlyIfLoggedIn: isAccessibleOnlyIfLoggedIn,
         isAccessibleOnlyIfLoggedOut: isAccessibleOnlyIfLoggedOut,
         isRedirectable: isRedirectable,
@@ -287,7 +293,8 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
     bool includeNulls = false,
   }) {
     try {
-      final isAccessibleOnlyIfLoggedInAndVerified0 = this.isAccessibleOnlyIfLoggedInAndVerified;
+      final isAccessibleOnlyIfLoggedInAndVerified0 =
+          this.isAccessibleOnlyIfLoggedInAndVerified;
       final isAccessibleOnlyIfLoggedIn0 = this.isAccessibleOnlyIfLoggedIn;
       final isAccessibleOnlyIfLoggedOut0 = this.isAccessibleOnlyIfLoggedOut;
       final isRedirectable0 = this.isRedirectable;
@@ -313,7 +320,8 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
       final className0 = this.className?.trim().nullIfEmpty;
       final screenKey0 = this.screenKey?.trim().nullIfEmpty;
       final withNulls = <String, dynamic>{
-        K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED: isAccessibleOnlyIfLoggedInAndVerified0,
+        K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED:
+            isAccessibleOnlyIfLoggedInAndVerified0,
         K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN: isAccessibleOnlyIfLoggedIn0,
         K_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT: isAccessibleOnlyIfLoggedOut0,
         K_IS_REDIRECTABLE: isRedirectable0,
@@ -356,7 +364,8 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
   bool? get isAccessibleOnlyIfLoggedInField => this.isAccessibleOnlyIfLoggedIn;
 
   // isAccessibleOnlyIfLoggedOut.
-  bool? get isAccessibleOnlyIfLoggedOutField => this.isAccessibleOnlyIfLoggedOut;
+  bool? get isAccessibleOnlyIfLoggedOutField =>
+      this.isAccessibleOnlyIfLoggedOut;
 
   // isRedirectable.
   bool? get isRedirectableField => this.isRedirectable;
