@@ -24,18 +24,10 @@ class Generate extends _Generate {
   //
   //
 
-  static const K_FALLBACK_DART_SDK_PATH = 'fallbackDartSdkPath';
-  static const K_TEMPLATE_FILE_PATHS = 'templateFilePaths';
-  static const K_ROOT_PATHS = 'rootPaths';
-  static const K_SUB_PATHS = 'subPaths';
-  static const K_PATH_PATTERNS = 'pathPatterns';
-  static const K_OUTPUT_DIR_PATH = 'outputDirPath';
-  static const K_ANNOTATIONS = 'annotations';
-
-  static const CLASS = 'Generate';
+  static const CLASS_NAME = 'Generate';
 
   @override
-  String get $class => CLASS;
+  String get $className => CLASS_NAME;
 
   final String? fallbackDartSdkPath;
   final Set<String>? templateFilePaths;
@@ -174,10 +166,12 @@ class Generate extends _Generate {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final fallbackDartSdkPath0 = otherData?[K_FALLBACK_DART_SDK_PATH];
+      final fallbackDartSdkPath0 =
+          otherData?[GenerateFields.fallbackDartSdkPath.name];
       final fallbackDartSdkPath =
           fallbackDartSdkPath0?.toString().trim().nullIfEmpty;
-      final templateFilePaths0 = otherData?[K_TEMPLATE_FILE_PATHS];
+      final templateFilePaths0 =
+          otherData?[GenerateFields.templateFilePaths.name];
       final templateFilePaths = letSet(templateFilePaths0)
           ?.map(
             (p0) => p0?.toString().trim().nullIfEmpty,
@@ -185,7 +179,7 @@ class Generate extends _Generate {
           .nonNulls
           .nullIfEmpty
           ?.toSet();
-      final rootPaths0 = otherData?[K_ROOT_PATHS];
+      final rootPaths0 = otherData?[GenerateFields.rootPaths.name];
       final rootPaths = letSet(rootPaths0)
           ?.map(
             (p0) => p0?.toString().trim().nullIfEmpty,
@@ -193,7 +187,7 @@ class Generate extends _Generate {
           .nonNulls
           .nullIfEmpty
           ?.toSet();
-      final subPaths0 = otherData?[K_SUB_PATHS];
+      final subPaths0 = otherData?[GenerateFields.subPaths.name];
       final subPaths = letSet(subPaths0)
           ?.map(
             (p0) => p0?.toString().trim().nullIfEmpty,
@@ -201,7 +195,7 @@ class Generate extends _Generate {
           .nonNulls
           .nullIfEmpty
           ?.toSet();
-      final pathPatterns0 = otherData?[K_PATH_PATTERNS];
+      final pathPatterns0 = otherData?[GenerateFields.pathPatterns.name];
       final pathPatterns = letSet(pathPatterns0)
           ?.map(
             (p0) => p0?.toString().trim().nullIfEmpty,
@@ -209,9 +203,9 @@ class Generate extends _Generate {
           .nonNulls
           .nullIfEmpty
           ?.toSet();
-      final outputDirPath0 = otherData?[K_OUTPUT_DIR_PATH];
+      final outputDirPath0 = otherData?[GenerateFields.outputDirPath.name];
       final outputDirPath = outputDirPath0?.toString().trim().nullIfEmpty;
-      final annotations0 = otherData?[K_ANNOTATIONS];
+      final annotations0 = otherData?[GenerateFields.annotations.name];
       final annotations = letList(annotations0)
           ?.map(
             (p0) => () {
@@ -255,7 +249,7 @@ class Generate extends _Generate {
     Uri? uri,
   ) {
     try {
-      if (uri != null && uri.path == CLASS) {
+      if (uri != null && uri.path == CLASS_NAME) {
         return Generate.fromJson(uri.queryParameters);
       } else {
         return Generate.b();
@@ -318,13 +312,13 @@ class Generate extends _Generate {
           .nullIfEmpty
           ?.toList();
       final withNulls = <String, dynamic>{
-        K_FALLBACK_DART_SDK_PATH: fallbackDartSdkPath0,
-        K_TEMPLATE_FILE_PATHS: templateFilePaths0,
-        K_ROOT_PATHS: rootPaths0,
-        K_SUB_PATHS: subPaths0,
-        K_PATH_PATTERNS: pathPatterns0,
-        K_OUTPUT_DIR_PATH: outputDirPath0,
-        K_ANNOTATIONS: annotations0,
+        GenerateFields.fallbackDartSdkPath.name: fallbackDartSdkPath0,
+        GenerateFields.templateFilePaths.name: templateFilePaths0,
+        GenerateFields.rootPaths.name: rootPaths0,
+        GenerateFields.subPaths.name: subPaths0,
+        GenerateFields.pathPatterns.name: pathPatterns0,
+        GenerateFields.outputDirPath.name: outputDirPath0,
+        GenerateFields.annotations.name: annotations0,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {

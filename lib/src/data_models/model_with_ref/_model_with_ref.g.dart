@@ -143,7 +143,7 @@ class ModelWithRef extends _ModelWithRef {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final ref0 = otherData?['ref'];
+      final ref0 = otherData?[ModelWithRefFields.ref.name];
       final ref = () {
         final a = letMap<String, dynamic>(ref0);
         return a != null ? DataRefModel.fromJson(a) : null;
@@ -197,7 +197,7 @@ class ModelWithRef extends _ModelWithRef {
     try {
       final ref0 = this.ref?.toJson();
       final withNulls = <String, dynamic>{
-        'ref': ref0,
+        ModelWithRefFields.ref.name: ref0,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {

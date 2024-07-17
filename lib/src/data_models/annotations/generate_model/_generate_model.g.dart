@@ -24,16 +24,10 @@ class GenerateModel extends _GenerateModel {
   //
   //
 
-  static const K_CLASS_NAME = 'className';
-  static const K_FIELDS = 'fields';
-  static const K_SHOULD_INHERIT = 'shouldInherit';
-  static const K_INHERITANCE_CONSTRUCTOR = 'inheritanceConstructor';
-  static const K_KEY_STRING_CASE = 'keyStringCase';
-
-  static const CLASS = 'GenerateModel';
+  static const CLASS_NAME = 'GenerateModel';
 
   @override
-  String get $class => CLASS;
+  String get $className => CLASS_NAME;
 
   final String? className;
   final Set<dynamic>? fields;
@@ -164,9 +158,9 @@ class GenerateModel extends _GenerateModel {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final className0 = otherData?[K_CLASS_NAME];
+      final className0 = otherData?[GenerateModelFields.className.name];
       final className = className0?.toString().trim().nullIfEmpty;
-      final fields0 = otherData?[K_FIELDS];
+      final fields0 = otherData?[GenerateModelFields.fields.name];
       final fields = letSet(fields0)
           ?.map(
             (p0) => p0,
@@ -174,12 +168,13 @@ class GenerateModel extends _GenerateModel {
           .nonNulls
           .nullIfEmpty
           ?.toSet();
-      final shouldInherit0 = otherData?[K_SHOULD_INHERIT];
+      final shouldInherit0 = otherData?[GenerateModelFields.shouldInherit.name];
       final shouldInherit = letBool(shouldInherit0);
-      final inheritanceConstructor0 = otherData?[K_INHERITANCE_CONSTRUCTOR];
+      final inheritanceConstructor0 =
+          otherData?[GenerateModelFields.inheritanceConstructor.name];
       final inheritanceConstructor =
           inheritanceConstructor0?.toString().trim().nullIfEmpty;
-      final keyStringCase0 = otherData?[K_KEY_STRING_CASE];
+      final keyStringCase0 = otherData?[GenerateModelFields.keyStringCase.name];
       final keyStringCase = keyStringCase0?.toString().trim().nullIfEmpty;
       return GenerateModel(
         className: className,
@@ -212,7 +207,7 @@ class GenerateModel extends _GenerateModel {
     Uri? uri,
   ) {
     try {
-      if (uri != null && uri.path == CLASS) {
+      if (uri != null && uri.path == CLASS_NAME) {
         return GenerateModel.fromJson(uri.queryParameters);
       } else {
         return GenerateModel.b();
@@ -246,11 +241,12 @@ class GenerateModel extends _GenerateModel {
           this.inheritanceConstructor?.trim().nullIfEmpty;
       final keyStringCase0 = this.keyStringCase?.trim().nullIfEmpty;
       final withNulls = <String, dynamic>{
-        K_CLASS_NAME: className0,
-        K_FIELDS: fields0,
-        K_SHOULD_INHERIT: shouldInherit0,
-        K_INHERITANCE_CONSTRUCTOR: inheritanceConstructor0,
-        K_KEY_STRING_CASE: keyStringCase0,
+        GenerateModelFields.className.name: className0,
+        GenerateModelFields.fields.name: fields0,
+        GenerateModelFields.shouldInherit.name: shouldInherit0,
+        GenerateModelFields.inheritanceConstructor.name:
+            inheritanceConstructor0,
+        GenerateModelFields.keyStringCase.name: keyStringCase0,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {

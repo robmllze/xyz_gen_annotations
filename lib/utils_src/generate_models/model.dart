@@ -105,5 +105,5 @@ class Model extends BaseModel {
   //
 
   @override
-  String get $class => 'Model';
+  String get $className => 'Model';
 }

@@ -24,24 +24,10 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
   //
   //
 
-  static const K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED =
-      'isAccessibleOnlyIfLoggedInAndVerified';
-  static const K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN = 'isAccessibleOnlyIfLoggedIn';
-  static const K_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT =
-      'isAccessibleOnlyIfLoggedOut';
-  static const K_IS_REDIRECTABLE = 'isRedirectable';
-  static const K_PATH = 'path';
-  static const K_INTERNAL_PARAMETERS = 'internalParameters';
-  static const K_QUERY_PARAMETERS = 'queryParameters';
-  static const K_DEFAULT_TITLE = 'defaultTitle';
-  static const K_MAKEUP = 'makeup';
-  static const K_CLASS_NAME = 'className';
-  static const K_SCREEN_KEY = 'screenKey';
-
-  static const CLASS = 'GenerateScreenBindings';
+  static const CLASS_NAME = 'GenerateScreenBindings';
 
   @override
-  String get $class => CLASS;
+  String get $className => CLASS_NAME;
 
   final bool? isAccessibleOnlyIfLoggedInAndVerified;
   final bool? isAccessibleOnlyIfLoggedIn;
@@ -197,21 +183,24 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final isAccessibleOnlyIfLoggedInAndVerified0 =
-          otherData?[K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED];
+      final isAccessibleOnlyIfLoggedInAndVerified0 = otherData?[
+          GenerateScreenBindingsFields
+              .isAccessibleOnlyIfLoggedInAndVerified.name];
       final isAccessibleOnlyIfLoggedInAndVerified =
           letBool(isAccessibleOnlyIfLoggedInAndVerified0);
-      final isAccessibleOnlyIfLoggedIn0 =
-          otherData?[K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN];
+      final isAccessibleOnlyIfLoggedIn0 = otherData?[
+          GenerateScreenBindingsFields.isAccessibleOnlyIfLoggedIn.name];
       final isAccessibleOnlyIfLoggedIn = letBool(isAccessibleOnlyIfLoggedIn0);
-      final isAccessibleOnlyIfLoggedOut0 =
-          otherData?[K_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT];
+      final isAccessibleOnlyIfLoggedOut0 = otherData?[
+          GenerateScreenBindingsFields.isAccessibleOnlyIfLoggedOut.name];
       final isAccessibleOnlyIfLoggedOut = letBool(isAccessibleOnlyIfLoggedOut0);
-      final isRedirectable0 = otherData?[K_IS_REDIRECTABLE];
+      final isRedirectable0 =
+          otherData?[GenerateScreenBindingsFields.isRedirectable.name];
       final isRedirectable = letBool(isRedirectable0);
-      final path0 = otherData?[K_PATH];
+      final path0 = otherData?[GenerateScreenBindingsFields.path.name];
       final path = path0?.toString().trim().nullIfEmpty;
-      final internalParameters0 = otherData?[K_INTERNAL_PARAMETERS];
+      final internalParameters0 =
+          otherData?[GenerateScreenBindingsFields.internalParameters.name];
       final internalParameters = letSet(internalParameters0)
           ?.map(
             (p0) => p0,
@@ -219,7 +208,8 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
           .nonNulls
           .nullIfEmpty
           ?.toSet();
-      final queryParameters0 = otherData?[K_QUERY_PARAMETERS];
+      final queryParameters0 =
+          otherData?[GenerateScreenBindingsFields.queryParameters.name];
       final queryParameters = letSet(queryParameters0)
           ?.map(
             (p0) => p0,
@@ -227,13 +217,16 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
           .nonNulls
           .nullIfEmpty
           ?.toSet();
-      final defaultTitle0 = otherData?[K_DEFAULT_TITLE];
+      final defaultTitle0 =
+          otherData?[GenerateScreenBindingsFields.defaultTitle.name];
       final defaultTitle = defaultTitle0?.toString().trim().nullIfEmpty;
-      final makeup0 = otherData?[K_MAKEUP];
+      final makeup0 = otherData?[GenerateScreenBindingsFields.makeup.name];
       final makeup = makeup0?.toString().trim().nullIfEmpty;
-      final className0 = otherData?[K_CLASS_NAME];
+      final className0 =
+          otherData?[GenerateScreenBindingsFields.className.name];
       final className = className0?.toString().trim().nullIfEmpty;
-      final screenKey0 = otherData?[K_SCREEN_KEY];
+      final screenKey0 =
+          otherData?[GenerateScreenBindingsFields.screenKey.name];
       final screenKey = screenKey0?.toString().trim().nullIfEmpty;
       return GenerateScreenBindings(
         isAccessibleOnlyIfLoggedInAndVerified:
@@ -273,7 +266,7 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
     Uri? uri,
   ) {
     try {
-      if (uri != null && uri.path == CLASS) {
+      if (uri != null && uri.path == CLASS_NAME) {
         return GenerateScreenBindings.fromJson(uri.queryParameters);
       } else {
         return GenerateScreenBindings.b();
@@ -320,18 +313,21 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
       final className0 = this.className?.trim().nullIfEmpty;
       final screenKey0 = this.screenKey?.trim().nullIfEmpty;
       final withNulls = <String, dynamic>{
-        K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED:
+        GenerateScreenBindingsFields.isAccessibleOnlyIfLoggedInAndVerified.name:
             isAccessibleOnlyIfLoggedInAndVerified0,
-        K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN: isAccessibleOnlyIfLoggedIn0,
-        K_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT: isAccessibleOnlyIfLoggedOut0,
-        K_IS_REDIRECTABLE: isRedirectable0,
-        K_PATH: path0,
-        K_INTERNAL_PARAMETERS: internalParameters0,
-        K_QUERY_PARAMETERS: queryParameters0,
-        K_DEFAULT_TITLE: defaultTitle0,
-        K_MAKEUP: makeup0,
-        K_CLASS_NAME: className0,
-        K_SCREEN_KEY: screenKey0,
+        GenerateScreenBindingsFields.isAccessibleOnlyIfLoggedIn.name:
+            isAccessibleOnlyIfLoggedIn0,
+        GenerateScreenBindingsFields.isAccessibleOnlyIfLoggedOut.name:
+            isAccessibleOnlyIfLoggedOut0,
+        GenerateScreenBindingsFields.isRedirectable.name: isRedirectable0,
+        GenerateScreenBindingsFields.path.name: path0,
+        GenerateScreenBindingsFields.internalParameters.name:
+            internalParameters0,
+        GenerateScreenBindingsFields.queryParameters.name: queryParameters0,
+        GenerateScreenBindingsFields.defaultTitle.name: defaultTitle0,
+        GenerateScreenBindingsFields.makeup.name: makeup0,
+        GenerateScreenBindingsFields.className.name: className0,
+        GenerateScreenBindingsFields.screenKey.name: screenKey0,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {

@@ -24,14 +24,10 @@ class Field extends _Field {
   //
   //
 
-  static const K_FIELD_NAME = 'fieldName';
-  static const K_FIELD_TYPE = 'fieldType';
-  static const K_NULLABLE = 'nullable';
-
-  static const CLASS = 'Field';
+  static const CLASS_NAME = 'Field';
 
   @override
-  String get $class => CLASS;
+  String get $className => CLASS_NAME;
 
   final String? fieldName;
   final dynamic? fieldType;
@@ -156,11 +152,11 @@ class Field extends _Field {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final fieldName0 = otherData?[K_FIELD_NAME];
+      final fieldName0 = otherData?[FieldFields.fieldName.name];
       final fieldName = fieldName0?.toString().trim().nullIfEmpty;
-      final fieldType0 = otherData?[K_FIELD_TYPE];
+      final fieldType0 = otherData?[FieldFields.fieldType.name];
       final fieldType = fieldType0;
-      final nullable0 = otherData?[K_NULLABLE];
+      final nullable0 = otherData?[FieldFields.nullable.name];
       final nullable = letBool(nullable0);
       return Field(
         fieldName: fieldName,
@@ -191,7 +187,7 @@ class Field extends _Field {
     Uri? uri,
   ) {
     try {
-      if (uri != null && uri.path == CLASS) {
+      if (uri != null && uri.path == CLASS_NAME) {
         return Field.fromJson(uri.queryParameters);
       } else {
         return Field.b();
@@ -215,9 +211,9 @@ class Field extends _Field {
       final fieldType0 = this.fieldType;
       final nullable0 = this.nullable;
       final withNulls = <String, dynamic>{
-        K_FIELD_NAME: fieldName0,
-        K_FIELD_TYPE: fieldType0,
-        K_NULLABLE: nullable0,
+        FieldFields.fieldName.name: fieldName0,
+        FieldFields.fieldType.name: fieldType0,
+        FieldFields.nullable.name: nullable0,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {

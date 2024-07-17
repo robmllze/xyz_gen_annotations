@@ -24,13 +24,10 @@ class DataRefModel extends _DataRefModel {
   //
   //
 
-  static const K_ID = 'id';
-  static const K_COLLECTION = 'collection';
-
-  static const CLASS = 'DataRefModel';
+  static const CLASS_NAME = 'DataRefModel';
 
   @override
-  String get $class => CLASS;
+  String get $className => CLASS_NAME;
 
   final String? id;
   final List<String>? collection;
@@ -149,9 +146,9 @@ class DataRefModel extends _DataRefModel {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final id0 = otherData?[K_ID];
+      final id0 = otherData?[DataRefModelFields.id.name];
       final id = id0?.toString().trim().nullIfEmpty;
-      final collection0 = otherData?[K_COLLECTION];
+      final collection0 = otherData?[DataRefModelFields.collection.name];
       final collection = letList(collection0)
           ?.map(
             (p0) => p0?.toString().trim().nullIfEmpty,
@@ -187,7 +184,7 @@ class DataRefModel extends _DataRefModel {
     Uri? uri,
   ) {
     try {
-      if (uri != null && uri.path == CLASS) {
+      if (uri != null && uri.path == CLASS_NAME) {
         return DataRefModel.fromJson(uri.queryParameters);
       } else {
         return DataRefModel.b();
@@ -217,8 +214,8 @@ class DataRefModel extends _DataRefModel {
           .nullIfEmpty
           ?.toList();
       final withNulls = <String, dynamic>{
-        K_ID: id0,
-        K_COLLECTION: collection0,
+        DataRefModelFields.id.name: id0,
+        DataRefModelFields.collection.name: collection0,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {

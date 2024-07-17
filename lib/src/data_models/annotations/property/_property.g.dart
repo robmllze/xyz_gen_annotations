@@ -24,12 +24,10 @@ class Property extends _Property {
   //
   //
 
-  static const K_OPTIONS = 'options';
-
-  static const CLASS = 'Property';
+  static const CLASS_NAME = 'Property';
 
   @override
-  String get $class => CLASS;
+  String get $className => CLASS_NAME;
 
   final Map<String, dynamic>? options;
 
@@ -144,7 +142,7 @@ class Property extends _Property {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final options0 = otherData?[K_OPTIONS];
+      final options0 = otherData?[PropertyFields.options.name];
       final options = letMap(options0)
           ?.map(
             (p0, p1) => MapEntry(
@@ -181,7 +179,7 @@ class Property extends _Property {
     Uri? uri,
   ) {
     try {
-      if (uri != null && uri.path == CLASS) {
+      if (uri != null && uri.path == CLASS_NAME) {
         return Property.fromJson(uri.queryParameters);
       } else {
         return Property.b();
@@ -212,7 +210,7 @@ class Property extends _Property {
           .nonNulls
           .nullIfEmpty;
       final withNulls = <String, dynamic>{
-        K_OPTIONS: options0,
+        PropertyFields.options.name: options0,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {

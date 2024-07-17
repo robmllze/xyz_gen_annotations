@@ -78,7 +78,7 @@ abstract class BaseModel {
   /// the maximum length of a URL.
   Uri toUrl() {
     return Uri(
-      path: this.$class,
+      path: this.$className,
       queryParameters: this.toJson().mapValues((v) => v.toString()),
     );
   }
@@ -102,7 +102,7 @@ abstract class BaseModel {
   //
 
   /// The class name of the model as a string.
-  String get $class;
+  String get $className;
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
