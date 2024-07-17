@@ -68,6 +68,12 @@ class Model extends BaseModel {
   //
   //
 
+  DataRefModel? get ref => DataRefModel.fromJsonOrNull(this._data['ref']);
+
+  //
+  //
+  //
+
   @override
   int get hashCode => this.toString().hashCode;
 
@@ -106,4 +112,39 @@ class Model extends BaseModel {
 
   @override
   String get $className => 'Model';
+
+  //
+  //
+  //
+
+  /// Returns a new list from [source] by removing duplicate keys equal to 'ref'.
+  static List<T> removeDuplicateRefs<T extends Model>(
+    Iterable<T> source,
+  ) {
+    return removeDuplicateProperties(source, 'ref');
+  }
+
+  //
+  //
+  //
+
+  /// Returns a new list from [source] by removing duplicate properties with
+  /// keys equal to [k].
+  static List<T> removeDuplicateProperties<T extends Model>(
+    Iterable<T> source,
+    String k,
+  ) {
+    final temp = List.of(source);
+    final properties = <dynamic>{null};
+    temp.removeWhere((m) {
+      final json = m.toJson();
+      final property = json[k];
+      if (properties.contains(property)) {
+        return true;
+      }
+      properties.add(property);
+      return false;
+    });
+    return temp;
+  }
 }
