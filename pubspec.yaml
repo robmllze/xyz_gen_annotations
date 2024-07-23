@@ -22,12 +22,19 @@ environment:
 ## -----------------------------------------------------------------------------
 
 dependencies:
-  # xyz_utils: ">=0.60.0 <1.0.0"
-  xyz_utils:
-    path: ../../xyz_utils
+  xyz_utils: ">=0.60.0 <1.0.0"
   collection: ^1.18.0
   equatable: ^2.0.5
   meta: ^1.11.0
+
+## -----------------------------------------------------------------------------
+
+dependency_overrides:
+  # TODO: Comment out these lines if you don't have these packages at the
+  # respective paths. They are included for development purposes to allow
+  # simultaneous work on this package and its dependencies.
+  xyz_utils:
+    path: ../../xyz_utils
 
 ## -----------------------------------------------------------------------------
 
