@@ -18,13 +18,13 @@ part '_field.g.dart';
   shouldInherit: true,
   fields: {
     /// The name of the field.
-    (['fieldPath?'], List<String>),
+    ('fieldPath?', List<String>),
 
     /// The type of the field, e.g. 'String'.
-    (['fieldType?'], dynamic),
+    ('fieldType?', dynamic),
 
     /// Whether [fieldType] is nullable or not.
-    (['nullable?'], bool),
+    ('nullable?', bool),
   },
 )
 

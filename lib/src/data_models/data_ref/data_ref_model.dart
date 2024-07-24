@@ -17,8 +17,8 @@ part '_data_ref_model.g.dart';
 @GenerateModel(
   shouldInherit: true,
   fields: {
-    (['id?'], String),
-    (['collection?'], List<String>),
+    ('id?', String),
+    ('collection?', List<String>),
   },
 )
 abstract class _DataRefModel extends Model {

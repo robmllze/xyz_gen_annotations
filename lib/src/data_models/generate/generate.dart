@@ -17,13 +17,13 @@ part '_generate.g.dart';
 @GenerateModel(
   shouldInherit: true,
   fields: {
-    (['fallbackDartSdkPath?'], String),
-    (['templateFilePaths?'], Set<String>),
-    (['rootPaths?'], Set<String>),
-    (['subPaths?'], Set<String>),
-    (['pathPatterns?'], Set<String>),
-    (['outputDirPath?'], String),
-    (['annotations?'], List<Model>),
+    ('fallbackDartSdkPath?', String),
+    ('templateFilePaths?', Set<String>),
+    ('rootPaths?', Set<String>),
+    ('subPaths?', Set<String>),
+    ('pathPatterns?', Set<String>),
+    ('outputDirPath?', String),
+    ('annotations?', List<Model>),
   },
 )
 abstract class _Generate extends Model {
