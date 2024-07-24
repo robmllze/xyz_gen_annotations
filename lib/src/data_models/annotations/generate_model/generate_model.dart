@@ -17,14 +17,13 @@ part '_generate_model.g.dart';
 @GenerateModel(
   shouldInherit: true,
   fields: {
-    ('className?', String),
-    ('fields?', Set<dynamic>),
-    ('shouldInherit?', bool),
-    ('inheritanceConstructor?', String),
-    ('keyStringCase?', String),
+    (['className?'], String),
+    (['fields?'], Set<dynamic>),
+    (['shouldInherit?'], bool),
+    (['inheritanceConstructor?'], String),
+    (['keyStringCase?'], String),
   },
 )
-
 abstract class _GenerateModel extends Model {
   const _GenerateModel();
 }

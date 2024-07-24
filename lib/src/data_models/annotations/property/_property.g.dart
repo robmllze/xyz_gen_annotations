@@ -126,7 +126,7 @@ class Property extends _Property {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final options0 = otherData?[PropertyFields.options.name];
+      final options0 = otherData?['options'];
       final options = letMap(options0)
           ?.map(
             (p0, p1) => MapEntry(
@@ -189,9 +189,11 @@ class Property extends _Property {
           )
           .nonNulls
           .nullIfEmpty;
-      final withNulls = <String, dynamic>{
-        PropertyFields.options.name: options0,
-      }.mapWithDefault(defaultValue);
+      final withNulls = mergeMapsDeep([
+        {
+          'options': options0,
+        },
+      ]).mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
       assert(false, 'Property.toJson: $e');
@@ -221,34 +223,16 @@ class Property extends _Property {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-enum PropertyFields {
+final class PropertyFieldNames {
   //
   //
   //
 
-  options(
-    const Field(
-      fieldName: 'options',
-      fieldType: 'Map<String, dynamic>',
-      nullable: true,
-    ),
-  );
+  static const options = 'options';
 
   //
   //
   //
 
-  final Field field;
-
-  //
-  //
-  //
-
-  const PropertyFields(this.field);
-
-  //
-  //
-  //
-
-  String get name => this.field.fieldName!;
+  const PropertyFieldNames._();
 }

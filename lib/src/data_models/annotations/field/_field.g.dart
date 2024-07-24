@@ -29,7 +29,7 @@ class Field extends _Field {
   @override
   String get $className => CLASS_NAME;
 
-  final String? fieldName;
+  final List<String>? fieldPath;
   final dynamic? fieldType;
   final bool? nullable;
 
@@ -38,26 +38,26 @@ class Field extends _Field {
   //
 
   const Field({
-    this.fieldName,
+    this.fieldPath,
     required this.fieldType,
     this.nullable,
   });
 
   const Field.c2({
-    this.fieldName,
+    this.fieldPath,
     this.fieldType,
     this.nullable,
   });
 
   factory Field.c3({
-    String? fieldName,
+    List<String>? fieldPath,
     dynamic? fieldType,
     bool? nullable,
   }) {
     assert(fieldType != null);
 
     return Field(
-      fieldName: fieldName,
+      fieldPath: fieldPath,
       fieldType: fieldType,
       nullable: nullable,
     );
@@ -138,14 +138,20 @@ class Field extends _Field {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final fieldName0 = otherData?[FieldFields.fieldName.name];
-      final fieldName = fieldName0?.toString().trim().nullIfEmpty;
-      final fieldType0 = otherData?[FieldFields.fieldType.name];
+      final fieldPath0 = otherData?['fieldPath'];
+      final fieldPath = letList(fieldPath0)
+          ?.map(
+            (p0) => p0?.toString().trim().nullIfEmpty,
+          )
+          .nonNulls
+          .nullIfEmpty
+          ?.toList();
+      final fieldType0 = otherData?['fieldType'];
       final fieldType = fieldType0;
-      final nullable0 = otherData?[FieldFields.nullable.name];
+      final nullable0 = otherData?['nullable'];
       final nullable = letBool(nullable0);
       return Field(
-        fieldName: fieldName,
+        fieldPath: fieldPath,
         fieldType: fieldType,
         nullable: nullable,
       );
@@ -189,14 +195,27 @@ class Field extends _Field {
     bool includeNulls = false,
   }) {
     try {
-      final fieldName0 = this.fieldName?.trim().nullIfEmpty;
+      final fieldPath0 = this
+          .fieldPath
+          ?.map(
+            (p0) => p0?.trim().nullIfEmpty,
+          )
+          .nonNulls
+          .nullIfEmpty
+          ?.toList();
       final fieldType0 = this.fieldType;
       final nullable0 = this.nullable;
-      final withNulls = <String, dynamic>{
-        FieldFields.fieldName.name: fieldName0,
-        FieldFields.fieldType.name: fieldType0,
-        FieldFields.nullable.name: nullable0,
-      }.mapWithDefault(defaultValue);
+      final withNulls = mergeMapsDeep([
+        {
+          'fieldPath': fieldPath0,
+        },
+        {
+          'fieldType': fieldType0,
+        },
+        {
+          'nullable': nullable0,
+        },
+      ]).mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
       assert(false, 'Field.toJson: $e');
@@ -220,8 +239,8 @@ class Field extends _Field {
   //
   //
 
-  // fieldName.
-  String? get fieldNameField => this.fieldName;
+  // fieldPath.
+  List<String>? get fieldPathField => this.fieldPath;
 
   // fieldType.
   dynamic get fieldTypeField => this.fieldType!;
@@ -232,48 +251,18 @@ class Field extends _Field {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-enum FieldFields {
+final class FieldFieldNames {
   //
   //
   //
 
-  fieldName(
-    const Field(
-      fieldName: 'fieldName',
-      fieldType: 'String',
-      nullable: true,
-    ),
-  ),
-  fieldType(
-    const Field(
-      fieldName: 'fieldType',
-      fieldType: 'dynamic',
-      nullable: false,
-    ),
-  ),
-  nullable(
-    const Field(
-      fieldName: 'nullable',
-      fieldType: 'bool',
-      nullable: true,
-    ),
-  );
+  static const fieldPath = 'fieldPath';
+  static const fieldType = 'fieldType';
+  static const nullable = 'nullable';
 
   //
   //
   //
 
-  final Field field;
-
-  //
-  //
-  //
-
-  const FieldFields(this.field);
-
-  //
-  //
-  //
-
-  String get name => this.field.fieldName!;
+  const FieldFieldNames._();
 }

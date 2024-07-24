@@ -18,7 +18,7 @@ part '_property.g.dart';
   shouldInherit: true,
   fields: {
     const Field(
-      fieldName: 'options',
+      fieldPath: ['options'],
       fieldType: Map<String, dynamic>,
       nullable: true,
     ),

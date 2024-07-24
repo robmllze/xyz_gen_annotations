@@ -18,13 +18,13 @@ part '_field.g.dart';
   shouldInherit: true,
   fields: {
     /// The name of the field.
-    ('fieldPath?', List<String>),
+    (['fieldPath?'], List<String>),
 
     /// The type of the field, e.g. 'String'.
-    ('fieldType?', dynamic),
+    (['fieldType?'], dynamic),
 
     /// Whether [fieldType] is nullable or not.
-    ('nullable?', bool),
+    (['nullable?'], bool),
   },
 )
 
@@ -39,7 +39,7 @@ abstract class _Field extends BaseModel {
 
   /// Converts this to a [TFieldRecord].
   TFieldRecord get toRecord => (
-        fieldName: (this as Field).fieldName,
+        fieldPath: (this as Field).fieldPath,
         fieldType: (this as Field).fieldType,
         nullable: (this as Field).nullable,
       );
@@ -49,7 +49,7 @@ abstract class _Field extends BaseModel {
 
 /// A record representing a field. Similar to [Field].
 typedef TFieldRecord = ({
-  String? fieldName,
+  List<String>? fieldPath,
   String? fieldType,
   bool? nullable,
 });
@@ -57,7 +57,7 @@ typedef TFieldRecord = ({
 extension ToClassOnTFieldRecordExtension on TFieldRecord {
   /// Converts this to a [Field].
   Field get toClass => Field(
-        fieldName: fieldName,
+        fieldPath: fieldPath,
         fieldType: fieldType,
         nullable: nullable,
       );
@@ -72,11 +72,11 @@ final class FieldUtils {
   /// tries to construct a [Field], otherwise returns `null`.
   static Field? ofOrNull(dynamic unknown) {
     try {
-      final fieldName = fieldNameOrNull(unknown)!;
+      final fieldPath = fieldPathOrNull(unknown)!;
       final fieldType = fieldTypeOrNull(unknown) ?? 'dynamic';
       final nullable = nullableOrNull(unknown);
       return Field(
-        fieldName: fieldName,
+        fieldPath: fieldPath,
         fieldType: fieldType,
         nullable: nullable,
       );
@@ -86,13 +86,13 @@ final class FieldUtils {
   }
 
   /// Assumes [unknown] is a [TFieldRecord] or [Field] or similar and
-  /// tries to get the [fieldName] property, or returns `null`.
-  static String? fieldNameOrNull(dynamic unknown) {
+  /// tries to get the [fieldPath] property, or returns `null`.
+  static List<String>? fieldPathOrNull(dynamic unknown) {
     try {
-      return (unknown.fieldName as String);
+      return (unknown.fieldPath as List<String>);
     } catch (_) {
       try {
-        return unknown.$1 as String;
+        return unknown.$1 as List<String>;
       } catch (_) {
         return null;
       }

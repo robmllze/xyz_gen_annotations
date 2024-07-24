@@ -146,9 +146,9 @@ class GenerateModel extends _GenerateModel {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final className0 = otherData?[GenerateModelFields.className.name];
+      final className0 = otherData?['className'];
       final className = className0?.toString().trim().nullIfEmpty;
-      final fields0 = otherData?[GenerateModelFields.fields.name];
+      final fields0 = otherData?['fields'];
       final fields = letSet(fields0)
           ?.map(
             (p0) => p0,
@@ -156,13 +156,12 @@ class GenerateModel extends _GenerateModel {
           .nonNulls
           .nullIfEmpty
           ?.toSet();
-      final shouldInherit0 = otherData?[GenerateModelFields.shouldInherit.name];
+      final shouldInherit0 = otherData?['shouldInherit'];
       final shouldInherit = letBool(shouldInherit0);
-      final inheritanceConstructor0 =
-          otherData?[GenerateModelFields.inheritanceConstructor.name];
+      final inheritanceConstructor0 = otherData?['inheritanceConstructor'];
       final inheritanceConstructor =
           inheritanceConstructor0?.toString().trim().nullIfEmpty;
-      final keyStringCase0 = otherData?[GenerateModelFields.keyStringCase.name];
+      final keyStringCase0 = otherData?['keyStringCase'];
       final keyStringCase = keyStringCase0?.toString().trim().nullIfEmpty;
       return GenerateModel(
         className: className,
@@ -224,14 +223,23 @@ class GenerateModel extends _GenerateModel {
       final inheritanceConstructor0 =
           this.inheritanceConstructor?.trim().nullIfEmpty;
       final keyStringCase0 = this.keyStringCase?.trim().nullIfEmpty;
-      final withNulls = <String, dynamic>{
-        GenerateModelFields.className.name: className0,
-        GenerateModelFields.fields.name: fields0,
-        GenerateModelFields.shouldInherit.name: shouldInherit0,
-        GenerateModelFields.inheritanceConstructor.name:
-            inheritanceConstructor0,
-        GenerateModelFields.keyStringCase.name: keyStringCase0,
-      }.mapWithDefault(defaultValue);
+      final withNulls = mergeMapsDeep([
+        {
+          'className': className0,
+        },
+        {
+          'fields': fields0,
+        },
+        {
+          'shouldInherit': shouldInherit0,
+        },
+        {
+          'inheritanceConstructor': inheritanceConstructor0,
+        },
+        {
+          'keyStringCase': keyStringCase0,
+        },
+      ]).mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
       assert(false, 'GenerateModel.toJson: $e');
@@ -273,62 +281,20 @@ class GenerateModel extends _GenerateModel {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-enum GenerateModelFields {
+final class GenerateModelFieldNames {
   //
   //
   //
 
-  className(
-    const Field(
-      fieldName: 'className',
-      fieldType: 'String',
-      nullable: true,
-    ),
-  ),
-  fields(
-    const Field(
-      fieldName: 'fields',
-      fieldType: 'Set<dynamic>',
-      nullable: true,
-    ),
-  ),
-  shouldInherit(
-    const Field(
-      fieldName: 'shouldInherit',
-      fieldType: 'bool',
-      nullable: true,
-    ),
-  ),
-  inheritanceConstructor(
-    const Field(
-      fieldName: 'inheritanceConstructor',
-      fieldType: 'String',
-      nullable: true,
-    ),
-  ),
-  keyStringCase(
-    const Field(
-      fieldName: 'keyStringCase',
-      fieldType: 'String',
-      nullable: true,
-    ),
-  );
+  static const className = 'className';
+  static const fields = 'fields';
+  static const shouldInherit = 'shouldInherit';
+  static const inheritanceConstructor = 'inheritanceConstructor';
+  static const keyStringCase = 'keyStringCase';
 
   //
   //
   //
 
-  final Field field;
-
-  //
-  //
-  //
-
-  const GenerateModelFields(this.field);
-
-  //
-  //
-  //
-
-  String get name => this.field.fieldName!;
+  const GenerateModelFieldNames._();
 }

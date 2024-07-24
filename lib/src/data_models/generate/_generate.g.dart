@@ -156,12 +156,10 @@ class Generate extends _Generate {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final fallbackDartSdkPath0 =
-          otherData?[GenerateFields.fallbackDartSdkPath.name];
+      final fallbackDartSdkPath0 = otherData?['fallbackDartSdkPath'];
       final fallbackDartSdkPath =
           fallbackDartSdkPath0?.toString().trim().nullIfEmpty;
-      final templateFilePaths0 =
-          otherData?[GenerateFields.templateFilePaths.name];
+      final templateFilePaths0 = otherData?['templateFilePaths'];
       final templateFilePaths = letSet(templateFilePaths0)
           ?.map(
             (p0) => p0?.toString().trim().nullIfEmpty,
@@ -169,7 +167,7 @@ class Generate extends _Generate {
           .nonNulls
           .nullIfEmpty
           ?.toSet();
-      final rootPaths0 = otherData?[GenerateFields.rootPaths.name];
+      final rootPaths0 = otherData?['rootPaths'];
       final rootPaths = letSet(rootPaths0)
           ?.map(
             (p0) => p0?.toString().trim().nullIfEmpty,
@@ -177,7 +175,7 @@ class Generate extends _Generate {
           .nonNulls
           .nullIfEmpty
           ?.toSet();
-      final subPaths0 = otherData?[GenerateFields.subPaths.name];
+      final subPaths0 = otherData?['subPaths'];
       final subPaths = letSet(subPaths0)
           ?.map(
             (p0) => p0?.toString().trim().nullIfEmpty,
@@ -185,7 +183,7 @@ class Generate extends _Generate {
           .nonNulls
           .nullIfEmpty
           ?.toSet();
-      final pathPatterns0 = otherData?[GenerateFields.pathPatterns.name];
+      final pathPatterns0 = otherData?['pathPatterns'];
       final pathPatterns = letSet(pathPatterns0)
           ?.map(
             (p0) => p0?.toString().trim().nullIfEmpty,
@@ -193,9 +191,9 @@ class Generate extends _Generate {
           .nonNulls
           .nullIfEmpty
           ?.toSet();
-      final outputDirPath0 = otherData?[GenerateFields.outputDirPath.name];
+      final outputDirPath0 = otherData?['outputDirPath'];
       final outputDirPath = outputDirPath0?.toString().trim().nullIfEmpty;
-      final annotations0 = otherData?[GenerateFields.annotations.name];
+      final annotations0 = otherData?['annotations'];
       final annotations = letList(annotations0)
           ?.map(
             (p0) => () {
@@ -297,15 +295,29 @@ class Generate extends _Generate {
           .nonNulls
           .nullIfEmpty
           ?.toList();
-      final withNulls = <String, dynamic>{
-        GenerateFields.fallbackDartSdkPath.name: fallbackDartSdkPath0,
-        GenerateFields.templateFilePaths.name: templateFilePaths0,
-        GenerateFields.rootPaths.name: rootPaths0,
-        GenerateFields.subPaths.name: subPaths0,
-        GenerateFields.pathPatterns.name: pathPatterns0,
-        GenerateFields.outputDirPath.name: outputDirPath0,
-        GenerateFields.annotations.name: annotations0,
-      }.mapWithDefault(defaultValue);
+      final withNulls = mergeMapsDeep([
+        {
+          'fallbackDartSdkPath': fallbackDartSdkPath0,
+        },
+        {
+          'templateFilePaths': templateFilePaths0,
+        },
+        {
+          'rootPaths': rootPaths0,
+        },
+        {
+          'subPaths': subPaths0,
+        },
+        {
+          'pathPatterns': pathPatterns0,
+        },
+        {
+          'outputDirPath': outputDirPath0,
+        },
+        {
+          'annotations': annotations0,
+        },
+      ]).mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
       assert(false, 'Generate.toJson: $e');
@@ -353,76 +365,22 @@ class Generate extends _Generate {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-enum GenerateFields {
+final class GenerateFieldNames {
   //
   //
   //
 
-  fallbackDartSdkPath(
-    const Field(
-      fieldName: 'fallbackDartSdkPath',
-      fieldType: 'String',
-      nullable: true,
-    ),
-  ),
-  templateFilePaths(
-    const Field(
-      fieldName: 'templateFilePaths',
-      fieldType: 'Set<String>',
-      nullable: true,
-    ),
-  ),
-  rootPaths(
-    const Field(
-      fieldName: 'rootPaths',
-      fieldType: 'Set<String>',
-      nullable: true,
-    ),
-  ),
-  subPaths(
-    const Field(
-      fieldName: 'subPaths',
-      fieldType: 'Set<String>',
-      nullable: true,
-    ),
-  ),
-  pathPatterns(
-    const Field(
-      fieldName: 'pathPatterns',
-      fieldType: 'Set<String>',
-      nullable: true,
-    ),
-  ),
-  outputDirPath(
-    const Field(
-      fieldName: 'outputDirPath',
-      fieldType: 'String',
-      nullable: true,
-    ),
-  ),
-  annotations(
-    const Field(
-      fieldName: 'annotations',
-      fieldType: 'List<Model>',
-      nullable: true,
-    ),
-  );
+  static const fallbackDartSdkPath = 'fallbackDartSdkPath';
+  static const templateFilePaths = 'templateFilePaths';
+  static const rootPaths = 'rootPaths';
+  static const subPaths = 'subPaths';
+  static const pathPatterns = 'pathPatterns';
+  static const outputDirPath = 'outputDirPath';
+  static const annotations = 'annotations';
 
   //
   //
   //
 
-  final Field field;
-
-  //
-  //
-  //
-
-  const GenerateFields(this.field);
-
-  //
-  //
-  //
-
-  String get name => this.field.fieldName!;
+  const GenerateFieldNames._();
 }

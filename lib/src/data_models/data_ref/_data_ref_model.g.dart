@@ -131,9 +131,9 @@ class DataRefModel extends _DataRefModel {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final id0 = otherData?[DataRefModelFields.id.name];
+      final id0 = otherData?['id'];
       final id = id0?.toString().trim().nullIfEmpty;
-      final collection0 = otherData?[DataRefModelFields.collection.name];
+      final collection0 = otherData?['collection'];
       final collection = letList(collection0)
           ?.map(
             (p0) => p0?.toString().trim().nullIfEmpty,
@@ -194,10 +194,14 @@ class DataRefModel extends _DataRefModel {
           .nonNulls
           .nullIfEmpty
           ?.toList();
-      final withNulls = <String, dynamic>{
-        DataRefModelFields.id.name: id0,
-        DataRefModelFields.collection.name: collection0,
-      }.mapWithDefault(defaultValue);
+      final withNulls = mergeMapsDeep([
+        {
+          'id': id0,
+        },
+        {
+          'collection': collection0,
+        },
+      ]).mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
       assert(false, 'DataRefModel.toJson: $e');
@@ -230,41 +234,17 @@ class DataRefModel extends _DataRefModel {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-enum DataRefModelFields {
+final class DataRefModelFieldNames {
   //
   //
   //
 
-  id(
-    const Field(
-      fieldName: 'id',
-      fieldType: 'String',
-      nullable: true,
-    ),
-  ),
-  collection(
-    const Field(
-      fieldName: 'collection',
-      fieldType: 'List<String>',
-      nullable: true,
-    ),
-  );
+  static const id = 'id';
+  static const collection = 'collection';
 
   //
   //
   //
 
-  final Field field;
-
-  //
-  //
-  //
-
-  const DataRefModelFields(this.field);
-
-  //
-  //
-  //
-
-  String get name => this.field.fieldName!;
+  const DataRefModelFieldNames._();
 }

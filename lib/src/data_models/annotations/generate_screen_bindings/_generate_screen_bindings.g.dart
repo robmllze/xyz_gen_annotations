@@ -177,24 +177,21 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final isAccessibleOnlyIfLoggedInAndVerified0 = otherData?[
-          GenerateScreenBindingsFields
-              .isAccessibleOnlyIfLoggedInAndVerified.name];
+      final isAccessibleOnlyIfLoggedInAndVerified0 =
+          otherData?['isAccessibleOnlyIfLoggedInAndVerified'];
       final isAccessibleOnlyIfLoggedInAndVerified =
           letBool(isAccessibleOnlyIfLoggedInAndVerified0);
-      final isAccessibleOnlyIfLoggedIn0 = otherData?[
-          GenerateScreenBindingsFields.isAccessibleOnlyIfLoggedIn.name];
+      final isAccessibleOnlyIfLoggedIn0 =
+          otherData?['isAccessibleOnlyIfLoggedIn'];
       final isAccessibleOnlyIfLoggedIn = letBool(isAccessibleOnlyIfLoggedIn0);
-      final isAccessibleOnlyIfLoggedOut0 = otherData?[
-          GenerateScreenBindingsFields.isAccessibleOnlyIfLoggedOut.name];
+      final isAccessibleOnlyIfLoggedOut0 =
+          otherData?['isAccessibleOnlyIfLoggedOut'];
       final isAccessibleOnlyIfLoggedOut = letBool(isAccessibleOnlyIfLoggedOut0);
-      final isRedirectable0 =
-          otherData?[GenerateScreenBindingsFields.isRedirectable.name];
+      final isRedirectable0 = otherData?['isRedirectable'];
       final isRedirectable = letBool(isRedirectable0);
-      final path0 = otherData?[GenerateScreenBindingsFields.path.name];
+      final path0 = otherData?['path'];
       final path = path0?.toString().trim().nullIfEmpty;
-      final internalParameters0 =
-          otherData?[GenerateScreenBindingsFields.internalParameters.name];
+      final internalParameters0 = otherData?['internalParameters'];
       final internalParameters = letSet(internalParameters0)
           ?.map(
             (p0) => p0,
@@ -202,8 +199,7 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
           .nonNulls
           .nullIfEmpty
           ?.toSet();
-      final queryParameters0 =
-          otherData?[GenerateScreenBindingsFields.queryParameters.name];
+      final queryParameters0 = otherData?['queryParameters'];
       final queryParameters = letSet(queryParameters0)
           ?.map(
             (p0) => p0,
@@ -211,16 +207,13 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
           .nonNulls
           .nullIfEmpty
           ?.toSet();
-      final defaultTitle0 =
-          otherData?[GenerateScreenBindingsFields.defaultTitle.name];
+      final defaultTitle0 = otherData?['defaultTitle'];
       final defaultTitle = defaultTitle0?.toString().trim().nullIfEmpty;
-      final makeup0 = otherData?[GenerateScreenBindingsFields.makeup.name];
+      final makeup0 = otherData?['makeup'];
       final makeup = makeup0?.toString().trim().nullIfEmpty;
-      final className0 =
-          otherData?[GenerateScreenBindingsFields.className.name];
+      final className0 = otherData?['className'];
       final className = className0?.toString().trim().nullIfEmpty;
-      final screenKey0 =
-          otherData?[GenerateScreenBindingsFields.screenKey.name];
+      final screenKey0 = otherData?['screenKey'];
       final screenKey = screenKey0?.toString().trim().nullIfEmpty;
       return GenerateScreenBindings(
         isAccessibleOnlyIfLoggedInAndVerified:
@@ -302,23 +295,42 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
       final makeup0 = this.makeup?.trim().nullIfEmpty;
       final className0 = this.className?.trim().nullIfEmpty;
       final screenKey0 = this.screenKey?.trim().nullIfEmpty;
-      final withNulls = <String, dynamic>{
-        GenerateScreenBindingsFields.isAccessibleOnlyIfLoggedInAndVerified.name:
-            isAccessibleOnlyIfLoggedInAndVerified0,
-        GenerateScreenBindingsFields.isAccessibleOnlyIfLoggedIn.name:
-            isAccessibleOnlyIfLoggedIn0,
-        GenerateScreenBindingsFields.isAccessibleOnlyIfLoggedOut.name:
-            isAccessibleOnlyIfLoggedOut0,
-        GenerateScreenBindingsFields.isRedirectable.name: isRedirectable0,
-        GenerateScreenBindingsFields.path.name: path0,
-        GenerateScreenBindingsFields.internalParameters.name:
-            internalParameters0,
-        GenerateScreenBindingsFields.queryParameters.name: queryParameters0,
-        GenerateScreenBindingsFields.defaultTitle.name: defaultTitle0,
-        GenerateScreenBindingsFields.makeup.name: makeup0,
-        GenerateScreenBindingsFields.className.name: className0,
-        GenerateScreenBindingsFields.screenKey.name: screenKey0,
-      }.mapWithDefault(defaultValue);
+      final withNulls = mergeMapsDeep([
+        {
+          'isAccessibleOnlyIfLoggedInAndVerified':
+              isAccessibleOnlyIfLoggedInAndVerified0,
+        },
+        {
+          'isAccessibleOnlyIfLoggedIn': isAccessibleOnlyIfLoggedIn0,
+        },
+        {
+          'isAccessibleOnlyIfLoggedOut': isAccessibleOnlyIfLoggedOut0,
+        },
+        {
+          'isRedirectable': isRedirectable0,
+        },
+        {
+          'path': path0,
+        },
+        {
+          'internalParameters': internalParameters0,
+        },
+        {
+          'queryParameters': queryParameters0,
+        },
+        {
+          'defaultTitle': defaultTitle0,
+        },
+        {
+          'makeup': makeup0,
+        },
+        {
+          'className': className0,
+        },
+        {
+          'screenKey': screenKey0,
+        },
+      ]).mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
       assert(false, 'GenerateScreenBindings.toJson: $e');
@@ -380,104 +392,27 @@ class GenerateScreenBindings extends _GenerateScreenBindings {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-enum GenerateScreenBindingsFields {
+final class GenerateScreenBindingsFieldNames {
   //
   //
   //
 
-  isAccessibleOnlyIfLoggedInAndVerified(
-    const Field(
-      fieldName: 'isAccessibleOnlyIfLoggedInAndVerified',
-      fieldType: 'bool',
-      nullable: true,
-    ),
-  ),
-  isAccessibleOnlyIfLoggedIn(
-    const Field(
-      fieldName: 'isAccessibleOnlyIfLoggedIn',
-      fieldType: 'bool',
-      nullable: true,
-    ),
-  ),
-  isAccessibleOnlyIfLoggedOut(
-    const Field(
-      fieldName: 'isAccessibleOnlyIfLoggedOut',
-      fieldType: 'bool',
-      nullable: true,
-    ),
-  ),
-  isRedirectable(
-    const Field(
-      fieldName: 'isRedirectable',
-      fieldType: 'bool',
-      nullable: true,
-    ),
-  ),
-  path(
-    const Field(
-      fieldName: 'path',
-      fieldType: 'String',
-      nullable: true,
-    ),
-  ),
-  internalParameters(
-    const Field(
-      fieldName: 'internalParameters',
-      fieldType: 'Set<dynamic>',
-      nullable: true,
-    ),
-  ),
-  queryParameters(
-    const Field(
-      fieldName: 'queryParameters',
-      fieldType: 'Set<dynamic>',
-      nullable: true,
-    ),
-  ),
-  defaultTitle(
-    const Field(
-      fieldName: 'defaultTitle',
-      fieldType: 'String',
-      nullable: true,
-    ),
-  ),
-  makeup(
-    const Field(
-      fieldName: 'makeup',
-      fieldType: 'String',
-      nullable: true,
-    ),
-  ),
-  className(
-    const Field(
-      fieldName: 'className',
-      fieldType: 'String',
-      nullable: true,
-    ),
-  ),
-  screenKey(
-    const Field(
-      fieldName: 'screenKey',
-      fieldType: 'String',
-      nullable: true,
-    ),
-  );
+  static const isAccessibleOnlyIfLoggedInAndVerified =
+      'isAccessibleOnlyIfLoggedInAndVerified';
+  static const isAccessibleOnlyIfLoggedIn = 'isAccessibleOnlyIfLoggedIn';
+  static const isAccessibleOnlyIfLoggedOut = 'isAccessibleOnlyIfLoggedOut';
+  static const isRedirectable = 'isRedirectable';
+  static const path = 'path';
+  static const internalParameters = 'internalParameters';
+  static const queryParameters = 'queryParameters';
+  static const defaultTitle = 'defaultTitle';
+  static const makeup = 'makeup';
+  static const className = 'className';
+  static const screenKey = 'screenKey';
 
   //
   //
   //
 
-  final Field field;
-
-  //
-  //
-  //
-
-  const GenerateScreenBindingsFields(this.field);
-
-  //
-  //
-  //
-
-  String get name => this.field.fieldName!;
+  const GenerateScreenBindingsFieldNames._();
 }
