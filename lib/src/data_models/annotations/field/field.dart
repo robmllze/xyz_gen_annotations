@@ -18,7 +18,7 @@ part '_field.g.dart';
   shouldInherit: true,
   fields: {
     /// The name of the field.
-    ('fieldName?', String),
+    ('fieldPath?', List<String>),
 
     /// The type of the field, e.g. 'String'.
     ('fieldType?', dynamic),
