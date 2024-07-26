@@ -32,6 +32,7 @@ class Field extends _Field {
   final List<String>? fieldPath;
   final dynamic? fieldType;
   final bool? nullable;
+  final Field? child;
 
   //
   //
@@ -41,18 +42,21 @@ class Field extends _Field {
     this.fieldPath,
     required this.fieldType,
     this.nullable,
+    this.child,
   });
 
   const Field.c2({
     this.fieldPath,
     this.fieldType,
     this.nullable,
+    this.child,
   });
 
   factory Field.c3({
     List<String>? fieldPath,
     dynamic? fieldType,
     bool? nullable,
+    Field? child,
   }) {
     assert(fieldType != null);
 
@@ -60,6 +64,7 @@ class Field extends _Field {
       fieldPath: fieldPath,
       fieldType: fieldType,
       nullable: nullable,
+      child: child,
     );
   }
 
@@ -150,10 +155,13 @@ class Field extends _Field {
       final fieldType = fieldType0;
       final nullable0 = otherData?['nullable'];
       final nullable = letBool(nullable0);
+      final child0 = otherData?['child'];
+      final child = child0;
       return Field(
         fieldPath: fieldPath,
         fieldType: fieldType,
         nullable: nullable,
+        child: child,
       );
     } catch (e) {
       return null;
@@ -205,6 +213,7 @@ class Field extends _Field {
           ?.toList();
       final fieldType0 = this.fieldType;
       final nullable0 = this.nullable;
+      final child0 = this.child;
       final withNulls = mergeMapsDeep([
         {
           'fieldPath': fieldPath0,
@@ -214,6 +223,9 @@ class Field extends _Field {
         },
         {
           'nullable': nullable0,
+        },
+        {
+          'child': child0,
         },
       ]).mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
@@ -247,6 +259,9 @@ class Field extends _Field {
 
   // nullable.
   bool? get nullableField => this.nullable;
+
+  // child.
+  Field? get childField => this.child;
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -259,6 +274,7 @@ final class FieldFieldNames {
   static const fieldPath = 'fieldPath';
   static const fieldType = 'fieldType';
   static const nullable = 'nullable';
+  static const child = 'child';
 
   //
   //
