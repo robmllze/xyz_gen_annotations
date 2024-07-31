@@ -25,6 +25,7 @@ part '_field.g.dart';
 
     /// Whether [fieldType] is nullable or not.
     ('nullable?', bool),
+    
     ('child?', 'Model-Field'),
   },
 )
