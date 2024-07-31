@@ -90,11 +90,9 @@ class Model extends BaseModel {
 
   @override
   Map<String, dynamic> toJson({
-    defaultValue,
     bool includeNulls = false,
   }) {
-    final withNulls = this._data.mapWithDefault(defaultValue);
-    return includeNulls ? withNulls : withNulls.nonNulls;
+    return includeNulls ? this._data : this._data.nonNulls;
   }
 
   //

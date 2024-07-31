@@ -41,7 +41,6 @@ abstract class BaseModel {
 
   /// Returns a Json i.e. `Map<String, dynamic>` representation of the BaseModel.
   Map<String, dynamic> toJson({
-    dynamic defaultValue,
     bool includeNulls = false,
   });
 
@@ -52,10 +51,9 @@ abstract class BaseModel {
   /// Returns a Json i.e. `Map<String, dynamic>` representation of the BaseModel,
   /// with the keys sorted alphabetically.
   Map<String, dynamic> sortedJson({
-    dynamic defaultValue,
     bool includeNulls = false,
   }) {
-    final a = toJson(defaultValue: defaultValue, includeNulls: includeNulls);
+    final a = toJson(includeNulls: includeNulls);
     final b = a.keys.toList(growable: false)..sort((k1, k2) => k1.compareTo(k2));
     final c = {for (var k in b) k: a[k] as dynamic};
     return c;
